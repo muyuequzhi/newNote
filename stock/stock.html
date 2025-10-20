@@ -13,7 +13,10 @@
 
 <script>
   // var names = '北方稀土，紫金矿业，中国核电，上海电力，新易盛，中芯国际，工业富联，寒武纪'.split('，')
-  var names = '北方稀土 紫金矿业 新莱应材 立讯精密 西部超导 中科电气'.split(' ')
+  // var names = '北方稀土 紫金矿业 新莱应材 立讯精密 西部超导 中科电气'.split(' ')
+  // var names = '中芯国际 新易盛 工业富联 海光信息 寒武纪 中国广核 中国核电 上海电力'.split(' ')
+  var names = ['中芯国际']
+
   var option = {
       title: {
         text: '单位：元',
@@ -125,9 +128,9 @@
         var obj = {
           name: name,
           type: 'line',
-          symbol: 'none',
+          // symbol: 'none',
          
-          data: val1
+          data: val2
         }
         result.push(obj)
        })
