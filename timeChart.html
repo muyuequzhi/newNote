@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./echarts.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="main" style="width: 1000px;height: 500px;"></div>
+  <script>
+
+// import * as echarts from 'echarts';
+
+
+let curDate ='2020-02-01'
+const lineChart = echarts.init(document.getElementById('main'));
+    const lineOption = {
+      title: {
+          text: '网站访问渠道统计'
+      },
+      tooltip: {
+          trigger: 'axis',
+          formatter:(p)=>{
+            console.log(p)
+
+            const data=p[0].data
+            let x = data[0].replace('-01',  '')
+            let y = data[1]
+            let name=p[0].seriesName
+            let div = `<div>${x}</div>`
+            div+=`<div><span style="margin-right:5px;">${name}:</span><span>${y}</span></div>`
+            return div
+          }
+      },
+      legend: {
+          data: []
+      },
+      grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
+      },
+      toolbox: {
+          feature: {
+              saveAsImage: {}
+          }
+      },
+      xAxis: [{
+          type: 'time', // type为time时,不要传xAxis.data的值,x轴坐标的数据会根据传入的时间自动展示
+          //boundaryGap: false, // false横坐标两边不需要留白
+          interval:3600*24*30*1000,
+          // interval:3600*24*30, 
+          //interval:2592000000,
+          axisLabel: { // 坐标轴标签样式设置
+           
+            formatter: function(value, index) { // 坐标轴文字展示样式处理
+              console.log(value)
+              
+              //const date = new Date(value)
+              
+              // console.log(date.getFullYear(), (date.getMonth() + 1) )
+              // console.log(curDate, )
+
+            
+              //const texts = [date.getFullYear(), (date.getMonth() < 10? '0' + (date.getMonth()+1) : date.getMonth()+1) ]
+              
+              // return texts.join('-')
+              // echarts自带的日期格式化方法
+              return echarts.format.formatTime('yyyy-MM', value)
+              return 'xxx'
+            }
+          },
+          
+      }],
+      yAxis: {
+          type: 'value',
+          name: '访问人数'
+      },
+      series: []
+    };
+   
+
+
+    // 获取动态数据的函数
+
+
+let resData = ['2020-01','2020-02','2020-03','2020-04','2020-05','2020-08','2020-09','2020-10']
+let resVal=[100,200,300,400,500]
+
+// function dealData(resData) {
+//   let result=[]
+//   for(let i=0;i<resData.length;i++){
+//     let dateItem = resData[i]+'-01'
+//     let valItem = resVal[i]
+//     let arr=[dateItem, valItem]
+//     result.push(arr)
+//   }
+//   return result
+// }    
+getData()
+function getData() {
+  const data = [
+    {
+      type: 'email',
+      name: '邮件营销',
+      data: [
+        ['2020-01-01', 450],
+        ['2020-02-01', 350],
+        ['2020-03-01', 290],
+        ['2020-04-01', 380],
+        ['2020-05-01', 540],
+        ['2020-06-01', 540],
+        ['2020-07-01', 540],
+        ['2020-08-01', 290],
+        ['2020-09-01', 380],
+        ['2020-10-01', 540],
+        ['2020-11-01', 540],
+        ['2021-01-01', 540],
+        ['2021-02-01', 540],
+        // ['2020-10', null],
+        
+      ]
+    },
+    
+  ]
+
+  const series = []
+  const legendData = []
+  data.forEach(item => {
+    const obj = {
+      name: item.name,
+      type: 'line',
+      data: item.data
+    }
+    legendData.push(item.name)
+    series.push(obj)
+  })
+  let curDate='2022-08-01'
+  lineOption.legend.data = legendData
+  lineOption.series = series
+  lineOption.series.push({
+      type:'line',
+      markLine:{
+        emphasis: {
+            label: {
+              // rich: {
+              //     a: {
+              //         backgroundColor: 'white',
+              //         zIndex:1000,
+              //     },
+                
+              // },
+              show: true,
+              backgroundColor:'#FFFFFF',
+              shadowColor: "rgba(77,108,160,0.3)",
+              shadowBlur: 2,
+              borderRadius:6,
+              padding:8,
+              // color:'black',
+              formatter:() =>{
+                return '{a|xxxxxxxxxxxxxxxxxxx任务开始}'
+              }
+            }
+          },
+        data:[{
+          name:'x',
+          xAxis:(new Date(curDate)).getTime()
+        }]
+      }
+    })
+
+  // 第二个参数true表示清空之前的echarts设置,重新设置option,适用于legend等数据变化
+  // 如果只是渲染数据变化可以不传,lenged等不会重新渲染
+  
+  lineChart.setOption(lineOption, true)
+}
+  </script>
+</body>
+</html>

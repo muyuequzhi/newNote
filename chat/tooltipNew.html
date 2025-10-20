@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery HTML Tooltip with Boundary Detection</title>
+  <style>
+    .tooltip-box {
+      position: absolute;
+      background: rgba(0,0,0,0.85);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      pointer-events: none;
+      z-index: 9999;
+      display: none;
+      max-width: 250px;
+    }
+    .tooltip-box a {
+      color: #4FC3F7;
+      text-decoration: underline;
+    }
+    .tooltip-box img {
+      max-width: 200px;
+      display: block;
+      margin-top: 5px;
+      border-radius: 4px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <button class="tooltip-target" 
+          data-tooltip="<b>提示标题</b><br>这是一个带 <a href='https://example.com' target='_blank'>链接</a> 的提示">
+    悬停我（文字+链接）
+  </button>
+
+  <button class="tooltip-target" 
+          data-tooltip="这里可以放图片：<br><img src='https://via.placeholder.com/150' alt='示例图'>">
+    悬停我（图片）
+  </button>
+
+  <script>
+    $(function(){
+      const $tooltip = $('<div class="tooltip-box"></div>').appendTo('body');
+
+      $('.tooltip-target').on('mouseenter', function(){
+        $tooltip.html($(this).data('tooltip')).fadeIn(150);
+      }).on('mousemove', function(e){
+        const padding = 12;
+        const tooltipWidth = $tooltip.outerWidth();
+        const tooltipHeight = $tooltip.outerHeight();
+        const pageWidth = $(window).width();
+        const pageHeight = $(window).height();
+        let left = e.pageX + padding;
+        let top = e.pageY + padding;
+
+        // 边界检测
+        if(left + tooltipWidth > pageWidth){
+          left = e.pageX - tooltipWidth - padding;
+        }
+        if(top + tooltipHeight > pageHeight + $(window).scrollTop()){
+          top = e.pageY - tooltipHeight - padding;
+        }
+
+        $tooltip.css({ left: left, top: top });
+      }).on('mouseleave', function(){
+        $tooltip.fadeOut(100);
+      });
+    });
+  </script>
+</body>
+</html>

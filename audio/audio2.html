@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 1rem;
+    }
+
+    
+    .muted {
+      background: url(./image/volumn.png) no-repeat center center;
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      border: none;
+
+    }
+
+   
+  </style>
+</head>
+
+<body>
+  <input type="range" >
+  <div>
+    <div class="operate" style="display: flex;align-items: center;">
+      <img src="./image/play.png" alt="">
+      <div class="operate-time">
+        <span>4:30</span>
+        <span>/</span>
+        <span>5:00</span>
+      </div>
+      <div class="operate-volume" style="display: flex;align-items: center;">
+        <button class="icon muted"></button>
+        <input class="volume-range" type="range" min="0" step="0.01" max="1" value="10">
+      </div>
+      <img src="./image/download.png" alt="">
+    </div>
+  </div>
+</body>
+
+</html>

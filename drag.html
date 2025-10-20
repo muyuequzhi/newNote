@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+
+
+</style>
+
+<script src="./jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <script>
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+    
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+    
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      console.log(ev.target,data)
+      $(ev.target).before(document.getElementById(data))
+    }
+    function dropSpan(event) {
+     
+      event.stopPropagation()
+    }
+    </script>
+<h2>Drag and Drop</h2>
+<p>Drag the image back and forth between the two div elements.</p>
+
+<div >
+  <ul>
+    <li ondrop="drop(event)" ondragover="allowDrop(event)"  draggable="true" ondragstart="drag(event)" id="drag1">1</li>
+    <li ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" id="drag2">2</li>
+    <li ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" id="drag3">3</li>
+
+  </ul>
+  
+</div>
+
+
+</body>
+</html>
+

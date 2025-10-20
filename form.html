@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-1.9.1.js"></script>
+</head>
+<body>
+  <form action="http://127.0.0.1:5501/index/3.html" id="form">
+    <button type="button" onclick="handleClick()">submit</button>
+  </form>
+
+  <script>
+    function handleClick() {
+      document.querySelector('#form').submit()
+      // $('#form').submit()
+      // if(confirm('ok')) {
+      //   setTimeout(function() {
+      //     alert(2)
+      //   }, 100)
+      // }
+      
+      alert('111')
+      console.log(2)
+      // setTimeout(function() {
+      //   console.log(2)
+      // }, 1000)
+    }
+  </script>
+</body>
+</html>

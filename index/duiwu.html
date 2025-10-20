@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="../echarts.js"></script>
+  <script src="../jquery-1.9.1.js"></script>
+
+  <style>
+
+    .card-item {
+      background: #FFFFFF;
+      box-shadow: 0px 10px 13px 0px rgba(41,72,152,0.03);
+      border-radius: 8px;
+      padding: 11px;
+      margin-bottom: 10px;
+    }
+    .card-new {
+      background: linear-gradient( 315deg, #FFFFFF 0%, #E4E9FE 100%);
+      box-shadow: 0px 2px 4px 0px #F3F3F3;
+    }
+    .card-item-actived {
+      
+      border: 1px solid #5D87E3;
+    }
+
+   
+    .card-item > div {
+      margin-bottom: 8px;
+    }
+    .detail-img {
+      position: relative;
+      top: -2px;
+    }
+    .card-item-top > span {
+      display: inline-block;
+    }
+    .money {
+      font-size: 21px;
+      color: #2E2F32;
+    }
+    .unit {
+      font-size: 12px;
+      color: #2E2F32;
+    }
+    .card-top-title {
+      font-weight: bold;
+      font-size: 14px;
+      color: #2E2F32;
+      margin-right: 6px;
+      
+    }
+    .card-item-bottom {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+    .card-item .card-item-bottom {
+      margin-bottom: 0;
+    }
+    .card-bottom-text {
+      margin-right: 5px;
+      font-size: 12px;
+      color: #1E1F22;
+    }
+    .card-item-top {
+      margin-bottom: 8px;
+    }
+    .card-new-box .card-item {
+        width:49%
+    }
+    .card-new-box >div:nth-child(even) {
+      margin-left: 2%;
+    }
+    .img-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .img-box img {
+      margin-bottom: 7px;
+    }
+    .card-img-box {
+      display: flex;
+      width: 39%;
+      justify-content: space-between;
+      padding-left: 30px;
+      padding-right: 30px;
+      margin-right: 1%;
+    }
+    .card-img-box > div {
+      margin-bottom: 0;
+    }
+    a {
+      color: #6679E5;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .circle {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .color1 {
+      background: purple;
+    }
+    .color2 {
+      background: #5FCCF8;
+    }
+    .color3 {
+      background: #8EC07F;
+    }
+    .color4 {
+      background: #FFC382;
+    }
+    .color5 {
+      background: #6B79E3;
+    }
+    .color6 {
+      background: #B6E6FA;
+    }
+    .legend-box {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px !important;
+    }
+    .legend-box span {
+      vertical-align: middle;
+    }
+    .legend-box >div {
+      margin-left: 10px;
+    }
+    .chart-box {
+      display: flex;
+      height: auto !important;
+      justify-content: space-between;
+      margin-bottom: 16px !important;
+    }
+    .pie-chart {
+      width: 66px;
+      height: 66px;
+    }
+    .img-num {
+      position: absolute;
+      right: -6px;
+      display: inline-block;
+      background: #F36A50;
+      border-radius: 50%;
+      font-size: 12px;
+      color: white;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-card">
+
+  </div>
+  <div class="card-item card-base" style="display: flex;">
+    <div style="width: 58%;margin-right: 2%;">
+      <div class="card-item-top">
+        <span class="card-top-title">岗位结构变化</span>
+        <span><img class="detail-img" src="./image/detail.png"></span>
+        <span class="date">2024-06-08</span>
+      </div>
+      <div class="table1">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>理财客户经理</th>
+              <th>个贷客户经理</th>
+              <th>网点负责人</th>
+              <th>大堂经理</th>
+              <th>代发专员</th>
+              <th>养老专员</th>
+              <th>客户经营岗</th>
+              <th>合规审查岗</th>
+              
+             
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1月</th>
+              <th>111</th>
+              <th>111</th>
+              <th>111</th>
+              <th>111</th>
+              <th>111</th>
+              <th>111</th>
+              <th>111</th>
+              <th>111</th>
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div style="width: 40%;">
+      <div class="card-item-top">
+        <span class="card-top-title">岗位人数及变化</span>
+        <span><img class="detail-img" src="./image/detail.png"></span>
+        <span class="date">2024-06-08</span>
+      </div>
+      <div class="card-new-box" style="display: flex;flex-wrap: wrap;">
+        <div class="card-item card-new">
+          
+          <div class="card-top-title">理财客户经理</div>
+          <div>
+            <span class="money">223450</span>
+            <span class="unit">人</span>
+          </div>
+          <div class="card-item-bottom">
+            <div>
+              <span class="card-bottom-text">较上月</span>
+              <span class="down-color arrow-text">-123</span>
+              <span><img class="down-img" src="./image/arrow-down.png"></span>
+            </div>
+            <div>
+              <span class="card-bottom-text">较年初</span>
+              <span class="up-color arrow-text">+123</span>
+              <span><img class="up-img" src="./image/arrow-up.png"></span>
+            </div>
+          </div>
+        </div>
+        <div class="card-item card-new">
+          
+          <div class="card-top-title">个贷客户经理</div>
+          <div>
+            <span class="money">223450</span>
+            <span class="unit">人</span>
+          </div>
+          <div class="card-item-bottom">
+            <div>
+              <span class="card-bottom-text">较上月</span>
+              <span class="down-color arrow-text">-123</span>
+              <span><img class="down-img" src="./image/arrow-down.png"></span>
+            </div>
+            <div>
+              <span class="card-bottom-text">较年初</span>
+              <span class="up-color arrow-text">+123</span>
+              <span><img class="up-img" src="./image/arrow-up.png"></span>
+            </div>
+          </div>
+        </div>
+        <div class="card-item card-new">
+          
+          <div class="card-top-title">网点负责人</div>
+          <div>
+            <span class="money">223450</span>
+            <span class="unit">人</span>
+          </div>
+          <div class="card-item-bottom">
+            <div>
+              <span class="card-bottom-text">较上月</span>
+              <span class="down-color arrow-text">-123</span>
+              <span><img class="down-img" src="./image/arrow-down.png"></span>
+            </div>
+            <div>
+              <span class="card-bottom-text">较年初</span>
+              <span class="up-color arrow-text">+123</span>
+              <span><img class="up-img" src="./image/arrow-up.png"></span>
+            </div>
+          </div>
+        </div>
+        <div class="card-item card-new">
+          
+          <div class="card-top-title">大堂经理</div>
+          <div>
+            <span class="money">223450</span>
+            <span class="unit">人</span>
+          </div>
+          <div class="card-item-bottom">
+            <div>
+              <span class="card-bottom-text">较上月</span>
+              <span class="down-color arrow-text">-123</span>
+              <span><img class="down-img" src="./image/arrow-down.png"></span>
+            </div>
+            <div>
+              <span class="card-bottom-text">较年初</span>
+              <span class="up-color arrow-text">+123</span>
+              <span><img class="up-img" src="./image/arrow-up.png"></span>
+            </div>
+          </div>
+        </div>
+        <div class="card-item card-new">
+          
+          
+          <div class="card-top-title">代发专员</div>
+          <div>
+            <span class="money">223450</span>
+            <span class="unit">人</span>
+          </div>
+          <div class="card-item-bottom">
+            <div>
+              <span class="card-bottom-text">较上月</span>
+              <span class="down-color arrow-text">-123</span>
+              <span><img class="down-img" src="./image/arrow-down.png"></span>
+            </div>
+            <div>
+              <span class="card-bottom-text">较年初</span>
+              <span class="up-color arrow-text">+123</span>
+              <span><img class="up-img" src="./image/arrow-up.png"></span>
+            </div>
+          </div>
+        </div>
+        <div class="card-item card-new">
+          
+          
+          <div class="card-top-title">养老专员</div>
+          <div>
+            <span class="money">223450</span>
+            <span class="unit">人</span>
+          </div>
+          <div class="card-item-bottom">
+            <div>
+              <span class="card-bottom-text">较上月</span>
+              <span class="down-color arrow-text">-123</span>
+              <span><img class="down-img" src="./image/arrow-down.png"></span>
+            </div>
+            <div>
+              <span class="card-bottom-text">较年初</span>
+              <span class="up-color arrow-text">+123</span>
+              <span><img class="up-img" src="./image/arrow-up.png"></span>
+            </div>
+          </div>
+        </div>
+        <div class="card-item card-new">
+          
+          
+          <div class="card-top-title">客户经理岗</div>
+          <div>
+            <span class="money">223450</span>
+            <span class="unit">人</span>
+          </div>
+          <div class="card-item-bottom">
+            <div>
+              <span class="card-bottom-text">较上月</span>
+              <span class="down-color arrow-text">-123</span>
+              <span><img class="down-img" src="./image/arrow-down.png"></span>
+            </div>
+            <div>
+              <span class="card-bottom-text">较年初</span>
+              <span class="up-color arrow-text">+123</span>
+              <span><img class="up-img" src="./image/arrow-up.png"></span>
+            </div>
+          </div>
+        </div>
+        <div class="card-item card-new">
+          
+          
+          <div class="card-top-title">合规审查岗</div>
+          <div>
+            <span class="money">223450</span>
+            <span class="unit">人</span>
+          </div>
+          <div class="card-item-bottom">
+            <div>
+              <span class="card-bottom-text">较上月</span>
+              <span class="down-color arrow-text">-123</span>
+              <span><img class="down-img" src="./image/arrow-down.png"></span>
+            </div>
+            <div>
+              <span class="card-bottom-text">较年初</span>
+              <span class="up-color arrow-text">+123</span>
+              <span><img class="up-img" src="./image/arrow-up.png"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display: flex;">
+    <div class="card-item card-base card-img-box"  >
+      <div class="img-box">
+        <img src="./duiwu/renwu.png" alt="">
+        <span>审批任务提醒</span>
+      </div>
+      <div class="img-box">
+        <img src="./duiwu/zhuiru.png" alt="">
+        <span>未准入提醒</span>
+      </div>
+      <div class="img-box">
+        <span style="position: relative;">
+          <img src="./duiwu/gangwei.png" alt="">
+          <span class="img-num">12</span>
+        </span>
+        <span>关键岗位配置提醒</span>
+      </div>
+    </div>
+    <div class="card-item card-base" style="width: 60%;display: flex;align-items: center;padding-left: 30px;">
+      <img style="margin-right: 12px;" src="./duiwu/tongzhi.png">
+      <span style="font-weight: bold;">低产能预警：</span>
+      <a>连续二月低产能：XX人，可点击编辑举措。</a>
+    </div>
+  </div>
+  <div class="" style="display: flex;">
+    <div class="card-item card-base" style="width: 49%;margin-right: 1%;">
+      <div class="card-item-top">
+        <span class="card-top-title">在岗年限分布图</span>
+        <span><img class="detail-img" src="./image/detail.png"></span>
+        <span class="date">2024-06-08</span>
+      </div>
+      <div class="legend-box">
+        <div>
+          <span class="circle color1"></span>
+          <span>6个月以下</span>
+        </div>
+        <div>
+          <span class="circle color2"></span>
+          <span>6个月-一年(不含)</span>
+        </div>
+        <div>
+          <span class="circle color3"></span>
+          <span>1-2年(不含)</span>
+        </div>
+        <div>
+          <span class="circle color4"></span>
+          <span>2-5年(不含)</span>
+        </div>
+        <div>
+          <span class="circle color5"></span>
+          <span>5年及以上</span>
+        </div>
+  
+      </div>
+      <div id="pieChart21" style="width: 300px;height: 300px;display: none;"></div>
+
+      <div class="chart-box">
+        <div id="pieChart1" class="pie-chart"></div>
+        <div id="pieChart2" class="pie-chart"></div>
+        <div id="pieChart3" class="pie-chart"></div>
+        <div id="pieChart4" class="pie-chart"></div>
+        <div id="pieChart5" class="pie-chart"></div>
+        <div id="pieChart6" class="pie-chart"></div>
+        <div id="pieChart7" class="pie-chart"></div>
+        <div id="pieChart8" class="pie-chart"></div>
+      </div>
+    </div><div class="card-item card-base" style="width: 50%;">
+      <div class="card-item-top">
+        <span class="card-top-title">年龄结构分布图</span>
+        <span><img class="detail-img" src="./image/detail.png"></span>
+        <span class="date">2024-06-08</span>
+      </div>
+      <div class="legend-box">
+        <div>
+          <span class="circle color1"></span>
+          <span>25岁以下</span>
+        </div>
+        <div>
+          <span class="circle color2"></span>
+          <span>25-30岁(不含)</span>
+        </div>
+        <div>
+          <span class="circle color3"></span>
+          <span>30-35岁(不含)</span>
+        </div>
+        <div>
+          <span class="circle color4"></span>
+          <span>35-40岁(不含)</span>
+        </div>
+        <div>
+          <span class="circle color5"></span>
+          <span>40-50岁(不含)</span>
+        </div>
+        <div>
+          <span class="circle color6"></span>
+          <span>50岁及以上</span>
+        </div>
+  
+      </div>
+      <div class="chart-box">
+        <div id="pieChart9" class="pie-chart"></div>
+        <div id="pieChart10" class="pie-chart"></div>
+        <div id="pieChart11" class="pie-chart"></div>
+        <div id="pieChart12" class="pie-chart"></div>
+        <div id="pieChart13" class="pie-chart"></div>
+        <div id="pieChart14" class="pie-chart"></div>
+        <div id="pieChart15" class="pie-chart"></div>
+        <div id="pieChart16" class="pie-chart"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    function initPieChart(id) {
+      let data =[
+        {val:'100',percent:'0.11'},
+        {val:'200',percent:'0.21'},
+        {val:'300',percent:'0.31'},
+        {val:'400',percent:'0.41'},
+        {val:'500',percent:'0.51'},
+      ]
+      var chartDom = document.getElementById(id);
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+       
+      
+        title: {
+          text: '',
+          
+        },
+        tooltip: {
+          trigger: 'item',
+          position:'right',
+          // confine:true,
+          formatter:function(param) {
+            
+            var colors = ['#3977FC', '#5FCCF8', '#8EC07F', '#FFC382', '#6B79E3']
+            var xVal = ['6个月以下', '6个月-一年(不含)', '1-2年(不含)', '2-5年(不含)', '5年及以上']
+            
+            var xNum = param.dataIndex
+            var color = colors[xNum]
+            var xText = xVal[xNum]
+            var val= data[xNum]['val']
+            var percent= data[xNum]['percent']
+            var div =`<div style="display:inline-block;margin-right:6px;width:12px;height:12px;border-radius:50%;background:${color}"></div>`
+            + xText +`<div>${val}</div>`  + `<div>${percent}</div>` 
+            // return `<span>${val}</span>`  + `<span>${percent}</span>` 
+            return div
+          }
+        },
+          
+        
+        grid: {
+          top:10,
+          right: 0,
+          left: 0
+        },
+        legend: {
+          show: false,
+        },
+        series: [
+          {
+            // name: 'Access From',
+            type: 'pie',
+            radius: ['70%', '100%'],
+            avoidLabelOverlap: false,
+            
+            labelLine: {
+              show: false
+            },
+       
+            data: [
+              { value: 1048, name: '100 10%', itemStyle: { color: '#3977FC' } },
+              { value: 735, name: '100 10%', itemStyle: { color: '#5FCCF8' } },
+              { value: 580, name: '100 10%', itemStyle: { color: '#8EC07F' } },
+              { value: 484, name: '100 10%', itemStyle: { color: '#FFC382' } },
+              { value: 484, name: '100 10%', itemStyle: { color: '#6B79E3' } },
+            ]
+          }
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    // initPieChart('pieChart21')
+    function initPieChart1(id) {
+      let data =[
+        {val:'100',percent:'0.11'},
+        {val:'200',percent:'0.21'},
+        {val:'300',percent:'0.31'},
+        {val:'400',percent:'0.41'},
+        {val:'500',percent:'0.51'},
+        {val:'600',percent:'0.61'},
+      ]
+      var chartDom = document.getElementById(id);
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: '',
+          
+        },
+        tooltip: {
+          trigger: 'item',
+          formatter:function(param) {
+            console.log(param)
+           
+            var xNum = param.dataIndex
+            var color = param.color
+            var xText = param.name
+            var val= param.value
+            var percent= param.percent+'%'
+            var div =`<div style="display:inline-block;margin-right:6px;width:12px;height:12px;border-radius:50%;background:${color}"></div>`
+            + xText +`<div ><span style="margin-right:5px;">数值</span>${val}</div>`  + `<div style=""><span style="margin-right:5px;">占比</span>${percent}</div>` 
+            return div
+          }
+        },
+          
+        
+        grid: {
+          right: 0,
+          left: 0
+        },
+        legend: {
+          show: false,
+        },
+        series: [
+          {
+            // name: 'Access From',
+            type: 'pie',
+            radius: ['70%', '100%'],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: 'center'
+            },
+            emphasis: {
+              scale: false
+              // label: {
+              //   show: true,
+              //   fontSize: 40,
+              //   fontWeight: 'bold'
+              // }
+            },
+            labelLine: {
+              show: false
+            },
+            data: [
+              { value: data[0].val, name: '25岁以下', itemStyle: { color: '#3977FC' } },
+              { value: data[1].val, name: '25-30岁(不含)', itemStyle: { color: '#5FCCF8' } },
+              { value: data[2].val, name: '30-35岁(不含)', itemStyle: { color: '#8EC07F' } },
+              { value: data[3].val, name: '35-40岁(不含)', itemStyle: { color: '#FFC382' } },
+              { value: data[4].val, name: '40-50岁(不含)', itemStyle: { color: '#6B79E3' } },
+              { value: data[5].val, name: '50岁及以上', itemStyle: { color: '#B6E6FA' } },
+            ]
+          }
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    
+    for(let i = 1;i<=9;i++) {
+      initPieChart('pieChart'+i)
+    }
+    for(let i = 9;i<=16;i++) {
+      initPieChart1('pieChart'+i)
+    }
+    
+  </script>
+</body>
+</html>

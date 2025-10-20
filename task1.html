@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./echarts.js"></script>
+  <script src="./jquery-3.7.1.min.js"></script>
+  <style>
+     * {
+      box-sizing: border-box;
+      font-size: 14px;
+     }
+     body {
+      background: #F8F9FF;
+      padding: 24px 32px;
+     }
+     .content-card {
+      background: #FFFFFF;
+      border-radius: 5px;
+      padding: 16px;
+      margin-bottom: 16px;
+     }
+     .top-box {
+      border: 1px solid #E5E5E5;
+      border-radius: 5px;
+      padding: 16px;
+      margin-bottom: 16px;
+     }
+     .base-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-right: 6px;
+      line-height: 24px;
+     }
+    .title-status{
+      width: 58px;
+      height: 24px;
+
+      background: #FEF0D5;
+      border-radius: 3px;
+      color: #F5822E;
+      line-height: 24px;
+      text-align: center;
+      display: inline-block;
+    }
+    .tab-box {
+      display: flex;
+    }
+    .tab-item {
+      margin-right: 42px;
+      width: 116px;
+      text-align: center;
+      padding: 10px 16px;
+      color: #9199BD;
+    }
+    .tab-selected {
+      color:#6679E5;
+      border-bottom: 2px solid #6679E5;
+    }
+    .tab1-container {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 45px;
+      padding-right: 30px;
+    }
+    .tab1-box {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .tab1-item {
+      width: 50px;
+      padding: 16px 0;
+      margin-right: 60px;
+      text-align: center;
+      color: #9199BD;
+    }
+    .tab1-selected {
+      border-bottom: 2px solid #6679E5;
+      font-weight: bold;
+      color: black;
+    }
+    .card-box {
+      display: flex;
+      flex-wrap: wrap;
+      
+    }
+    .card-item-gap  {
+      width: 25%;
+      padding: 0 8px;
+      margin-bottom: 16px;
+    }
+    .card-item {
+      padding: 20px 16px;
+      box-shadow: 0px 0px 10px 0px rgba(77,108,160,0.1), 0px 2px 6px 0px rgba(77,108,160,0.2);
+      border-radius: 5px;
+    }
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+    }
+    .card-bottom-text {
+      color: #9199BD;
+    }
+    .card-bottom-num {
+      color: #FF4542;
+    }
+    .top-text-item {
+      display: flex;
+      margin-bottom: 8px;
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+    }
+    .card-top-title {
+      font-weight: bold;
+      font-size: 16px;
+      color: #242933;
+      margin-bottom: 8px;
+    }
+    .card-top-value {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+    .card-top-value-center {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .card-top-text {
+      color: #9199BD;
+      position: relative;
+      top: 8px;
+      font-size: 12px;
+    }
+    
+    .card-top-num {
+      font-size: 20px;
+      color: #242933;
+      font-weight: 300;
+      
+    }
+    .chart-box {
+      display: flex;
+    }
+    .chart-item {
+      width: 50%;
+    }
+    .chart-title {
+      font-weight: 600;
+      font-size: 16px;
+      color: #6679E5;
+      line-height: 24px;
+    }
+    .base-chart {
+      width: 100%;
+      height: 360px;
+    }
+    .date-text {
+      font-size: 18px;
+      color: #242933;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="content-card" style="padding-bottom: 0;"> 
+    <div class="top-box">
+      <div class="text-box">
+        <div class="top-text-item">
+          <span class="base-title">2024年第一季度代发营销任务</span>
+          <span class="title-status">进行中</span>
+        </div>
+        <div class="top-text-item">发起机构：总行公司业务部</div>
+        <div class="top-text-item" style="justify-content: space-between;width: 50%;">
+          <div>开始时间：2024-05-01</div>
+          <div>结束时间：2024-05-31</div>
+          <div>剩余时间：24天</div>
+        </div>
+        <div class="top-text-item">目标营销产品：员工代发、大额存单</div>
+        <div class="top-text-item">任务说明：为提高代发产品………..本活动</div>
+      </div>
+      
+    </div>
+    <div class="tab-box">
+      <div data="1" class="tab-item tab-selected">任务执行跟踪</div>
+      <div data="2" class="tab-item">客群经营情况</div>
+      <div data="3" class="tab-item">客群明细查看</div>
+    </div>
+  </div>
+  <div class="content-card">
+    <div class="content-box">
+      <div class="tab1-container" >
+        <div class="tab1-box">
+          <div class="tab1-item tab1-selected" data="1" >代发</div>
+          <div class="tab1-item" data="2" >存款</div>
+        </div>
+        <div class="date-text">数据日期：2024-05-05</div>
+      </div>
+      <div class="card-box">
+        <div class="card-item-gap"> 
+          <div class="card-item">
+            <div class="card-top">
+              <div class="card-top-item">
+                <div class="card-top-title">触达客户数/目标客户数</div>
+                <div class="card-top-value"> 
+                  <span class="card-top-num">30</span>
+                  <span class="card-top-text">户</span> 
+                  <span class="card-top-num" style="margin: 0 10px;">/</span> 
+                  <span class="card-top-num">100</span>
+                  <span class="card-top-text">户</span> 
+                </div>
+              </div>
+              <div class="card-top-item">
+                
+              </div>
+            </div>
+            <div class="card-bottom">
+              <div class="card-bottom-left">
+                <span class="card-bottom-text">
+                  较上日
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+              <div class="card-bottom-right">
+                <span class="card-bottom-text">
+                  较任务开始
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item-gap"> 
+          <div class="card-item">
+            <div class="card-top">
+              <div class="card-top-item">
+                <div class="card-top-title">意向客户数</div>
+                <div class="card-top-value"> 
+                  <span class="card-top-num">15</span>
+                  <span class="card-top-text">户</span> 
+                  
+                </div>
+              </div>
+              <div class="card-top-item">
+                <div class="card-top-title">意向客户占比</div>
+                <div class="card-top-value-center"> 
+                  <span class="card-top-num">15%</span>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom">
+              <div class="card-bottom-left">
+                <span class="card-bottom-text">
+                  较上日
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+              <div class="card-bottom-right">
+                <span class="card-bottom-text">
+                  较任务开始
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item-gap"> 
+          <div class="card-item">
+            <div class="card-top">
+              <div class="card-top-item">
+                <div class="card-top-title">持续跟进客户数</div>
+                <div class="card-top-value"> 
+                  <span class="card-top-num">15</span>
+                  <span class="card-top-text">户</span> 
+                  
+                </div>
+              </div>
+              <div class="card-top-item">
+                <div class="card-top-title">持续跟进客户占比</div>
+                <div class="card-top-value-center"> 
+                  <span class="card-top-num">15%</span>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom">
+              <div class="card-bottom-left">
+                <span class="card-bottom-text">
+                  较上日
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+              <div class="card-bottom-right">
+                <span class="card-bottom-text">
+                  较任务开始
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item-gap"> 
+          <div class="card-item">
+            <div class="card-top">
+              <div class="card-top-item">
+                <div class="card-top-title">拒绝客户数</div>
+                <div class="card-top-value"> 
+                  <span class="card-top-num">15</span>
+                  <span class="card-top-text">户</span> 
+                  
+                </div>
+              </div>
+              <div class="card-top-item">
+                <div class="card-top-title">拒绝客户占比</div>
+                <div class="card-top-value-center"> 
+                  <span class="card-top-num">15%</span>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom">
+              <div class="card-bottom-left">
+                <span class="card-bottom-text">
+                  较上日
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+              <div class="card-bottom-right">
+                <span class="card-bottom-text">
+                  较任务开始
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card-item-gap df"> 
+          <div class="card-item">
+            <div class="card-top">
+              <div class="card-top-item">
+                <div class="card-top-title">代发企业数</div>
+                <div class="card-top-value"> 
+                  <span class="card-top-num">15</span>
+                  <span class="card-top-text">户</span> 
+                  
+                </div>
+              </div>
+              <div class="card-top-item">
+                <div class="card-top-title">代发比例</div>
+                <div class="card-top-value-center"> 
+                  <span class="card-top-num">15%</span>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom">
+              <div class="card-bottom-left">
+                <span class="card-bottom-text">
+                  较上日
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+              <div class="card-bottom-right">
+                <span class="card-bottom-text">
+                  较任务开始
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item-gap df"> 
+          <div class="card-item">
+            <div class="card-top">
+              <div class="card-top-item">
+                <div class="card-top-title">代发人数</div>
+                <div class="card-top-value"> 
+                  <span class="card-top-num">15</span>
+                  <span class="card-top-text">人</span> 
+                  
+                </div>
+              </div>
+              
+            </div>
+            <div class="card-bottom">
+              <div class="card-bottom-left">
+                <span class="card-bottom-text">
+                  较上日
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+              <div class="card-bottom-right">
+                <span class="card-bottom-text">
+                  较任务开始
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item-gap df"> 
+          <div class="card-item">
+            <div class="card-top">
+              <div class="card-top-item">
+                <div class="card-top-title">代发金额</div>
+                <div class="card-top-value"> 
+                  <span class="card-top-num">100,000,000</span>
+                  <span class="card-top-text">万元</span> 
+                  
+                </div>
+              </div>
+              
+            </div>
+            <div class="card-bottom">
+              <div class="card-bottom-left">
+                <span class="card-bottom-text">
+                  较上日
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+              <div class="card-bottom-right">
+                <span class="card-bottom-text">
+                  较任务开始
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item-gap df"> 
+          <div class="card-item">
+            <div class="card-top">
+              <div class="card-top-item">
+                <div class="card-top-title">代发笔数</div>
+                <div class="card-top-value"> 
+                  <span class="card-top-num">1294850</span>
+                  <span class="card-top-text">笔</span> 
+                  
+                </div>
+              </div>
+              
+            </div>
+            <div class="card-bottom">
+              <div class="card-bottom-left">
+                <span class="card-bottom-text">
+                  较上日
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+              <div class="card-bottom-right">
+                <span class="card-bottom-text">
+                  较任务开始
+                </span>
+                <img src="" alt="">
+                <span class="card-bottom-num">
+                  +8
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-item">
+          <div class="chart-title">近90日触达客户趋势</div>
+          <div class="base-chart" id="chart1"></div>
+        </div>
+        <div class="chart-item">
+          <div class="chart-title">近12周任务执行成果</div>
+          <div  class="base-chart" id="chart2"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <td>经营单位</td>
+            <td>目标客户数</td>
+            <td>触达客户数</td>
+            <td>触达客户占比</td>
+            <td>意向客户数</td>
+            <td>意向客户占比</td>
+            <td>持续跟进客户数</td>
+            <td>持续跟进客户占比</td>
+            <td>客户拒绝数</td>
+            <td>客户拒绝占比</td>
+            <td>代发企业数</td>
+            <td>代发比例</td>
+            <td>代发人数</td>
+            <td>代发金额</td>
+            <td>代发笔数</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    $(document).on('click', '.tab1-item', function() {
+      var data = $(this).attr('data')
+      if(data == '1') {
+        //代发
+        $('.card-item-gap.df').show()
+      } else {  
+        // 存款
+        $('.card-item-gap.df').hide()
+      }
+      $('.tab1-item').removeClass('tab1-selected')
+      $(this).addClass('tab1-selected')
+    })
+
+    $(document).on('click', '.tab-item', function() {
+      var data = $(this).attr('data')
+      if(data == '1') {
+        //任务执行跟踪
+      } else if( data == '2') {
+        //客群经营情况
+      } else {  
+        //客群明细查看
+      }
+      $('.tab-item').removeClass('tab-selected')
+      $(this).addClass('tab-selected')
+    })
+    var chartDom = document.getElementById('chart2');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    const xData = ['5/1-5/7', '5/8-5/14', '5/15-5/21', '5/22-5/28', '5/29-6/5', '6/11-6/17', '6/18-6/24', '6/30-7/6', '7/12-7/18', '7/26-8/3', '8/9-8/15', '8/21-8/27']
+    // There should not be negative values in rawData
+    let rawData = [
+    [100, 200, 300, 400, 500, 600, 500,100, 200, 300, 400, 500],
+      [320, 132, 101, 134, 90, 230, 210, 600, 500,100, 200, 300],
+      [220, 182, 191, 234, 290, 330, 310, 600, 500,100, 200, 300],
+      [150, 212, 201, 154, 190, 330, 410, 600, 500,100, 200, 300],
+      [820, 832, 901, 934, 1290, 1330, 820, 600, 500,100, 200, 300],
+      
+
+    ];
+   
+    function deepClone(obj) {
+      return JSON.parse(JSON.stringify(obj))
+    }
+    initBarChart()
+    function initBarChart() {
+      const colors=[ "#457DE5", "#85ABFA", "#F97A6D", "#FCE911", "#FFA600" ];
+      const colorsR = deepClone(colors).reverse();
+      const totalData = [];
+      for (let i = 0; i < rawData[0].length; ++i) {
+        let sum = 0;
+        for (let j = 0; j < rawData.length; ++j) {
+          sum += rawData[j][i];
+        }
+        totalData.push(sum);
+      }
+      const grid = {
+        left: 45,
+        right: 20,
+        top: 50,
+        bottom: 50
+      };
+      const seriesNames = [ "未分配", "未执行", "客户拒绝", "持续跟进", "有意向" ]
+      seriesNamesR=deepClone(seriesNames).reverse()
+      const series = seriesNames.map((name, sid) => {
+        return {
+          name,
+          type: 'bar',
+          stack: 'total',
+          barWidth: '60%',
+          itemStyle: {
+            color: colors[sid]
+          },
+          label: {
+            show: false,
+            formatter: (params) => Math.round(params.value * 1000) / 10 + '%'
+          },
+          data: rawData[sid].map((d, did) =>
+            totalData[did] <= 0 ? 0 : d / totalData[did]
+          )
+        };
+      });
+      console.log(series)
+      option = {
+        legend: {
+          selectedMode: true,
+          icon: "circle",
+          // legend 默认与柱状图顺序相反， 在这里反转下
+          data:seriesNamesR.map((item, index) => {
+            return {
+              name:item,
+              itemStyle:{
+                color:colorsR[index]
+              }
+            
+            }
+            
+          })
+        },
+        tooltip:{
+          borderColor: "transparent",
+          formatter:function(p){
+            // console.log(p) dataIndex seriesIndex
+            var divs = '<div style="color: #9199BD;"> <div>2024.03.07</div>'
+
+            const dataIndex = p.dataIndex 
+            const curName = p.seriesName
+            
+            for(var i=rawData.length -1;i>=0;i-- ){
+              // 默认顺序与柱状图顺序相反， 倒序遍历下
+              var eleValue = rawData[i][dataIndex]
+              var seriesName = seriesNames[i]
+              var color = colors[i]
+              var eleValuePercent =   Math.round(eleValue/totalData[dataIndex] *1000) / 10
+              var div='<div style="display:flex;">'
+                if(seriesName == curName) {
+                  div += `<div style="font-weight:bold !important;width:130px;display:flex;align-items:center;"><span style="display:inline-block;margin-right:5px;width:12px;height:12px;border-radius:50%;background:${color};"></span> <span>${seriesName}:</span><span>${eleValue}户</span></div> <div style="display:inline-block;font-weight:bold;"> <span>占比：</span><span>${eleValuePercent}%</span></div>`
+
+                } else {
+                  div += `<div style="width:130px;display:flex;align-items:center;"><span style="display:inline-block;margin-right:5px;width:12px;height:12px;border-radius:50%;background:${color};"></span> <span>${seriesName}:</span><span>${eleValue}户</span></div> <span>占比：</span><span>${eleValuePercent}%</span>`
+
+                }
+              div+='</div>'
+              divs += div
+            }
+            
+            divs+='</div>'
+            return divs
+          }
+        },
+        color:['#FFA600', '#FCE911', '#F97A6D',  '#85ABFA', '#457DE5'],
+        grid,
+        yAxis: {
+          type: 'value',
+          axisLabel:{
+            color: '#9199BD',
+            formatter: function(p){
+              return p*100 +'%'
+            }
+          }
+        },
+        xAxis: {
+          type: 'category',
+          data: xData,
+          axisLabel: {
+            rotate: 45,
+            color: '#9199BD',
+          },
+          axisTick: {
+            show: false // 隐藏x轴刻度
+          },
+          axisLine:{
+            show:false // 隐藏x轴黑线
+          }
+        
+
+        },
+        series
+      };
+
+      option && myChart.setOption(option);
+    }
+    
+    myChart.dispatchAction({
+      type: 'legendSelect',
+      // 图例名称
+      name: '有意向'
+  });
+  </script>
+</body>
+</html>

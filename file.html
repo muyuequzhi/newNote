@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  
+    <div>
+      <div id="fileBox" style="width: 300px;height: 300px;border-radius: 8px;border: 1px solid #ccc;"></div>
+      <input type="file" name="file" id="file">
+    </div>
+    <script>
+      document.getElementById('fileBox').addEventListener('dragover', (e) => {
+          e.preventDefault()
+      });
+      document.getElementById('fileBox').addEventListener('drop', (e) => {
+          document.getElementById('file').files = e.dataTransfer.files;
+          e.preventDefault()
+      });
+      document.getElementById('file').addEventListener('change',function(e) {
+        console.log(this.files)
+
+      });
+      </script>
+</body>
+</html>

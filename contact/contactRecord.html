@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./index1.css">
+  <link rel="stylesheet" href="./index2.css">
+  <title>Document</title>
+  <style>
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .card-new {
+      background: linear-gradient(137deg, #ECEEFD 0%, #FFFFFF 100%);
+      box-shadow: 0px 0px 10px 0px rgba(77, 108, 160, 0.1), 0px 2px 6px 0px rgba(77, 108, 160, 0.2);
+      border-radius: 8px;
+      padding: 10px 20px;
+      display: flex;
+      margin-bottom: 16px;
+    }
+
+    .card-new-item {
+      width: 33.33%;
+      display: flex;
+      position: relative;
+      border-right: 1px dashed #D6D6D6;
+    }
+
+    .card-new-item:last-child {
+      border: none;
+    }
+
+    .card-new-left {
+      width: 50%;
+      text-align: right;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .card-new-right {
+      width: 50%;
+      text-align: left;
+    }
+
+    .card-new-left>div {
+      display: inline-flex;
+      align-items: center;
+      height: 30px;
+      width: 65%;
+      text-align: left;
+    }
+
+    .card-new-right>div {
+      display: inline-flex;
+      height: 30px;
+      align-items: center;
+      width: 65%;
+      text-align: left;
+      margin-left: 10%;
+    }
+
+    .card-new-label {
+      margin-right: 16px;
+    }
+
+    .form-row {
+      margin-bottom: 10px;
+    }
+
+    .form-item {
+      justify-content: flex-start;
+    }
+
+    .form-item-content .cus-input {
+      width: 180px;
+      outline: none;
+      padding: 0 8px;
+      height: 32px;
+    }
+
+    .form-item .form-label {
+      width: 56px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .form-item .form-item-content {
+      flex: none;
+      width: auto;
+    }
+
+    .chk-box {
+      flex-wrap: wrap;
+    }
+
+    .btn-base {
+      background: #EDF1F8;
+      color: #A1A5AE;
+      margin-right: 16px;
+    }
+
+    .btn-base-actived {
+      background: #7A8CE8;
+      color: white;
+    }
+
+    .cust-label-box>span {
+      font-size: 12px;
+      color: #6679E5;
+      line-height: 20px;
+      background: #E8EAFD;
+      border-radius: 4px;
+      display: inline-block;
+      padding: 0 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="card-base line">
+      <div class="card-top">
+        <div class="tab1-box">
+          <span class="tab1-item tab1-actived">周</span>
+          <span class="tab1-item ">月</span>
+          <span class="tab1-item">年</span>
+        </div>
+      </div>
+      <div class="card-new">
+        <div class="card-new-item" style="display: flex;flex-direction: column;">
+          <div style="display: flex;"> 
+            <div style="width: 15%;">总计划</div>
+            <div style="width: 85%;">
+              <span>progress</span>
+              <span>96.5</span>
+            </div>
+            
+          </div>
+          <div style="display: flex;">
+              <div style="width:15%">
+                8,761
+              </div>
+              <div style="width: 85%;">
+                <span>已完成</span>
+                <span>7761</span>
+              </div>
+          </div>
+        </div>
+        <div class="card-new-item">
+          <div class="card-new-left">
+            <div>
+              <span class="card-new-label">活动量</span>
+              <span>1678</span>
+            </div>
+            <div>
+              <span class="card-new-label">活动量</span>
+              <span>1678</span>
+            </div>
+          </div>
+          <div class="card-new-right">
+            <div>
+              <span class="card-new-label">环比</span>
+              <span>-78.5</span>
+            </div>
+            <div>
+              <span class="card-new-label">环比</span>
+              <span>-78.5</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-new-item">
+          <div class="card-new-left">
+            <div>
+              <span class="card-new-label">活动量</span>
+              <span>1678</span>
+            </div>
+            <div>
+              <span class="card-new-label">活动量</span>
+              <span>1678</span>
+            </div>
+          </div>
+          <div class="card-new-right">
+            <div>
+              <span class="card-new-label">环比</span>
+              <span>-78.5</span>
+            </div>
+            <div>
+              <span class="card-new-label">环比</span>
+              <span>-78.5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-base line">
+      <div class="form-row">
+        <div class="form-item">
+          <div class="form-label">客户号</div>
+          <div class="form-item-content"> <input class="cus-input" disabled value="xxx" type="text"></div>
+        </div>
+        <div class="form-item">
+          <div class="form-label">客户姓名</div>
+          <div class="form-item-content"> 
+            <select disabled class="cus-input">
+              <option value="">请选择</option>
+              <option value="1">张三</option>
+              <option value="2">李四</option>
+              <option value="3">王五</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="form-label">联系方式</div>
+          <div class="form-item-content"> <input class="cus-input" type="text"></div>
+        </div>
+        <div class="form-item">
+          <div class="form-label">联系形式</div>
+          <div class="form-item-content"> <input class="cus-input" type="text"></div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-item" style="width: 100%;align-items: flex-start;">
+          <div class="form-label" style="padding-top: 2px;">联系理由</div>
+          <div class="form-item-content" style="width: calc(100% - 56px);">
+            <div class="chk-box">
+              <div style="margin-bottom: 10px;">
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">定期到期</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">理财到期</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">保险到期</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">中高端开卡</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">权益活动</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">养老金准/转退</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">沙龙/活动邀请</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">借记卡到期</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">资产检视</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">产品推荐</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">节日问候</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">生客破冰</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">生日问候</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">渠道维护</span>
+              </div>
+              <div>
+                <label class="custom-checkbox">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="chk-text">其他</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-item">
+          <div class="form-label">登记状态</div>
+          <div class="form-item-content"> <input class="cus-input" type="text"></div>
+        </div>
+        <div class="form-item" style="width: 75%;">
+          <div class="form-label">联系日期</div>
+          <div class="form-item-content">
+            <div class="btn-box">
+              <div class="btn-base btn-base-actived">今 日</div>
+              <div class="btn-base">本 周</div>
+              <div class="btn-base">下 周</div>
+              <div class="btn-base">本 月</div>
+              <div class="btn-base">下 月</div>
+              <input class="cus-input" type="text">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-item">
+          <div class="form-label">客户类型</div>
+          <div class="form-item-content"> <input class="cus-input" type="text"></div>
+        </div>
+        <div class="form-item">
+          <div class="form-label">考核有效</div>
+          <div class="form-item-content"> <input class="cus-input" type="text"></div>
+        </div>
+        <div class="form-item">
+          <div class="form-label">联系人</div>
+          <div class="form-item-content"> <input class="cus-input" type="text"></div>
+        </div>
+        <div class="form-item">
+          <div class="form-label">联系机构</div>
+          <div class="form-item-content"> <input class="cus-input" type="text"></div>
+        </div>
+      </div>
+      <div class="form-row" style="justify-content: flex-end;padding-top: 10px;">
+        <span class="btn-item">查询</span>
+        <span class="btn-item">重置</span>
+      </div>
+    </div>
+
+    <div class="card-base line">
+      <div class="table1">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>登记状态</th>
+              <th>客户</th>
+              <th>计划联系日期和时间</th>
+              <th>计划联系方式</th>
+              <th>计划联系理由</th>
+              <th>客户画像</th>
+              <th>创建日期</th>
+              <th>创建人</th>
+              <th>创建网点</th>
+            </tr>
+
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td>
+                <img src="./image/success.png" alt="">
+              </td>
+              <td>客户</td>
+              <td>计划联系日期和时间</td>
+              <td>计划联系方式</td>
+              <td>计划联系理由</td>
+              <td>
+                <div class="cust-label-box">
+                  <span>资产分层</span>
+                  <span>资产升降</span>
+                  <span>产品到期</span>
+                  <span>S+待领取</span>
+                  <span>到店活跃</span>
+                  <span>无接触XXX天</span>
+                </div>
+              </td>
+              <td>创建日期</td>
+              <td>创建人</td>
+              <td>创建网点</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

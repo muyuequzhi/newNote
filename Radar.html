@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./echarts.js"></script>
+</head>
+<body>
+  <div id="main" style="width: 400px;height: 400px;"></div>
+  <script>
+
+var chartDom = document.getElementById('main');
+var myChart = echarts.init(chartDom);
+var option;
+var defaultData=[ 14000, 28000, 26000, 42000,5500,1000]
+var newData = JSON.parse(JSON.stringify(defaultData)).reverse()
+let a='1'
+let b='2'
+option = {
+  // title: {
+  //   text: 'Basic Radar Chart'
+  // },
+  legend: {
+    data: ['Allocated Budget', 'Actual Spending'],
+    bottom:10,
+    itemHeight:5,
+    itemWidth:10,
+
+  },
+  grid:{
+    // 无效
+    left:30,
+    right:90
+  },
+  tooltip:{
+    // formatter:function(p) {
+    //   console.log(p)
+    //   var color=p.color
+    //   var dataIndex=p.dataIndex
+    //   var value=p.value
+    //   var div=''
+
+    //   return div
+    // }
+  },
+  radar: {
+    // shape: 'circle',
+    radius:'50%',
+      // center: ['50%', '50%'],
+    indicator: [
+      { name: `A${a}`, max: 6500 },
+      { name: 'E', max: 52000 },
+      { name: 'D', max: 38000 },
+      { name: 'C', max: 30000 },
+      { name: 'B', max: 16000 },
+     
+    ],
+    name: {
+        textStyle: {
+            color: '#eee' // 设置文字颜色
+        }
+    },
+    axisName:{
+      color:'red'
+      // rich:{a:{color:'red', align:'center'}},
+      // formatter:'{a| {value}} ',
+      
+      // padding:[-10,-15]
+
+      
+    },
+    splitArea: {
+      show: false // 分割区域
+    },
+    axisLine: {
+      show:false,
+    },
+    // splitLine: {
+    //   lineStyle: {
+    //     color: [
+    //       '#409EFF', //分割线颜色
+    //       '#409EFF',
+    //       '#409EFF',
+    //       '#409EFF',
+    //       '#409EFF',
+    //       '#409EFF'
+    //     ]
+    //   }
+    // }
+  },
+  series: [
+    {
+      name: 'Budget vs spending',
+      type: 'radar',
+      data: [
+        {
+          value: [3000, 20000, 35000, 50000,4200,1000 ].reverse(),
+          name: 'Allocated Budget',
+          itemStyle:{
+            color:'#67C23A'
+          }
+        },
+        {
+          value: defaultData.reverse(),
+          name: 'Actual Spending',
+          itemStyle:{
+            color:'#409EFF'
+          }
+        }
+      ]
+    }
+  ]
+};
+
+option && myChart.setOption(option);
+
+  </script>
+</body>
+</html>

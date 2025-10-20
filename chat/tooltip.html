@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高级jQuery Tooltip实现</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .trigger {
+      display: inline-block;
+      margin: 15px;
+      padding: 12px 25px;
+      background: #4e73df;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .trigger:hover {
+      background: #2e59d9;
+    }
+
+    #tooltip-container {
+      position: absolute;
+      max-width: 400px;
+      background: #fff;
+      border: 1px solid #e3e6f0;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      transform: translateY(10px);
+      pointer-events: none;
+    }
+
+    #tooltip-container.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .tooltip-arrow {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      transform: rotate(45deg);
+      border-right: 1px solid #e3e6f0;
+      border-bottom: 1px solid #e3e6f0;
+    }
+
+    .tooltip-content {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .tooltip-content img {
+      max-width: 100%;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+
+    .tooltip-content h3 {
+      color: #4e73df;
+      margin-top: 0;
+    }
+
+    .tooltip-content ul {
+      padding-left: 20px;
+    }
+
+    #hidden-content {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="trigger" data-content="基础文本提示：这是简单的文本提示示例">基础提示</div>
+
+  <div class="trigger" data-content-id="rich-content">富文本提示</div>
+
+  <div class="trigger" data-content-id="long-content">长内容提示</div>
+
+  <div id="hidden-content">
+    <div id="rich-content">
+      <h3>高级功能说明</h3>
+      <p>此提示框支持多种富文本内容：</p>
+      <img src="https://via.placeholder.com/350x150" alt="示例图片">
+      <ul>
+        <li>列表项 1 - 支持多行文本</li>
+        <li>列表项 2 - 支持图片展示</li>
+        <li>列表项 3 - 支持内部交互元素</li>
+      </ul>
+      <p>还可以包含<a href="#" style="color:#4e73df;text-decoration:underline">可点击链接</a></p>
+    </div>
+
+    <div id="long-content">
+      <h3>详细产品规格</h3>
+      <p>这是一个包含大量文本内容的示例：</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl
+        nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl
+        aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+      <p>产品特点：</p>
+      <ul>
+        <li>高性能处理器</li>
+        <li>超长电池续航</li>
+        <li>4K高清显示屏</li>
+        <li>防水防尘设计</li>
+        <li>三年质量保证</li>
+      </ul>
+      <p>技术支持：contact@example.com</p>
+    </div>
+  </div>
+
+  <div id="tooltip-container">
+    <div class="tooltip-arrow"></div>
+    <div class="tooltip-content"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function () {
+      const $tooltip = $('#tooltip-container');
+      const $content = $('.tooltip-content');
+      let hideTimeout;
+
+      // 监听所有触发元素
+      $('.trigger').on('mouseenter', function (e) {
+        clearTimeout(hideTimeout);
+        const $trigger = $(this);
+
+        // 获取提示内容
+        let contentHtml = '';
+        if ($trigger.data('content-id')) {
+          contentHtml = $('#' + $trigger.data('content-id')).html();
+        } else {
+          contentHtml = $trigger.data('content');
+        }
+
+        // 更新内容
+        $content.html(contentHtml);
+
+        // 计算位置
+        const winWidth = $(window).width();
+        const winHeight = $(window).height();
+        const tooltipWidth = $tooltip.outerWidth();
+        const tooltipHeight = $tooltip.outerHeight();
+
+        // 初始位置（鼠标右下方）
+        let left = e.pageX + 15;
+        let top = e.pageY + 15;
+        let arrowPosition = 'left';
+
+        // 防止右侧超出
+        if (left + tooltipWidth > winWidth - 20) {
+          left = e.pageX - tooltipWidth - 20;
+          arrowPosition = 'right';
+        }
+
+        // 防止底部超出
+        if (top + tooltipHeight > winHeight - 20) {
+          top = e.pageY - tooltipHeight - 20;
+          arrowPosition = top < 20 ? 'top' : 'bottom';
+        }
+
+        // 应用位置
+        $tooltip.css({
+          left: left,
+          top: top
+        });
+
+        // 定位箭头
+        $('.tooltip-arrow').css({
+          left: arrowPosition === 'left' ? '-6px' : 'auto',
+          right: arrowPosition === 'right' ? '-6px' : 'auto',
+          top: arrowPosition === 'top' ? '-6px' : 'auto',
+          bottom: arrowPosition === 'bottom' ? '-6px' : 'auto',
+          transform: arrowPosition === 'right' ? 'rotate(225deg)' :
+            arrowPosition === 'top' ? 'rotate(135deg)' :
+              arrowPosition === 'bottom' ? 'rotate(315deg)' : 'rotate(45deg)'
+        });
+
+        // 显示提示
+        $tooltip.addClass('active');
+      });
+
+      // 鼠标离开触发元素
+      $('.trigger').on('mouseleave', function () {
+        hideTimeout = setTimeout(hideTooltip, 300);
+      });
+
+      // 鼠标进入提示框
+      $tooltip.on('mouseenter', function () {
+        clearTimeout(hideTimeout);
+      });
+
+      // 鼠标离开提示框
+      $tooltip.on('mouseleave', hideTooltip);
+
+      function hideTooltip() {
+        $tooltip.removeClass('active');
+      }
+    });
+    function at(n) {
+      // ToInteger() abstract op
+      n = Math.trunc(n) || 0;
+      // Allow negative indexing from the end
+      if (n < 0) n += this.length;
+      // OOB access is guaranteed to return undefined
+      if (n < 0 || n >= this.length) return undefined;
+      // Otherwise, this is just normal property access
+      return this[n];
+    }
+
+    const TypedArray = Reflect.getPrototypeOf(Int8Array);
+    for (const C of [Array, String, TypedArray]) {
+      Object.defineProperty(C.prototype, "at",
+        {
+          value: at,
+          writable: true,
+          enumerable: false,
+          configurable: true
+        });
+    }
+  </script>
+</body>
+
+</html>

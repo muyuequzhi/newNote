@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .arrow {
+      width: 0;
+      height: 0;
+      display: inline-block;
+      border: 8px solid transparent;
+      margin: 1.5px 0;
+    }
+
+    .arrow-top {
+      border-top-color: #9C27B0;
+      border-bottom-width: 0;
+    }
+
+    .arrow-bottom {
+      border-bottom-color: #9C27B0;
+      border-top-width: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="display:flex;flex-direction:column-reverse;">
+    <div class="arrow arrow-top"></div>
+    <div class="arrow arrow-bottom"></div>
+  </div>
+
+  <div style="display:flex;flex-direction:column">
+    <div class="arrow arrow-bottom"></div>
+    <div class="arrow arrow-top"></div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hello, Multiple Select!</title>
+
+    <link rel="stylesheet" href="multiple-select.css">
+    <script src="./jquery-3.7.1.min.js"></script>
+    <script src="./multiple-select.js"></script>
+    <script src="./multiple-select-zh-CN.js"></script>
+  </head>
+  <body>
+    
+
+    <!-- Multiple Select -->
+    
+   <div id="selectBox">
+
+   </div>
+   <select  id="xxx" style="width: 200px;"> 
+    <option value="1">1</option>
+    <option value="2">2</option>
+   </select>
+    <!-- <script src="./jquery-1.9.1.js"></script> -->
+   
+    <script>
+      $('#xxx').multipleSelect()
+      $(function () {
+        var list = ['January1', 'January2','January3']
+        var div='<select  style="width: 200px;">'
+       
+          list.map((x) => {
+            var optionDiv = `<option value="${x}">${x}</option>`
+            div += optionDiv
+          })
+
+        div+='</select>'
+        $('#selectBox').append(div)
+        
+        $('select').multipleSelect({
+          'onClose':function() {
+            
+            console.log($('select').multipleSelect('getSelects') )
+          },
+        })
+      })
+
+     
+    </script>
+  </body>
+</html>

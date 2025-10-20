@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>元素内滚动加载</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #scroll-container {
+      height: 400px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 20px auto;
+      width: 80%;
+    }
+    .content-item {
+      padding: 20px;
+      margin: 10px 0;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+    }
+    #loading {
+      text-align: center;
+      padding: 15px;
+      display: none;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div id="scroll-container">
+    <div id="content">
+      <!-- 初始内容由JS动态生成 -->
+    </div>
+    <div id="loading">加载中...</div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // 配置参数
+      const config = {
+        container: "#scroll-container",     // 滚动容器
+        content: "#content",                // 内容容器
+        loading: "#loading",                // 加载提示元素
+        page: 1,                            // 当前页码
+        isLoading: false,                   // 加载状态锁
+        hasMore: true                       // 是否还有更多数据
+      };
+
+      // 初始化内容
+      initContent();
+
+      // 绑定滚动事件（带节流函数）
+      $(config.container).scroll(throttle(checkScrollPosition, 300));
+
+      // 滚动位置检查
+      function checkScrollPosition() {
+        const $container = $(config.container);
+        const $loading = $(config.loading);
+        
+        // 滚动到底部阈值计算（距离底部50px时触发）
+        const triggerPos = $container[0].scrollHeight - $container.innerHeight() - 50;
+        
+        if ($container.scrollTop() >= triggerPos && 
+            !config.isLoading && 
+            config.hasMore) {
+          loadMoreData();
+        }
+      }
+
+      // 加载更多数据
+      function loadMoreData() {
+        config.isLoading = true;
+        $(config.loading).show();
+        
+        // 模拟AJAX请求
+        setTimeout(() => {
+          const items = generateData(config.page);
+          
+          if (items.length === 0) {
+            // 无更多数据处理
+            config.hasMore = false;
+            $(config.loading).text("没有更多内容了");
+          } else {
+            // 追加新内容
+            $(config.content).append(items);
+            config.page++;
+          }
+          
+          config.isLoading = false;
+        }, 800); // 模拟网络延迟
+      }
+
+      // 节流函数 (防止频繁触发)
+      function throttle(func, wait) {
+        let timeout;
+        return function() {
+          if (!timeout) {
+            timeout = setTimeout(() => {
+              func.apply(this, arguments);
+              timeout = null;
+            }, wait);
+          }
+        };
+      }
+
+      // 初始化内容
+      function initContent() {
+        // 初始加载20条
+        $(config.content).append(generateData(1));
+        config.page = 2;
+      }
+
+      // 数据生成函数
+      function generateData(page) {
+        let html = '';
+        const itemsCount = page > 5 ? 0 : 10; // 模拟5页后无数据
+        
+        for (let i = 1; i <= itemsCount; i++) {
+          html += `<div class="content-item">
+                    #${((page-1)*10)+i} - 页面 ${page} 内容
+                  </div>`;
+        }
+        return html;
+      }
+    });
+  </script>
+</body>
+</html>

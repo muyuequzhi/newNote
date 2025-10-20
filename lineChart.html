@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./echarts.js"></script>
+
+</head>
+<body>
+    <div id="main" style="width: 1200px;height: 300px;"></div>
+  <script>
+let data = []
+let xData = []
+function genData(num) {
+    for(var i=1;i<=num;i++) {
+      data.push(i*10)
+      let t = new Date(`2024-0${i}-01`)
+      xData.push(t.getTime())
+      // if(i ==6) {
+      //   data.push(i*20)
+      //   xData.push(`2024-0${i}-05`)
+      // }
+    }
+}
+genData(9)
+
+function getData1(num){
+  let result = []
+  for(var i=1;i<=num;i++) {
+    let arr = []
+    arr.push(`2024-0${i}-01`, num*10)
+    
+    // let t = new Date(`2024-0${i}-01`)
+    // xData.push(t.getTime())
+    // if(i ==6) {
+    //   data.push(i*20)
+    //   xData.push(`2024-0${i}-05`)
+    // }
+  }
+  return result
+}
+const result = getData1(9)
+// xData=[1]
+lineChart(data, xData)
+
+function  lineChart(data, xData) {
+  var nowX = ''
+  var chartDom = document.getElementById('main');
+  var myChart = echarts.init(chartDom);
+  var option;
+  option = {
+    title: {
+      left: 'left',
+      text: 'Line Chart',
+      textStyle:{
+        fontSize: 14
+      }
+    },
+    
+    xAxis: {
+      type:'time',
+      data: xData,
+      axisLabel: {
+        // interval:9,
+        //showMaxLabel: true, //将x轴坐标展示完全
+        formatter: (function(value){
+        let label;
+        console.log(value)
+        // if (value.getMinutes() < 10){ 
+        //   label = value.getHours() + ":0" +value.getMinutes();
+        // }
+        // else {
+        //   label = value.getHours() + ":" +value.getMinutes();
+        // }
+        // return label;
+      })
+        
+        
+      },
+      axisTick: {
+        show: false // 隐藏x轴刻度线
+      },
+      axisLine:{
+        show:false // 隐藏x轴横线
+      }
+
+    },
+    legend:{
+      data:[
+      
+        {
+          name:'line',
+          icon:'image://http://127.0.0.1:5501/index/image/blue.png'
+        },
+        {
+          name:'line1',
+          icon:'image://http://127.0.0.1:5501/index/image/orange.png'
+        },
+      ] 
+    },
+    yAxis: {
+      type: 'value',
+      
+    },
+    tooltip:{
+      trigger: 'axis',
+      axisPointer: {
+        type: 'line',
+        lineStyle: {
+          type: "solid"
+        }
+      },
+      formatter:function(p){
+        console.log(p[0].dataIndex)
+        nowX = p[0].dataIndex
+
+      }
+        
+       
+    },
+    series: [
+      
+      {
+        data: data,
+        type: 'line',
+        name:'line',
+        symbol: "circle",
+       
+        showAllSymbol:true, // 展示所有数据点
+      },
+      {
+        data: data,
+        type: 'line',
+        name:'line1',
+        symbol: "circle",
+       
+        showAllSymbol:true, // 展示所有数据点
+      }
+    ]
+  };
+
+  
+  option && myChart.setOption(option);
+
+  
+}
+
+
+
+  </script>
+</body>
+</html>

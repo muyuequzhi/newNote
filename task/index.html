@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <title>Document</title>
+  <style>
+    .form-label {
+      width: 70px;
+    }
+    .actived-text {
+      display: flex;
+      align-items: center;
+    }
+    .arrow {
+      width: 0;
+      height: 0;
+      display: inline-block;
+      border: 5px solid transparent;
+      margin: 1.5px 0;
+      background: none !important;
+
+    }
+    
+    .arrow-up {
+      border-top-color: #a7abb3;
+      border-bottom-width: 0;
+    }
+
+    .arrow-down {
+      border-bottom-color: #a7abb3;
+      border-top-width: 0;
+    }
+    .arrow-up-actived {
+      border-top-color: #6679E5;
+    }
+    .cus-sel {
+      outline: none;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <select class="cus-sel">
+    <option>1</option>
+    <option>2</option>
+  </select>
+  <div class="card-base" style="margin-bottom: 12px;">
+    <div class="form-row">
+      <div class="form-item line" >
+        <span class="form-label">任务名称</span>
+        <div class="form-item-content"> <input type="text"></div>
+      </div>
+      <div class="form-item">
+        <span class="form-label">开始日期</span>
+        <div class="form-item-content"> <input type="text"></div>
+      </div>
+      <div class="form-item">
+        <span class="form-label">结束日期</span>
+        <div class="form-item-content"> <input type="text"></div>
+      </div>
+      <div class="form-item">
+        <span class="form-label">任务发起人</span>
+        <div class="form-item-content"> <input type="text"></div>
+      </div>
+      <div class="form-item line">
+        <span class="form-label">发起机构</span>
+        <div class="form-item-content"><input type="text"></div> 
+      </div>
+      <div class="form-item">
+        <span class="form-label">任务来源</span>
+        <div class="form-item-content"> <input type="text"></div>
+      </div>
+      <div class="form-item">
+        <span class="form-label">待分配数</span>
+        <div class="form-item-content input1-box" >
+          <input class="input1" type="text">
+          <div class="input1-gap" >-</div>
+          <input class="input1" type="text">
+        </div>
+        
+      </div>
+      <div class="form-item">
+        <span class="form-label">待执行数</span>
+        <div class="form-item-content input1-box" >
+          <input class="input1" type="text">
+          <div class="input1-gap" >-</div>
+          <input class="input1" type="text">
+        </div>
+      </div>
+      <div class="form-item">
+        <span class="form-label" style="vertical-align: middle;">任务状态</span>
+        <div class="form-item-content" style="position: relative;width: 200px;height: 24px;vertical-align: middle;display: inline-block;">
+          <div class="task-status">
+            <span>全部</span>
+            <span class="active-status">当前有效</span>
+            <span>超期/过期</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="btn-box">
+      <span class="btn-item">查询</span>
+      <span class="btn-item">重置</span>
+    </div>
+  </div>
+  <div class="card-base">
+    <div style="margin-bottom: 2px;color: #8CA8BF;font-size: 12px;text-align: right;" >
+      任务/指标数据日期  <span>2024-06-08 10: 59 /2024-06-08</span> 
+    </div>
+    <div class="card-top" style="margin-bottom: 16px;display: flex;justify-content: space-between;">
+      <div style="display: flex;align-items: flex-end;">
+        <div style="margin-right: 10px;">
+          <label class="custom-checkbox">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <span>全选</span>
+        </div>
+        <div class="btn-box">
+          <span class="btn-item">自动分配</span>
+          <span class="btn-item">手动分配</span>
+          <span class="btn-item">任务移交</span>
+        </div>
+      </div>
+      <div style="display: flex;align-items: flex-end;">
+        <div style="display: flex;align-items: center;">
+          <div class="chk-box" style="margin-right: 20px;">
+            <div>
+              <label class="custom-checkbox">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <span class="tag tag1">最热</span>
+            </div>
+            <div>
+              <label class="custom-checkbox">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <span class="tag tag2">最新</span>
+            </div>
+            <div>
+              <label class="custom-checkbox">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <span class="tag tag3">最佳</span>
+            </div>
+          </div>
+          <div class="text-box">
+            <div class="actived-text">
+              <span>待分配</span> 
+              <div style="display: flex;flex-direction: column;">
+                <span class="arrow arrow-down "></span>
+                <span class="arrow arrow-up arrow-up-actived"></span>
+
+              </div>
+              
+            </div>
+            <div>
+              待执行
+              <span class="arrow arrow-down"></span>
+            </div>
+            <div>
+              执行率
+              <span class="arrow arrow-down"></span>
+            </div>
+            <div>
+              发起时间
+              <span class="arrow arrow-down"></span>
+            </div>
+            <div>
+              截止日期
+              <span class="arrow arrow-down"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card1-box">
+        <div class="card1-item">
+          <div class="card1-col1" style="display: flex;">
+            <div class="chk-item">
+              <label class="custom-checkbox1">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div>
+              <div style="margin-bottom: 10px;">
+                <div style="display: flex;">
+                  
+                  <div class="card1-title">2024年持有他行高端借记卡</div>
+                </div>
+                <div >
+                  <span class="tag tag1">最热</span>
+                  <span class="tag tag2">最新</span>
+                  <span class="tag tag3">最佳</span>
+                </div>
+              </div>
+              <div class="text1-box">
+                <span>上海银行总行（王XX）</span>
+                <span>2024-09-01至2024-10-1</span>
+              </div>
+            </div>
+          </div>
+          <div class="card1-col2" style="display: flex;justify-content: center;">
+            <div>
+              <div style="margin-bottom: 10px;">
+                <div>
+                  <span class="text2">任务数</span> <span class="text2-num">8761</span>
+                </div>
+              </div>
+              <div class="text2-box">
+                <div>
+                  <span class="text2">待分配</span> <span class="text2-num">861</span>
+                </div>
+                <div>
+                  <span class="text2">待执行</span> <span class="text2-num">871</span>
+                </div>
+                <div>
+                  <span class="text2">意向率</span> <span class="text2-num">87.1 <span class="little-text">%</span></span>
+                </div>
+                <div>
+                  <span class="text2">成功率</span> <span class="text2-num">87.1 <span class="little-text">%</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card1-col3">
+            <div style="display: flex;justify-content: center;">
+              <div class="text3-item">
+                <div class="text2 line2">新增户均AUM</div>
+                <div>
+                  <span class="text2-num">78.9</span> <span class="little-text">万</span>
+                </div>
+              </div> 
+              <div class="text3-item">
+                <div class="text2 line2">AUM有效增长率</div>
+                <div>
+                  <span class="text2-num">56.2</span> <span class="little-text">%</span>
+                </div>
+              </div> 
+              <div class="text3-item">
+                <div class="text2 line2">产品有效购买率</div>
+                <div>
+                  <span class="text2-num">56.4</span> <span class="little-text">%</span>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <script>
+    
+  </script>
+</body>
+</html>

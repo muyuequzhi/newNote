@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../echarts.js"></script>
+  <script src="../jquery-1.9.1.js"></script>
+</head>
+<body>
+  <div>
+    <div id="barChart" style="width: 500px;height:500px;"></div>
+  </div>
+
+  <script>
+    function initBarChart() {
+      var chartDom = document.getElementById('barChart');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: '单位：万/%',
+          textStyle:{
+            color:'#809FB8',
+            fontSize:14,
+            fontWeight:500,
+          }
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          // data: ['Rainfall', 'Evaporation']
+          right:'45',
+          icon:'circle',
+          textStyle:{
+            color:'#809FB8',
+            fontSize:14,
+            fontWeight:500,
+          }
+        },
+        
+        calculable: true,
+        xAxis: [
+          {
+            type: 'category',
+            // prettier-ignore
+            data: ['<1年', '1-3年', '≥3年', '互联网', ],
+            axisTick: {
+              show: false // 隐藏x轴刻度线
+            },
+            axisLine: {
+              show: false // 隐藏x轴横线
+            },
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            axisLabel:{
+              show:false,
+            }
+          },
+          {
+            type: 'value',
+            axisLabel:{
+              show:false,
+            }
+          },
+        ],
+        series: [
+          {
+            name: '总到期金额',
+            type: 'bar',
+            itemStyle:{
+              color:'#5FCCF8'
+            },
+            barWidth:30,
+            data: [
+              5000, 7000, 9000, 3000,
+            ],
+            // markPoint: {
+            //   symbol:'circle',
+            //   symbolSize:42,
+            //   label:{
+            //     color:'white',
+            //   },
+            //   itemStyle:{
+            //     color:'#FFC382',
+            //   },
+            //   data: [
+            //     { name: 'xxx', coord:[0,5600], value:'20.8%',},
+            //     { name: 'xxx', coord:[1,7600], value:'29.2%',},
+            //     { name: 'xxx', coord:[2,9600], value:'37.5%',},
+            //     { name: 'xxx', coord:[3,3600], value:'12.5%',},
+            //   ]
+            // },
+            
+          },
+          {
+            type: 'scatter',
+            yAxisIndex:1,
+            name:'已到期占比',
+            symbolSize: (value, params)=>{
+              // console.log(value, params)
+              if(value[0] == 0) {
+                return 50
+              } else {
+                return 10
+              }
+            },
+            label:{
+              show: true,
+              color: 'white',
+              fontSize:14,
+              formatter:(params)=>{
+                console.log(params)
+                if(params.dataIndex == 0) {
+                  return params.value[1] +'%'
+                } else {
+                  return ''
+                }
+              }
+            },
+            itemStyle:{
+              color:'#FFC382',
+            },
+            data:[
+              [0,40.6],
+              [1,15.6],
+              [2,30.2],
+              [3,10.1],
+            ]
+          }
+        ]
+      };
+      option && myChart.setOption(option);
+    }
+    initBarChart()
+  </script>
+</body>
+</html>

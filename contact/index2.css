@@ -1,0 +1,381 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.line {
+  margin-bottom: 14px;
+}
+img {
+  vertical-align: middle;
+}
+span {
+  vertical-align: middle;
+}
+.card-base {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 13px 0px rgba(41,72,152,0.03);
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.form-item {
+  width: 25%;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-label {
+  margin-right: 10px;
+}
+.form-item > div {
+  width: 70%;
+}
+.form-item > span {
+  text-align: right;
+}
+.form-item input, select {
+  border-radius: 4px;
+  border: 1px solid #E5E5E5;
+  width: 100%;
+  height: 32px;
+}
+.form-item-content {
+  flex: 1;
+}
+.task-status {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  white-space: nowrap;
+}
+.task-status > span {
+  background: #EDF1F8;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin: 0 5px;
+  color: #A1A5AE;
+}
+.task-status > span:first-child {
+  margin-left: 0;
+}
+.form-item .input1 {
+  width: 45%;
+}
+.input1-gap {
+  width: 10%;
+  text-align: center;
+  line-height: 32px;
+}
+.input1-box {
+  display: flex;
+}
+.task-status > .active-status {
+  background: #A8B5F7;
+  color: white;
+}
+.btn-box {
+  text-align: right;
+}
+.btn-item {
+  background: #6679E5;
+  border-radius: 16px;
+  color: white;
+  line-height: 26px;
+  padding: 0 20px;
+  display: inline-block;
+}
+.btn-base {
+  background: #7A8CE8;
+  border-radius: 4px;
+  padding: 3px 16px;
+  color: white;
+  display: inline-block;
+}
+.btn-item {
+  margin-right: 16px;
+}
+.btn-item:last-child {
+  margin-right: 0;
+}
+.chk-box {
+  display: flex;
+}
+.text-box {
+  display: flex;
+  color: #A1A5AE;
+}
+.tag {
+  border-radius: 4px;
+  line-height: 20px;
+  display: inline-block;
+  padding: 0 6px;
+  font-size: 12px;
+}
+.tag1 {
+  background: #EDB2AD;
+  color: #8E3D3D;
+}
+.tag2 {
+  background: #B1D3E9;
+  color: #1A4975;
+}
+.tag3 {
+  background: #E2C3A5;
+  color: #7F523E;
+}
+.text1-box {
+  color: #4B5D7F;
+}
+.text1-box > span:first-child {
+  margin-right: 14px;
+}
+.card1-item {
+  background: linear-gradient( 127deg, #EEF1FF 0%, #FFFFFF 100%);
+  box-shadow: 0px 0px 10px 0px rgba(77,108,160,0.1), 0px 2px 6px 0px rgba(77,108,160,0.2);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+}
+.card2-item {
+  background: linear-gradient( 127deg, #EEF1FF 0%, #FFFFFF 100%);
+  box-shadow: 0px 0px 10px 0px rgba(77,108,160,0.1), 0px 2px 6px 0px rgba(77,108,160,0.2);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+}
+.card1-col1 {
+
+}
+.card1-title {
+  font-size: 18px;
+  color: #6679E5;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+.chk-item {
+  margin-right: 6px;
+}
+.text2-box {
+  display: flex;
+}
+.text2 {
+  font-size: 16px;
+  color: #3F485A;
+}
+.text2-num {
+  font-size: 18px;
+  color: #3F485A;
+  font-weight: bold;
+}
+.little-text {
+  font-size: 12px;
+  color: #809FB8;
+}
+.card1-item > div {
+  border-right: 2px dashed #D6D6D6;
+}
+.card1-item > div:nth-child(1) {
+  width: 31.5%;
+}
+.card1-item > div:nth-child(2) {
+  width: 37%;
+}
+.card1-item > div:nth-child(3) {
+  width: 31.5%;
+}
+.card1-item > div:last-child {
+  border-right: none;
+}
+.text2-box > div {
+  margin-right: 1.6vw;
+}
+.text2-box > div:last-child {
+  margin-right: 0;
+}
+.line2 {
+  margin-bottom: 12px;
+}
+.card1-col2 {
+  padding: 6px 0;
+}
+.card1-col3 {
+  padding: 6px 0;
+}
+.text3-item {
+  margin-right: 1.6vw;
+}
+.text3-item:last-child {
+  margin-right: 0;
+}
+
+.custom-checkbox  {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 3px;
+}
+/* 隐藏默认的radio */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+/* 自定义radio的外观 */
+.custom-checkbox .checkmark {
+  width: 18px;
+  height: 18px;
+  background: url('./image/check.png') no-repeat center center;
+  display: inline-block;
+}
+
+/* 选中状态的样式 */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  background: url('./image/checked.png') no-repeat center center;
+  border: none;
+}
+
+
+.custom-checkbox1  {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 3px;
+}
+/* 隐藏默认的radio */
+.custom-checkbox1 input[type="checkbox"] {
+  display: none;
+}
+
+/* 自定义radio的外观 */
+.custom-checkbox1 .checkmark {
+  width: 18px;
+  height: 18px;
+  background: url('./image/check1.png') no-repeat center center;
+  display: inline-block;
+}
+
+/* 选中状态的样式 */
+.custom-checkbox1 input[type="checkbox"]:checked + .checkmark {
+  background: url('./image/checked1.png') no-repeat center center;
+  border: none;
+}
+.chk-box > div {
+  margin-right: 16px;
+}
+.chk-box > div:last-child {
+  margin-right: 0;
+}
+.text-box > div {
+  margin-right: 14px;
+}
+.text-box > div:last-child {
+  margin-right: 0;
+}
+.actived-text {
+  color: #6679E5;
+}
+.arrow-down {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: url('./image/arrow-down.png') no-repeat center center;
+}
+.actived-text .arrow-down  {
+  background: url('./image/arrow-down-blue.png') no-repeat center center;
+}
+
+/* 详情开始 */
+
+.text4 {
+  font-size: 12px;
+  color: #4B5D7F;
+}
+.text4 > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 270px;
+  display: inline-block;
+}
+.card2-left {
+  border-right: 2px dashed #D6D6D6 !important;
+  padding-right: 30px;
+  padding-left: 20px;
+}
+.card2-left > div {
+  margin-bottom: 5px;
+}
+.card2-left > div:last-child {
+  margin-bottom: 0;
+}
+
+
+.card2-right {
+  flex: 1;
+  padding: 6px 30px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+.card2-right-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#card2 .card2-right-item > div:first-child {
+  margin-bottom: 24px;
+}
+.right-rect {
+  width: 150px;
+  background: linear-gradient( 187deg, #9FAAF9 0%, #FEFEFF 100%);
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 52px;
+}
+
+
+.custom-checkbox  {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 3px;
+}
+/* 隐藏默认的radio */
+.custom-radio input[type="radio"] {
+  display: none;
+}
+
+/* 自定义radio的外观 */
+.custom-radio .checkmark {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #E5E5E5;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+.custom-radio .checkmark::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  background: #6679E5;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  display: none;
+}
+
+/* 选中状态的样式 */
+.custom-radio input[type="radio"]:checked + .checkmark {
+  border-color: #6679E5;
+}
+.custom-radio input[type="radio"]:checked + .checkmark::after {
+  display: inline-block;
+} 

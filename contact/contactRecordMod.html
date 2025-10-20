@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./index1.css">
+  <link rel="stylesheet" href="./index2.css">
+  <title>Document</title>
+  <style>
+    .radio-box {
+      display: flex;
+    }
+  
+    .form-item {
+      width: 33.33%;
+    }
+    .form-row {
+      margin-bottom: 10px;
+    }
+    .form-row > div:nth-child(1){
+      justify-content: flex-start;
+    }
+    .form-row > div:nth-child(3){
+      justify-content: center;
+    }
+    .form-row > div:nth-child(3){
+      justify-content: flex-end;
+    }
+    .form-item > .form-item-content{
+      width: 180px;
+      flex:none
+    }
+
+    .form-item .form-label {
+      width: 56px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .chk-box {
+      flex-wrap: wrap;
+    }
+    .card-title1 {
+      font-weight: bold;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="card-base line">
+      <div class="form-row">
+        <div class="form-item">
+          <div class="form-label">客户号</div>
+          <div class="form-item-content"> <input class="cus-input" type="text"></div>
+        </div>
+        <div class="form-item">
+          <div class="form-label">联系日期</div>
+          <div class="form-item-content"> <input class="cus-input" type="text"></div>
+        </div>
+        <div class="form-item">
+          <div class="form-label">联系时间</div>
+          <div class="form-item-content"> <input class="cus-input" type="text"></div>
+        </div>
+       
+      </div>
+      <div class="form-row">
+        <div class="form-item">
+          <div class="form-label">联系方式</div>
+          <div class="form-item-content"> 
+            <div class="radio-box">
+              <div  style="margin-right: 10px;">
+                <label class="custom-radio">
+                  <input name="radio" type="radio">
+                  <span class="checkmark"></span>
+                </label>
+                <span>电访</span>
+              </div>
+              <div >
+                <label class="custom-radio">
+                  <input name="radio" type="radio">
+                  <span class="checkmark"></span>
+                </label>
+                <span>面访</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="form-label">联系形式</div>
+          <div class="form-item-content">
+            <div class="radio-box">
+              <div  style="margin-right: 10px;">
+                <label class="custom-radio">
+                  <input name="radio" type="radio">
+                  <span class="checkmark"></span>
+                </label>
+                <span>主动</span>
+              </div>
+              <div >
+                <label class="custom-radio">
+                  <input name="radio" type="radio">
+                  <span class="checkmark"></span>
+                </label>
+                <span>被动</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+      
+      </div>
+      <div class="form-row" style="width: 100%;">
+        <div class="form-label">联系理由</div>
+        <div class="form-item-content" style="flex:1;">
+        <div class="chk-box">
+          <div style="margin-bottom: 10px;">
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">产品到期</span>
+          </div>
+          <div>
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">定期到期</span>
+          </div>
+          <div>
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">理财到期</span>
+          </div>
+          <div>
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">生日问候</span>
+          </div>
+          <div>
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">保险到期</span>
+          </div>
+          <div>
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">S+权益活动</span>
+          </div>
+          <div>
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">养老金准/转退</span>
+          </div>
+          <div>
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">生客破冰</span>
+          </div>
+          <div>
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">沙龙/活动邀请</span>
+          </div>
+          <div>
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">节日问候</span>
+          </div>
+          <div>
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">借记卡到期</span>
+          </div>
+          <div>
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">资产检视</span>
+          </div>
+          <div>
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">基金检视</span>
+          </div>
+          <div>
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <span class="chk-text">其他</span>
+          </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex;">
+      <div class="card-base line" style="width: 40%;margin-right: 10px;">
+        <div>
+
+        </div>
+        <div></div>
+      </div>
+      <div class="card-base line" style="width: calc(60% - 10px);">
+        <div class="card-title1">
+          <span>营销商机</span>
+          <img src="./image/add.png">
+        </div>
+        <div class="table1">
+          <table>
+            <thead>
+              <tr>
+                <th>产品类别</th>
+                <th>产品代码</th>
+                <th>产品名称</th>
+                <th>金额(万)/数量(个)</th>
+                <th>商机类型</th>
+                <th>创建日期</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>产品类别</td>
+                <td>产品代码</td>
+                <td>产品名称</td>
+                <td>金额(万)/数量(个)</td>
+                <td>商机类型</td>
+                <td>创建日期</td>
+                <td>
+                  <img src="./image/delete.png">
+                  <img src="./image/edit.png" alt="">
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex;">
+      <div class="card-base line" style="width: 40%;margin-right: 10px;">
+        <div class="card-title1">
+          <span>营销任务</span>
+        </div>
+        <div class="table1">
+          <table>
+            <thead>
+              <tr>
+                <th>任务名称</th>
+                <th>任务开始日期</th>
+                <th>任务结束日期</th>
+                <th>执行结果</th>
+             
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-base line" style="width: calc(60% - 10px);">
+        <div class="card-title1">
+          <span>联系计划</span>
+          <img src="./image/add.png">
+        </div>
+        <div class="table1">
+          <table>
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>下次联系日期和时间</th>
+                <th>下次联系方式</th>
+                <th>下次联系理由</th>
+                <th>备注</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>产品类别</td>
+                <td>产品代码</td>
+                <td>产品名称</td>
+                <td>金额(万)/数量(个)</td>
+                <td>商机类型</td>
+                <td>
+                  <img src="./image/delete.png">
+                  <img src="./image/edit.png" alt="">
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+   
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .box {
+            height: 300px;
+            overflow: auto;
+            width: 300px;
+            
+        }
+       .box > div {
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            background: white;
+       }
+       .box > div:nth-child(6){
+            position: sticky;
+            top:0px;
+            border-bottom: 1px solid #409eff;
+       }
+       .box > div:nth-child(2){
+            position: sticky;
+            top:45px;
+            border-bottom: 1px solid #409eff;
+       }
+       .tab1-box {
+          border: 1px solid #409eff;
+       }
+       
+    </style>
+</head>
+<body style="background-color: white;">
+  
+  <div style="display: flex;justify-content: center;margin-top: 30px;">
+    <div class="tab1-box">
+      <span class="tab1-item">日均</span>
+      <span class="tab1-item tab1-actived">时点</span>
+    </div>
+  </div>
+    <div style="display: flex;justify-content: center;padding-top: 30px;">
+      
+        <div id="box" class="box">
+            <div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+            <div>17</div>
+            <div>18</div>
+            <div>19</div>
+            <div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+            <div>17</div>
+            <div>18</div>
+            <div>19</div>
+        </div>
+    </div>
+
+    
+</body>
+</html

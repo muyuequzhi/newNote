@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="../echarts.js"></script>
+  <script src="../jquery-1.9.1.js"></script>
+
+  <style>
+    img {
+      vertical-align: middle;
+    }
+    .card-item {
+      padding: 11px;
+    }
+    .tab1-box {
+      margin-bottom: 10px;
+    }
+    .day-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 55px;
+      height: 20px;
+      line-height: 20px;
+      background: rgba(107,121,227,0.8);
+      border-radius: 8px 0px 8px 0px;
+      color: white;
+      text-align: center;
+    }
+    .card6-bottom {
+      padding-top: 20px;
+      display: flex;
+    }
+    .card6-bottom > div {
+      padding: 0px 18px;
+      line-height: 32px;
+      position: relative;
+    }
+    .card6-bottom > div::after {
+      display: inline-block;
+      content: '';
+      width: 1px;
+      background-color: #E8EAFD;
+      height: 20px;
+      position: absolute;
+      right: 0;
+      top: 6px;
+    }
+    .card6-item {
+      display: inline-block;
+      background: #FFFFFF;
+      box-shadow: 0px 0px 11px 0px #E1E5FA;
+      border-radius: 8px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .arrow-text {
+      margin: 0 5px;
+    }
+    .card7-item {
+      background: #FFFFFF;
+      box-shadow: 0px 0px 11px 0px #E1E5FA;
+      border-radius: 8px;
+      padding: 0 11px;
+      color: #809FB8;
+    }
+    .card7-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      position: relative;
+      border-bottom: 2px dashed #EFF3F7;
+      padding: 10px 0;
+    }
+    .card7-content:last-child {
+      border-bottom: none;
+    }
+    
+    .table5 {
+      display: flex;
+      box-shadow: 0px 2px 4px 0px #F3F3F3;
+      border-radius: 8px;
+      border: 1px solid #EFF3F7;
+    }
+    .table5 .col1 {
+      font-weight: bold;
+      color: #1E1F22;
+      width: 22%;
+    }
+    .table5 .col2 {
+      width: 78%;
+    }
+    .table5 .col2 > div {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 20px;
+      line-height: 32px;
+      border-bottom: 1px solid #EFF3F7;
+    }
+    .table5 .col1 > div {
+      padding: 0px 10px;
+      line-height: 32px;
+      border-right: 1px solid #EFF3F7;
+      text-align: center;
+    }
+    .table5 .col2 > div:last-child {
+      border-bottom: none;
+    }
+    
+    .row {
+      display: flex;
+      line-height: 36px;
+      border-bottom: 1px solid #EFF3F7;
+    }
+    .row > div {
+      width: 25%;
+      text-align: center;
+    }
+    .table6 {
+      font-size: 12px;
+    }
+    .table6 .table-header .row{
+      font-weight: bold;
+      background: #F3F3F3;
+      border-radius: 0px 0px 8px 8px;
+      border-bottom: none;
+    }
+    .table6 .table-header > div:first-child {
+      background: #F7F8FA;
+      border-radius: 8px 8px 0px 0px;
+      color: #5D87E3;
+      text-align: center;
+      line-height: 36px;
+    }
+    .text1 {
+      margin-right: 5px;
+    }
+
+    .card8-item {
+      width: 32%;
+      height: 100px;
+      background: linear-gradient( 316deg, #FFFFFF 0%, #F4F5FF 100%);
+      box-shadow: 0px 2px 4px 0px #F3F3F3;
+      border-radius: 8px;
+      border: 1px solid #EFF3F7;
+      padding:11px 18px;
+      margin-right: 2%;
+    }
+    .card8-item > div:nth-child(2) {
+      margin-bottom: 8px;
+    }
+    .card8-title {
+      font-weight: bold;
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .card8-line {
+      display: flex;
+    }
+    .card8-line > div {
+      width: 50%;
+    }
+    .card8-box {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .card8-item:last-child {
+      margin-right: 0;
+    }
+    .card8 .row > div{
+      width: 30%;
+    }
+    .card8 .row > div:nth-child(3) {
+      width: 40%;
+    }
+  </style>
+</head>
+<body>
+  <div style="padding: 16px;">
+    <div class="card-item " style="display: flex;margin-bottom: 10px;">
+      <div style="width: 55%;margin-right: 2%;">
+        <div class="card8-box" style="margin-bottom: 35px;">
+          <div class="card8-item">
+            <div class="card8-title">
+              新增客户总数
+            </div>
+            <div class="card8-line">
+              <div>
+                <span>当月</span>
+                <span>123</span>
+              </div>
+              <div>
+                <span>环比</span>
+                <span class="up-color arrow-text">+123</span>
+                <span><img class="up-img" src="./image/arrow-up.png"></span>
+              </div>
+            </div>
+            <div class="card8-line">
+              <div>
+                <span>当年</span>
+                <span>123</span>
+              </div>
+              <div>
+                <span>同比</span>
+                <span class="down-color arrow-text">-123</span>
+                <span><img class="down-img" src="./image/arrow-down.png"></span>
+              </div>
+            </div>
+          </div>
+          <div class="card8-item">
+            <div class="card8-title">
+              手机银行首登
+            </div>
+            <div class="card8-line">
+              <div>
+                <span>当月</span>
+                <span>123</span>
+              </div>
+              <div>
+                <span>环比</span>
+                <span class="up-color arrow-text">+123</span>
+                <span><img class="up-img" src="./image/arrow-up.png"></span>
+              </div>
+            </div>
+            <div class="card8-line">
+              <div>
+                <span>当年</span>
+                <span>123</span>
+              </div>
+              <div>
+                <span>同比</span>
+                <span class="down-color arrow-text">-123</span>
+                <span><img class="down-img" src="./image/arrow-down.png"></span>
+              </div>
+            </div>
+          </div>
+          <div class="card8-item">
+            <div class="card8-title">
+              移动支付首绑
+            </div>
+            <div class="card8-line">
+              <div>
+                <span>当月</span>
+                <span>123</span>
+              </div>
+              <div>
+                <span>环比</span>
+                <span class="up-color arrow-text">+123</span>
+                <span><img class="up-img" src="./image/arrow-up.png"></span>
+              </div>
+            </div>
+            <div class="card8-line">
+              <div>
+                <span>当年</span>
+                <span>123</span>
+              </div>
+              <div>
+                <span>同比</span>
+                <span class="down-color arrow-text">-123</span>
+                <span><img class="down-img" src="./image/arrow-down.png"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card8-box">
+          <div class="card8-item">
+            <div class="card8-title">
+              理财首次风评
+            </div>
+            <div class="card8-line">
+              <div>
+                <span>当月</span>
+                <span>123</span>
+              </div>
+              <div>
+                <span>环比</span>
+                <span class="up-color arrow-text">+123</span>
+                <span><img class="up-img" src="./image/arrow-up.png"></span>
+              </div>
+            </div>
+            <div class="card8-line">
+              <div>
+                <span>当年</span>
+                <span>123</span>
+              </div>
+              <div>
+                <span>同比</span>
+                <span class="down-color arrow-text">-123</span>
+                <span><img class="down-img" src="./image/arrow-down.png"></span>
+              </div>
+            </div>
+          </div>
+          <div class="card8-item">
+            <div class="card8-title">
+              首次绑定还款
+            </div>
+            <div class="card8-line">
+              <div>
+                <span>当月</span>
+                <span>123</span>
+              </div>
+              <div>
+                <span>环比</span>
+                <span class="up-color arrow-text">+123</span>
+                <span><img class="up-img" src="./image/arrow-up.png"></span>
+              </div>
+            </div>
+            <div class="card8-line">
+              <div>
+                <span>当年</span>
+                <span>123</span>
+              </div>
+              <div>
+                <span>同比</span>
+                <span class="down-color arrow-text">-123</span>
+                <span><img class="down-img" src="./image/arrow-down.png"></span>
+              </div>
+            </div>
+          </div>
+          <div class="card8-item">
+            <div class="card8-title">
+              个人养老金
+            </div>
+            <div class="card8-line">
+              <div>
+                <span>当月</span>
+                <span>123</span>
+              </div>
+              <div>
+                <span>环比</span>
+                <span class="up-color arrow-text">+123</span>
+                <span><img class="up-img" src="./image/arrow-up.png"></span>
+              </div>
+            </div>
+            <div class="card8-line">
+              <div>
+                <span>当年</span>
+                <span>123</span>
+              </div>
+              <div>
+                <span>同比</span>
+                <span class="down-color arrow-text">-123</span>
+                <span><img class="down-img" src="./image/arrow-down.png"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card8" style="width: 28%;">
+        <div class="table5" style="margin-bottom: 10px;">
+          
+          <div class="col2" style="width: 100%;">
+            <div>
+              <div>
+                <span class="text1">全行排名</span>
+                <span>95/113</span>
+              </div>
+              <div>
+                <span class="text1">较上月</span>
+                <img src="./image/arrow-up.png" >
+                <span class="up-color arrow-text">4</span>
+              </div>
+            </div>
+            <div>
+              <div>
+                <span class="text1">组内排名</span>
+                <span>95/113</span>
+              </div>
+              <div>
+                <span class="text1">较上月</span>
+                <img src="./image/arrow-down.png" >
+                <span class="down-color arrow-text">4</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table6">
+          <div class="table-header">
+            
+            <div class="row" style="color: #202124;">
+              <div>全行排名</div>
+              <div>姓名</div>
+              <div>机构</div>
+            </div>
+          </div>
+          <div class="table-body">
+            <div class="row">
+              <div><img src="./image1/one.png"></div>
+              <div>王某</div>
+              <div>XXXXXX</div>
+            </div>
+            <div class="row">
+              <div><img src="./image1/two.png"></div>
+              <div>王某</div>
+              <div>XXXXXX</div>
+            </div>
+            <div class="row">
+              <div><img src="./image1/three.png"></div>
+              <div>王某</div>
+              <div>XXXXXX</div>
+            </div>
+            <div class="row">
+              <div><img src="./image1/four.png"></div>
+              <div>王某</div>
+              <div>XXXXXX</div>
+            </div>
+            <div class="row">
+              <div><img src="./image1/five.png"></div>
+              <div>王某</div>
+              <div>XXXXXX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card-item" >
+      <div class="card-item-top">
+        <span class="card-top-title">客户营销跟进</span>
+        <span><img class="detail-img" src="./image/detail.png" ></span>
+        <span class="date">2024-06-08</span>
+      </div>
+      <div class="tab1-box">
+        <span class="tab1-item tab1-actived">营销任务</span>
+        <span class="tab1-item">一键外呼</span>
+        <span class="tab1-item">客户接触</span>
+      </div>
+      <div style="width: 400px;margin-bottom: 10px;">
+        <div class="table5" style="margin-bottom: 10px;">
+          <div class="col1">
+            <div>综合得分</div>
+            <div>95</div>
+          </div>
+          <div class="col2">
+            <div>
+              <div>
+                <span class="text1">全行排名</span>
+                <span>95/113</span>
+              </div>
+              <div>
+                <span class="text1">较上月</span>
+                <img src="./image/arrow-up.png" >
+                <span class="up-color arrow-text">4</span>
+              </div>
+            </div>
+            <div>
+              <div>
+                <span class="text1">组内排名</span>
+                <span>95/113</span>
+              </div>
+              <div>
+                <span class="text1">较上月</span>
+                <img src="./image/arrow-down.png" >
+                <span class="down-color arrow-text">4</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table6">
+          <div class="table-header">
+            <div >
+              <span>客户经理排名</span>
+              <img class="arrow-right" src="./image/arrow-right.png">
+            </div>
+            <div class="row">
+              <div>全行排名</div>
+              <div>姓名</div>
+              <div>综合分数</div>
+              <div>机构</div>
+            </div>
+          </div>
+          <div class="table-body">
+            <div class="row">
+              <div><img src="./image1/one.png"></div>
+              <div>王某</div>
+              <div>100</div>
+              <div>XXXXXX</div>
+            </div>
+            <div class="row">
+              <div><img src="./image1/two.png"></div>
+              <div>王某</div>
+              <div>100</div>
+              <div>XXXXXX</div>
+            </div>
+            <div class="row">
+              <div><img src="./image1/three.png"></div>
+              <div>王某</div>
+              <div>100</div>
+              <div>XXXXXX</div>
+            </div>
+            <div class="row">
+              <div><img src="./image1/four.png"></div>
+              <div>王某</div>
+              <div>100</div>
+              <div>XXXXXX</div>
+            </div>
+            <div class="row">
+              <div><img src="./image1/five.png"></div>
+              <div>王某</div>
+              <div>100</div>
+              <div>XXXXXX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 360px;">
+        <div class="card6-item" >
+          <div class="day-icon">
+            90天
+          </div>
+          <div class="card6-bottom">
+            <div>94.3%</div>
+            <div>
+              <span>较上日</span>
+              <span class="up-color arrow-text">+0.1%</span>
+              <img class="up-img" src="./image/arrow-up.png">
+            </div>
+            <div>
+              <span>较上日</span>
+              <span class="down-color arrow-text">-0.1%</span>
+              <img class="up-img" src="./image/arrow-down.png">
+            </div>
+          </div>
+        </div>
+        <div class="card6-item" >
+          <div class="day-icon">
+            90天
+          </div>
+          <div class="card6-bottom">
+            <div>94.3%</div>
+            <div>
+              <span>较上日</span>
+              <span class="up-color arrow-text">+0.1%</span>
+              <img class="up-img" src="./image/arrow-up.png">
+            </div>
+            <div>
+              <span>较上日</span>
+              <span class="down-color arrow-text">-0.1%</span>
+              <img class="up-img" src="./image/arrow-down.png">
+            </div>
+          </div>
+        </div>
+        <div class="card6-item" >
+          <div class="day-icon">
+            90天
+          </div>
+          <div class="card6-bottom">
+            <div>94.3%</div>
+            <div>
+              <span>较上日</span>
+              <span class="up-color arrow-text">+0.1%</span>
+              <img class="up-img" src="./image/arrow-up.png">
+            </div>
+            <div>
+              <span>较上日</span>
+              <span class="down-color arrow-text">-0.1%</span>
+              <img class="up-img" src="./image/arrow-down.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 300px;">
+        <div class="card7-item" >
+          <div class="card7-content">
+            <span>
+              <img src="./image1/day.png" >
+            </span>
+            <span>当日有效/目标</span>
+            <span>12/20</span>
+          </div>
+          <div class="card7-content">
+            <span>
+              <img src="./image1/month.png" >
+            </span>
+            <span>当日有效/目标</span>
+            <span>12/20</span>
+          </div>
+          <div class="card7-content">
+            <span>
+              <img src="./image1/year.png" >
+            </span>
+            <span>当日有效/目标</span>
+            <span>12/20</span>
+          </div>
+        </div>
+        
+       
+      </div>
+    </div>
+    
+  </div>
+
+  <script>
+    $('#menuImg').hover(function() {
+      clearTimeout(outTime)
+      $('#menuBox').show()
+      
+    },function(){
+      outTime = setTimeout(()=>{$('#menuBox').hide()}, 300)
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../echarts.js"></script>
+  <script src="../jquery-1.9.1.js"></script>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" type="text/css" href="product.css">
+</head>
+<body>
+  <div class="body-div">
+    <div id="" class=" card-item card-base line">
+      <div class="card-title-box" style="margin-bottom: 10px;">
+        <div>
+          <img class="card-title-icon" src="./image/title-icon.png">
+          <span class="card-title">产品到期</span>
+        </div>
+        <div class="card-title-detail" onclick="showModal()">
+          <span >更多</span>
+          <img class="arrow-right" src="./image/arrow-right.png">
+        </div>
+      </div>
+      <div  style="margin-bottom: 10px;">
+        <div class="tab1-box">
+          <span class="tab1-item tab1-actived">内环</span>
+          <span class="tab1-item ">外环</span>
+        </div>
+      </div>
+      <div class="line1 column" style="display: flex;">
+        
+        <div class="column-item" >
+          <div class="card-item-top">
+            <span class="card-top-title">经营概览</span>
+            <span><img class="detail-img" src="./image/detail.png"></span>
+            <span class="date">2024-06-08</span>
+          </div>
+         
+          <div >
+            <div class="new-card-box">
+              <div class="new-card-item">
+                <div class="new-card-title">当年产品续接率</div>
+                <div class="new-card-center">
+                  <span class="percent-val">96.7</span>
+                  <span class="percent-unit">%</span>
+                  <span class="percent-val1-name">同比</span>
+                  <span class="percent-val1 red">-0.3</span>
+                  <span class="percent-unit1 red">%</span>
+                </div>
+                <div class="progress"></div>
+                
+              </div>
+              <div class="new-card-item">
+                <div class="new-card-title">当月已到期/总到期客户</div>
+                <div>
+                  <span class="percent-val">96.7</span>
+                  <span class="percent-unit">%</span>
+                  <span class="new-card-text1">550/770</span>
+                </div>
+                <div class="progress"></div>
+              </div>
+              <div class="new-card-item">
+                <div class="new-card-title">当月已到期/总到期金额</div>
+                <div>
+                  <span class="percent-val">96.7</span>
+                  <span class="percent-unit">%</span>
+                  <span class="new-card-text1">114.0万/228.0万</span>
+                </div>
+                <div class="progress"></div>
+              </div>
+            </div>
+            <div class="new-card-box bg1" style="">
+              <div class="new-card-item">
+                <div class="new-card-title">客户接触率</div>
+                <div class="new-card-center">
+                  <span class="percent-val">96.7</span>
+                  <span class="percent-unit">%</span>
+                  
+                </div>
+                <div >
+                  <span class="percent-val1-name">环比</span>
+                  <span class="percent-val1 red">-0.3</span>
+                  <span class="percent-unit1 red">%</span>
+                </div>
+                
+              </div>
+              <div class="new-card-item">
+                <div class="new-card-title">客户续接率</div>
+                <div class="new-card-center">
+                  <span class="percent-val">96.7</span>
+                  <span class="percent-unit">%</span>
+                  
+                </div>
+                <div >
+                  <span class="percent-val1-name">环比</span>
+                  <span class="percent-val1 red">-0.3</span>
+                  <span class="percent-unit1 red">%</span>
+                </div>
+                
+              </div>
+              <div class="new-card-item">
+                <div class="new-card-title">产品续接率</div>
+                <div class="new-card-center">
+                  <span class="percent-val">96.7</span>
+                  <span class="percent-unit">%</span>
+                  
+                </div>
+                <div >
+                  <span class="percent-val1-name">环比</span>
+                  <span class="percent-val1 green">-0.3</span>
+                  <span class="percent-unit1 green">%</span>
+                </div>
+                
+              </div>
+              <div class="new-card-item">
+                <div class="new-card-title">AUM下降率</div>
+                <div class="new-card-center">
+                  <span class="percent-val">96.7</span>
+                  <span class="percent-unit">%</span>
+                  
+                </div>
+                <div >
+                  <span class="percent-val1-name">环比</span>
+                  <span class="percent-val1 green">-0.3</span>
+                  <span class="percent-unit1 green">%</span>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column-item" >
+          <div class="card-item-top">
+            <span class="card-top-title">到期金额日历</span>
+            <span><img class="detail-img" src="./image/detail.png"></span>
+            <span class="date">2024-06-08</span>
+          </div>
+          <div>
+            <div class="tab1-box">
+              <span class="tab1-item tab1-actived">7天</span>
+              <span class="tab1-item ">6个月</span>
+            </div>
+          </div>
+          <div style="height: 200px;">
+            <div class="chart1" id="barChart1"></div>
+          </div>
+        </div>
+      </div>
+      <div class="line1 column" style="display: flex;">
+        
+        <div class="column-item" style="padding-left: 20px;">
+          
+          <div style="height: 300px;">
+            <div class="chart1" id="lineChart1"></div>
+          </div>
+        </div>
+        <div class="column-item">
+          <div class="card-item-top">
+            <span class="card-top-title">到期定期结构</span>
+            <span class="card-top-title" style="display: none;">到期产品结构</span>
+            <span><img class="detail-img" src="./image/detail.png"></span>
+            <span class="date">2024-06-08</span>
+          </div>
+          <div>
+            <div class="tab1-box">
+              <span class="tab1-item tab1-actived">期限</span>
+              <span class="tab1-item ">转存</span>
+            </div>
+            <div class="tab1-box" style="display: none;">
+              <span class="tab1-item tab1-actived">定期</span>
+              <span class="tab1-item ">理财</span>
+            </div>
+          </div>
+          <div style="height: 250px;">
+            <div id="barChart" class="chart1"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="line1 column" style="display: flex;">
+        <div class="column-item" >
+          <div class="card-item-top">
+            <span class="card-top-title">到期管户结构</span>
+            <span><img class="detail-img" src="./image/detail.png"></span>
+            <span class="date">2024-06-08</span>
+          </div>
+         
+          <div class="chart-table-box">
+            <div class="chart-box" style="width: 29%;">
+              <div id="pieChart" style="width: 160px;height: 160px;"></div>
+            </div>
+            <div class="table1 big" style="width: 69%;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>管户关系</th>
+                    <th>总到期金额</th>
+                    <th>已到期占比</th>
+                    <th>AUM月净增</th>
+                    
+                  </tr>
+
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="first-td">
+                      <span class="circle-base circle1"></span> <span>内环</span>
+                    </td>
+                    <td>1234</td>
+                    <td>45.9%</td>
+                    <td>1234</td>
+                    
+                  </tr>
+                  <tr>
+                    <td class="first-td">
+                      <span class="circle-base circle4"></span> <span>外环</span>
+                    </td>
+                    <td>1234</td>
+                    <td>45.9%</td>
+                    <td>1234</td>
+                    
+                  </tr>
+                  <tr>
+                    <td class="first-td">
+                      <span class="circle-base circle3"></span> <span>其他</span>
+                    </td>
+                    <td>1234</td>
+                    <td>45.9%</td>
+                    <td>1234</td>
+                    
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="column-item">
+          <div class="card-item-top">
+            <span class="card-top-title">到期续接评估</span>
+            <span><img class="detail-img" src="./image/detail.png"></span>
+            <span class="date">2024-06-08</span>
+          </div>
+          <div class="table1 little">
+            <table>
+              <thead>
+                <tr>
+                  <th rowspan="2" colspan="2">客户关系</th>
+                  <th colspan="5" >当月评估（%）</th>
+                  
+
+                </tr>
+                <tr>
+                  <th class="th1">客户接触率</th>
+                  <th class="th1">客户续接率</th>
+                  <th class="th1">产品续接率</th>
+                  <th class="th1">AUM下降率</th>
+                  <th class="th1">资产配置率</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2">内环</td>
+                  <td>当月</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td><span class="green">-21.8</span></td>
+                  <td><span class="red">+21.8</span></td>
+                
+                </tr>
+                <tr>
+                  <td>环比</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                </tr>
+                <tr>
+                  <td rowspan="2">外环</td>
+                  <td>当月</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                
+                </tr>
+                <tr>
+                  <td>环比</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                </tr>
+                <tr>
+                  <td rowspan="2">其他</td>
+                  <td>当月</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                
+                </tr>
+                <tr>
+                  <td>环比</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                  <td>97.6</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="line1 column" style="display: flex;">
+        
+        <div class="column-item" style="padding-left: 20px;">
+          <div class="card-item-top">
+            <span class="card-top-title">到期理财结构</span>
+            <span><img class="detail-img" src="./image/detail.png"></span>
+            <span class="date">2024-06-08</span>
+          </div>
+          <div style="height: 300px;">
+            <div class="chart1" id="barChart2"></div>
+          </div>
+        </div>
+        <div class="column-item">
+          <div class="card-item-top">
+            <span class="card-top-title">AUM月净增</span>
+            <span class="card-top-title" style="display: none;">到期产品结构</span>
+            <span><img class="detail-img" src="./image/detail.png"></span>
+            <span class="date">2024-06-08</span>
+          </div>
+          
+          <div style="height: 300px;">
+            <div id="barChart3" class="chart1"></div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div id="smoothChart" style="width:500px;height: 300px;"></div>
+      <style>
+        .rect {
+          width: 200px;
+          height: 162px;
+          background: linear-gradient( 315deg, #FFFFFF 0%, #F4F5FF 100%);
+          box-shadow: 0px 2px 4px 0px #F3F3F3;
+          border-radius: 8px;
+        }
+        .rect1 {
+          width: 96px;
+          height: 8px;
+          background: linear-gradient( 270deg, #FFFFFF 0%, #7874C5 100%);
+          border-radius: 4px;
+        }
+      </style>
+      <div class="rect"></div>
+      <div class="rect1"></div>
+    </div>
+    
+
+    
+  </div>
+
+  <script>
+    var baseGrid = {
+      top: 40,
+      right: 0,
+      left: 20,
+      bottom: 20,
+      containLabel:true,
+    }
+    var baseLegend = {
+      right:45,
+      textStyle:{
+        color:'#809FB8',
+        fontSize:12,
+        fontWeight:500,
+      }
+    }
+    var baseTitle = {
+      textStyle:{
+        color:'#809FB8',
+        fontSize:12,
+        fontWeight:500,
+      }
+    }
+    function initBarChart(id, xData) {
+      var chartDom = document.getElementById(id);
+      var myChart = echarts.init(chartDom);
+      var option;
+      var yData =  [
+        1, 7000, 20000, 3000,
+      ]
+      var minValue = Math.ceil(9000/6)
+       
+      var yData1 = []
+      var yData2 =[0.2, 0.3,0.5, 0.7]
+      for(var i=0;i<yData.length;i++){
+        var val = yData[i] * yData2[i]
+        
+        // yData1.push(val < minValue ? minValue : val)
+        yData1.push(val)
+      }
+      option = {
+        title: {
+          text: '单位：万/%',
+          left:0,
+          textStyle: baseTitle.textStyle,
+        },
+        tooltip: {
+          trigger: 'axis',
+          formatter:(params)=>{
+            var index = params[0].dataIndex
+            var data1 = params[0]
+            var data2 = params[1]
+            var div = `<div>${xData[index]}</div>`
+            div += `<div><span style="display:inline-block;margin-right:5px;width:10px;height:10px;background:${data1.color};border-radius:50%;"></span> <span style="margin-right:10px;">${data1.seriesName}</span><span>${yData[index]}</span></div>`
+            div += `<div><span style="display:inline-block;margin-right:5px;width:10px;height:10px;background:${data2.color};border-radius:50%;"></span> <span style="margin-right:10px;">${data2.seriesName}</span><span>${yData2[index]*100 + '%'}</span></div>`
+            return div
+          }
+        },
+        legend: {
+          // data: ['Rainfall', 'Evaporation']
+          right: 0,
+          icon:'circle',
+          textStyle: baseLegend.textStyle,
+          selectedMode :false,
+        },
+        grid: {
+          left:0,
+          right:0,
+          top:baseGrid.top,
+          bottom:baseGrid.bottom,
+        },
+        calculable: true,
+        xAxis: [
+          {
+            type: 'category',
+            // prettier-ignore
+            // data: ['<1年', '1-3年', '≥3年', '互联网', ],
+            // data: ['本金转存', '本息转存', '无转存（非存单） ', '无转存（存单）' ],
+            data:xData,
+            axisTick: {
+              show: false // 隐藏x轴刻度线
+            },
+            axisLine: {
+              show: false // 隐藏x轴横线
+            },
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            axisLabel:{
+              show:false,
+            }
+          },
+          {
+            type: 'value',
+            axisLabel:{
+              show:false,
+            }
+          },
+        ],
+        series: [
+          {
+            name: '总到期金额',
+            type: 'bar',
+            itemStyle:{
+              color:'#5FCCF8'
+            },
+            barWidth:35,
+            // label:{
+            //   show:true,
+            //   color:'white',
+            // },
+            data: yData,
+          //  markPoint:{
+          //   symbol:'circle',
+          //   symbolSize:35,
+          //   itemStyle:{
+          //     color:' #FFC382'
+          //   },
+          //   label:{
+          //     show:true,
+          //     color:'white'
+          //   },
+          //   data:[
+          //     {
+          //         name: '某个坐标',
+          //         coord: [0, 2500],
+          //         value:'xxx',
+          //     },
+          //     {
+          //         name: '某个坐标',
+          //         coord: [1, 20]
+          //     },
+          //     {
+          //         name: '某个坐标',
+          //         coord: [2, 20]
+          //     },
+          //     {
+          //         name: '某个坐标',
+          //         coord: [3, 20]
+          //     },
+          //   ]
+          //  }
+            
+          },
+          {
+            type: 'scatter',
+            yAxisIndex:0,
+            name:'已到期占比',
+            symbolSize: (value, params)=>{
+              // if(value[0] == 0) {
+              //   return 35
+              // } else {
+              //   return 35
+              // }
+              return 12
+            },
+            label:{
+              show: false,
+              color: 'white',
+              fontSize:14,
+              formatter:(params)=>{
+                var index = params.dataIndex
+                return yData2[index] * 100 +'%'
+              }
+            },
+            itemStyle:{
+              color:'#FFC382',
+              // color:'transparent'
+            },
+            data:[
+              [0,(yData1[0])],
+              [1,(yData1[1])],
+              [2,(yData1[2])],
+              [3,(yData1[3])],
+            ]
+          }
+        ]
+      };
+      option && myChart.setOption(option);
+    }
+    initBarChart('barChart',['<1年', '1-3年', '≥3年', '互联网', ])
+    initBarChart('barChart2',['封闭', '开放', '定开', '周开', ])
+
+
+    function initBarChart1() {
+      var xData = ['11-01', '11-02', '11-03', '11-04', '11-05', '11-06', '11-07']
+      var chartDom = document.getElementById('barChart1');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: '单位：万',
+          textStyle: baseTitle.textStyle,
+        },
+        tooltip: {
+          trigger: 'axis',
+         
+        },
+        legend: {
+          right: 0,
+          icon: 'circle',
+          textStyle: baseLegend.textStyle,
+          data:['定期','理财', '基金', '保险', '信托', '结存','', '国债', '柜台债', '定期定期定期']
+
+        },
+        grid: {
+          left:0,
+          right:0,
+          
+          top:55,
+          bottom:baseGrid.bottom,
+        },
+        xAxis: {
+          type: 'category',
+          axisTick: {
+            show: false // 隐藏刻度线
+          },
+          axisLine: {
+            show: false // 隐藏横线
+          },
+          axisLabel: {
+            color: '#809FB8'
+          },
+          data: xData,
+        },
+        yAxis: {
+          type: 'value',
+          
+          axisTick: {
+            show: false // 隐藏刻度线
+          },
+          axisLine: {
+            show: false // 隐藏横线
+          },
+          axisLabel: {
+            color: '#809FB8',
+            show:false,
+          },
+
+        },
+        
+        series: [
+          {
+            name: '定期',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            itemStyle: {
+              color: '#3977FC'
+            },
+
+            data: [0, 302, 301, 334, 390, 330, 320]
+          },
+          {
+            name: '理财',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            itemStyle: {
+              color: '#8EC07F'
+            },
+
+            data: [320, 302, 301, 334, 390, 330, 320]
+          },
+          {
+            name: '基金',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            itemStyle: {
+              color: '#FFC382'
+            },
+
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+          {
+            name: '保险',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            itemStyle: {
+              color: '#5FCCF8'
+            },
+
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+
+          {
+            name: '信托',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            itemStyle: {
+              color: '#D0E2FE'
+            },
+
+            data: [220, 202, 201, 234, 290, 230, 220]
+          },
+          {
+            name: '结存',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            itemStyle: {
+              color: '#EDB2AD'
+            },
+
+            data: [320, 322, 321, 324, 320, 320, 320]
+          },
+          {
+            name: '国债',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            itemStyle: {
+              color: '#B1D3E9'
+            },
+
+            data: [120, 122, 121, 124, 100, 220, 220]
+          },
+          {
+            name: '柜台债',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            itemStyle: {
+              color: '#E2C3A5'
+            },
+
+            data: [150, 152, 151, 154, 90, 250, 250]
+          },
+
+
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    initBarChart1()
+
+    function initLineChart1() {
+      var chartDom = document.getElementById('lineChart1');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: '单位：万',
+          left:0,
+          textStyle: baseTitle.textStyle,
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          right: 0,
+          
+          textStyle:{
+            color:'#809FB8',
+            fontSize:12,
+            fontWeight:500,
+          },
+          data: [
+            {
+              name: '客户接触率',
+              icon: 'image://./image/blue.png',
+            },
+            {
+              name: '客户续接率',
+              icon: 'image://./image/green.png',
+            },
+            
+            {
+              name: '产品续接率',
+              icon: 'image://./image/orange.png',
+            },
+           
+            {
+              name: 'AUM下降率',
+              icon: 'image://./image/green-light.png',
+            },
+            {
+              name: 'AUM月净增',
+              icon: 'circle',
+            },
+           
+          ]
+        },
+        grid: {
+          left: 0,
+          right: baseGrid.right,
+          top: baseGrid.top,
+          bottom: baseGrid.bottom,
+
+        },
+
+        xAxis: [
+          {
+            type: 'category',
+            // boundaryGap: false,
+            axisTick: {
+              show: false // 隐藏x轴刻度线
+            },
+            axisLine: {
+              show: false // 隐藏x轴横线
+            },
+            axisLabel: {
+              color: '#809FB8'
+            },
+            data: ['1月', '3月', '6月', '9月', '12月', '1月']
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            axisLabel: {
+              color: '#809FB8',
+              show:false,
+            },
+            axisLine:{
+              onZero:true
+            },
+            min:-900,
+            max:900,
+            interval:360,
+          },
+          {
+            type: 'value',
+            axisLabel: {
+              color: '#809FB8',
+              show:false,
+            },
+            axisLine:{
+              show:false
+            },
+            min:-100,
+            max:100,
+            interval:40,
+          }
+        ],
+        series: [
+          {
+            name: '客户接触率',
+            type: 'line',
+            symbol: 'none',
+            itemStyle: {
+              color: '#3977FC'
+            },
+            data: [10, 20, 30, 45, 25, 55]
+          },
+          {
+            name: '客户续接率',
+            type: 'line',
+            symbol: 'none',
+            itemStyle: {
+              color: '#8EC07F'
+            },
+            data: [12, 20, 35, 45, 25, 55]
+          },
+          {
+            name: '产品续接率',
+            type: 'line',
+            symbol: 'none',
+            itemStyle: {
+              color: '#FFC382'
+            },
+            data: [18, 28, 38, 45, 25, 55]
+          },
+          
+          {
+            name: 'AUM下降率',
+            type: 'line',
+            symbol: 'none',
+            itemStyle: {
+              color: '#12BBE2'
+            },
+            data: [10, 22, 30, 45, 35, 65]
+          },
+
+          {
+            name: 'AUM月净增',
+            type: 'bar',
+            itemStyle:{
+              color:'#5FCCF8'
+            },
+            yAxisIndex:1,
+            barWidth:25,
+            data: [
+              100, 0, 0, 0,0, -900
+            ],
+           
+            
+          },
+          
+
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    initLineChart1()
+
+    function initPieChart(id) {
+      var chartDom = document.getElementById(id);
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title:{
+          text:'xxx',
+          left:'center',
+          top:'center',
+          textStyle:{
+            fontSize:12,
+          }
+        },
+        tooltip: {
+          trigger: 'item'
+        },
+        grid: {
+          right: 0,
+          left:0
+        },
+        legend: {
+          show: false,
+        },
+        series: [
+          {
+            // name: 'Access From',
+            type: 'pie',
+            radius: ['60%', '100%'],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: 'center'
+            },
+            emphasis: {
+              scale: false
+              // label: {
+              //   show: true,
+              //   fontSize: 40,
+              //   fontWeight: 'bold'
+              // }
+            },
+            labelLine: {
+              show: false
+            },
+            data: [
+              { value: 1048, name: '内环', itemStyle: { color: '#FBA779' } },
+              { value: 484, name: '外环', itemStyle: { color: '#5FCDFF' } },
+              { value: 580, name: '其他', itemStyle: { color: '#5D87E3' } },
+            ]
+          }
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+
+    initPieChart('pieChart')
+
+    function initBarChart3(id, xData) {
+      var chartDom = document.getElementById(id);
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: '单位：万',
+          left:0,
+          textStyle: baseTitle.textStyle,
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          // data: ['Rainfall', 'Evaporation']
+          right: 0,
+          icon:'circle',
+          textStyle: baseLegend.textStyle,
+        },
+        grid: {
+          left:0,
+          right:0,
+          top:baseGrid.top,
+          bottom:baseGrid.bottom,
+        },
+        calculable: true,
+        xAxis: [
+          {
+            type: 'category',
+            // prettier-ignore
+            // data: ['<1年', '1-3年', '≥3年', '互联网', ],
+            // data: ['本金转存', '本息转存', '无转存（非存单） ', '无转存（存单）' ],
+            data:xData,
+            axisTick: {
+              show: false // 隐藏x轴刻度线
+            },
+            axisLine: {
+              show: false // 隐藏x轴横线
+            },
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            axisLabel:{
+              show:false,
+            }
+          },
+          
+        ],
+        series: [
+          {
+            name: 'AUM月净增',
+            type: 'bar',
+            itemStyle:{
+              color:'#5FCCF8'
+            },
+            barWidth:25,
+            data: [
+              5000, 7000, 9000, 3000,5000,6000
+            ],
+            
+          },
+          
+        ]
+      };
+      option && myChart.setOption(option);
+    }
+    initBarChart3('barChart3',['活期', '定期', '理财', '基金', '保险', '其他' ])
+
+
+    function initSmoothChart() {
+      var chartDom = document.getElementById('smoothChart');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: '单位：万',
+          textStyle: {
+            color: '#809FB8',
+            fontSize: 14,
+            fontWeight: 'normal'
+          }
+        },
+
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'cross',
+            label: {
+              backgroundColor: '#6a7985'
+            }
+          }
+        },
+        legend: {
+          data: [
+            {
+              name: '当年',
+              itemStyle: {
+                color: '#7FD3E5'
+              },
+              icon: 'image://./image/green-light.png',
+            },
+            {
+              name: '上年',
+              icon: 'image://./image/orange.png',
+              itemStyle: {
+
+                color: '#FFC382'
+              }
+            }
+          ],
+          right: 10,
+          textStyle: {
+            color: '#809FB8'
+          }
+        },
+
+        grid: {
+          top: '12%',
+          right: '3%',
+          left: '10%',
+          bottom: '8%',
+
+        },
+        xAxis: [
+          {
+            type: 'category',
+            boundaryGap: false,
+            axisTick: {
+              show: false // 隐藏x轴刻度线
+            },
+            axisLine: {
+              show: false // 隐藏x轴横线
+            },
+            axisLabel: {
+              color: '#809FB8'
+            },
+            data: ['1月', '3月', '6月', '9月', '12月']
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            axisLabel: {
+              color: '#809FB8'
+            }
+          }
+        ],
+        series: [
+          {
+            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            type: 'line',
+            name:'收入',
+            itemStyle:{
+              color:'#5ACEFF',
+            },
+            areaStyle: {
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [{
+                  offset: 0, color: '#FFFFFF' // 0% 处的颜色
+                }, {
+                  offset: 1, color: '#A0DEF3' // 100% 处的颜色
+                }],
+                global: false // 缺省为 false
+              }
+            },
+            smooth: true
+          }
+
+
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    initSmoothChart()
+  </script>
+</body>
+</html>

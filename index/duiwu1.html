@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="../echarts.js"></script>
+  <script src="../jquery-1.9.1.js"></script>
+
+  <style>
+    * {
+      font-size: 14px;
+    }
+    span {
+      vertical-align: middle;
+    }
+    img {
+      vertical-align: middle;
+    }
+    .chart1 {
+      height: 360px;
+    }
+    .card-item {
+      background: #FFFFFF;
+      box-shadow: 0px 10px 13px 0px rgba(41,72,152,0.03);
+      border-radius: 8px;
+      padding: 11px;
+      margin-bottom: 10px;
+    }
+    .num-table-item {
+      display: flex;
+    }
+    
+    .num-table-item span{
+      flex:1;
+      text-align: right;
+    }
+    .num-table-item >span:first-child {
+      font-size: 12px;
+      color: #1E1F22;
+      flex: none;
+      width: 84px;
+    }
+    .card-title1 {
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+    .card-box1 {
+      display: flex;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .card-box1 .card-item1 {
+      text-align: right;
+      width: 25%;
+      white-space: nowrap;
+    }
+    .card-box1 .card-item1:nth-child(1) {
+      width: 20%;
+    }
+    .card-box1 .card-item1:nth-child(2) {
+      width: 30%;
+    }
+    .card-num1 {
+      color: #6679E5;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .card-unit1 {
+      font-size: 12px;
+      color: #8CA8BF;
+    }
+    .document1 {
+      position: absolute;
+      right: 0;
+      z-index: 0;
+      top: 14px;
+    }
+    .document2 {
+      position: absolute;
+      right: 0;
+      z-index: 0;
+      top: 9px;
+    }
+    .card-box2 .card-item1 {
+      text-align: right;
+      margin-bottom: 16px;
+    }
+    .card-box2 {
+      padding-left: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .container2 {
+      background: linear-gradient( 312deg, #FFFFFF 0%, #F4F5FF 100%);
+      box-shadow: 0px 2px 4px 0px #F3F3F3;
+      border-radius: 8px;
+      padding: 10px 30px;
+    }
+    .container1 {
+      background: linear-gradient( 312deg, #FFFFFF 0%, #F4F5FF 100%);
+      box-shadow: 0px 2px 4px 0px #F3F3F3;
+      border-radius: 8px;
+      padding: 10px 30px;
+      padding-bottom: 0;
+    }
+    .card-box2 .card-item1:last-child {
+      margin-bottom: 0;
+    }
+    .text-color1 {
+      color: #F5A66C;
+    }
+    .bc-color1 {
+      background: linear-gradient( 270deg, #FFFFFF 0%, #F5A56A 100%);
+    }
+    .text-color2 {
+      color: #F56C6C;
+    }
+    .bc-color2 {
+      background: linear-gradient( 270deg, #FFFFFF 0%, #F56A6A 100%);
+    }
+    .text-color3 {
+      color: #7874C5;
+    }
+    .bc-color3 {
+      background: linear-gradient( 270deg, #FFFFFF 0%, #7874C5 100%);
+    }
+    .text-color4 {
+      color: #8CA8BF;
+      flex:1;
+    }
+    .progress-box {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      flex:1;
+    }
+    .progress-box div{
+      font-size: 12px;
+      line-height: 14px;
+    }
+    .progress-box >div:first-child {
+      margin-bottom: 3px;
+    }
+    .progress {
+      border-radius: 4px;
+      height: 8px;
+    }
+    .table-header {
+      display: flex;
+      background: #F3F3F3;
+      border-radius: 8px;
+      line-height: 36px;
+      height: 36px;
+      font-weight: bold;
+    }
+    .table-header >div{
+      text-align: center;
+    }
+    .table-header>div:nth-child(1) {
+      width: 30%;
+    }
+    .table-header>div:nth-child(2) {
+      width: 20%;
+    }
+    .table-header>div:nth-child(3) {
+      width: 20%;
+    }
+    .table-header>div:nth-child(4) {
+      width: 30%;
+    }
+    .table-row {
+      display: flex;
+      line-height: 36px;
+      height: 36px;
+    }
+    .table-row>div:nth-child(1) {
+      width: 30%;
+      text-align: left;
+      padding-left: 10px;
+    }
+    .table-row>div:nth-child(2) {
+      width: 20%;
+      text-align: center;
+    }
+    .table-row>div:nth-child(3) {
+      width: 20%;
+      text-align: center;
+    }
+    .table-row>div:nth-child(4) {
+      width: 30%;
+      text-align: right;
+      padding-right: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .img-cls {
+      position: relative;
+      top: -2px;
+    }
+    .rank-circle {
+      display: inline-block;
+      border-radius: 50%;
+      color: white;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      background: linear-gradient( 270deg, #FFFFFF 0%, #A8BFF0 17%, #5D87E3 100%);
+    }
+    .cus-table-container > div {
+      padding: 0 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-card">
+
+  </div>
+  <div>
+    <div class="card-item card-base" style="display: flex;">
+      <div style="width: 49.5%;margin-right: 1%;">
+        <div class="card-item-top">
+          <span class="card-top-title">个贷客户经理人员结构</span>
+        </div>
+        <div>
+          <div class="chart1" id="barChart1"></div>
+        </div>
+        <div class="num-table-box">
+          <div class="num-table-item" style="margin-bottom: 5px;">
+            <span>支均人数较年初</span>
+            <span class="up-color">+0.3</span>
+            <span class="up-color">+0.3</span>
+            <span class="up-color">+0.3</span>
+            <span class="up-color">+0.3</span>
+            <span class="up-color">+0.3</span>
+            <span class="up-color">+0.3</span>
+            <span class="down-color">-0.3</span>
+            <span class="up-color">+0.3</span>
+            <span class="up-color">+0.3</span>
+            <span class="up-color">+0.3</span>
+            <span class="up-color">+0.3</span>
+            <span class="up-color">+0.3</span>
+            <span class="up-color">+0.3</span>
+          </div>
+          <div class="num-table-item">
+            <span>总人数较年初</span>
+            <span class="up-color">+10</span>
+            <span class="up-color">+10</span>
+            <span class="up-color">+10</span>
+            <span class="up-color">+10</span>
+            <span class="up-color">+10</span>
+            <span class="up-color">+10</span>
+            <span class="down-color">-10</span>
+            <span class="up-color">+10</span>
+            <span class="up-color">+10</span>
+            <span class="up-color">+10</span>
+            <span class="up-color">+10</span>
+            <span class="up-color">+10</span>
+            <span class="up-color">+10</span>
+          </div>
+        </div>
+      </div>
+      <div style="width: 49.5%;"> 
+        <div class="card-item-top">
+          <span class="card-top-title">个贷客户经理人数变化趋势图</span>
+        </div>
+        <div class="chart1" id="barChart2"></div>
+      </div>
+    </div>
+    <div class="card-item card-base cus-table-container" style="display: flex;">
+      <div style="width: 33.33%;">
+        <div class="card-item-top">
+          <span class="card-top-title">房贷投放前十</span>
+        </div>
+        <div class="cus-table">
+          <div class="table-header">
+            <div>客户经理</div>
+            <div>分行</div>
+            <div>支行</div>
+            <div>金额（万）</div>
+          </div>
+          <div class="table-body">
+            <div class="table-row">
+              <div >
+                <img class="img-cls" src="./duiwu/one.png" alt="">
+                <span class="text-color1">王某(122341)</span>
+              </div>
+              <div>浦东分行</div>
+              <div>浦东支行</div>
+              <div>  
+                <div class="progress-box">
+                  <div class="text-color1">14985,89</div>
+                  <div class="progress  bc-color1" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-row">
+              <div >
+                <img class="img-cls" src="./duiwu/two.png" alt="">
+                <span class="text-color2">王某(122341)</span>
+              </div>
+              <div>浦东分行</div>
+              <div>浦东支行</div>
+              <div>  
+                <div class="progress-box">
+                  <div class="text-color2">14985,89</div>
+                  <div class="progress bc-color2" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-row">
+              <div >
+                <img class="img-cls" src="./duiwu/three.png" alt="">
+                <span class="text-color3">王某(122341)</span>
+              </div>
+              <div>浦东分行</div>
+              <div>浦东支行</div>
+              <div>  
+                <div class="progress-box">
+                  <div class="text-color3">14985,89</div>
+                  <div class="progress bc-color3" style="width: 60%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-row">
+              <div >
+                <span class="rank-circle">4</span>
+                <span class="text-color4">王某(122341)</span>
+              </div>
+              <div>浦东分行</div>
+              <div>浦东支行</div>
+              <div>  
+                <div class="text-color4">14985,89</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div style="width: 33.33%;">
+        <div class="card-item-top">
+          <span class="card-top-title">信义贷净增前十</span>
+        </div>
+        <div class="cus-table">
+          <div class="table-header">
+            <div>客户经理</div>
+            <div>分行</div>
+            <div>支行</div>
+            <div>金额（万）</div>
+          </div>
+          <div class="table-body">
+            <div class="table-row">
+              <div >
+                <img class="img-cls" src="./duiwu/one.png" alt="">
+                <span class="text-color1">王某(122341)</span>
+              </div>
+              <div>浦东分行</div>
+              <div>浦东支行</div>
+              <div>  
+                <div class="progress-box">
+                  <div class="text-color1">14985,89</div>
+                  <div class="progress  bc-color1" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-row">
+              <div >
+                <img class="img-cls" src="./duiwu/two.png" alt="">
+                <span class="text-color2">王某(122341)</span>
+              </div>
+              <div>浦东分行</div>
+              <div>浦东支行</div>
+              <div>  
+                <div class="progress-box">
+                  <div class="text-color2">14985,89</div>
+                  <div class="progress bc-color2" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-row">
+              <div >
+                <img class="img-cls" src="./duiwu/three.png" alt="">
+                <span class="text-color3">王某(122341)</span>
+              </div>
+              <div>浦东分行</div>
+              <div>浦东支行</div>
+              <div>  
+                <div class="progress-box">
+                  <div class="text-color3">14985,89</div>
+                  <div class="progress bc-color3" style="width: 60%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-row">
+              <div >
+                <span class="rank-circle">4</span>
+                <span class="text-color4">王某(122341)</span>
+              </div>
+              <div>浦东分行</div>
+              <div>浦东支行</div>
+              <div>  
+                <div class="text-color4">14985,89</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div style="width: 33.33%;">
+        <div class="card-item-top">
+          <span class="card-top-title">信义贷获客前十</span>
+        </div>
+        <div class="cus-table">
+          <div class="table-header">
+            <div>客户经理</div>
+            <div>分行</div>
+            <div>支行</div>
+            <div>金额（万）</div>
+          </div>
+          <div class="table-body">
+            <div class="table-row">
+              <div >
+                <img class="img-cls" src="./duiwu/one.png" alt="">
+                <span class="text-color1">王某(122341)</span>
+              </div>
+              <div>浦东分行</div>
+              <div>浦东支行</div>
+              <div>  
+                <div class="progress-box">
+                  <div class="text-color1">14985,89</div>
+                  <div class="progress  bc-color1" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-row">
+              <div >
+                <img class="img-cls" src="./duiwu/two.png" alt="">
+                <span class="text-color2">王某(122341)</span>
+              </div>
+              <div>浦东分行</div>
+              <div>浦东支行</div>
+              <div>  
+                <div class="progress-box">
+                  <div class="text-color2">14985,89</div>
+                  <div class="progress bc-color2" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-row">
+              <div >
+                <img class="img-cls" src="./duiwu/three.png" alt="">
+                <span class="text-color3">王某(122341)</span>
+              </div>
+              <div>浦东分行</div>
+              <div>浦东支行</div>
+              <div>  
+                <div class="progress-box">
+                  <div class="text-color3">14985,89</div>
+                  <div class="progress bc-color3" style="width: 60%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-row">
+              <div >
+                <span class="rank-circle">4</span>
+                <span class="text-color4">王某(122341)</span>
+              </div>
+              <div>浦东分行</div>
+              <div>浦东支行</div>
+              <div>  
+                <div class="text-color4">14985,89</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-item card-base" style="display: flex;padding:11px 23px;">
+      <div class="container1" style="width: 40%;margin-right: 2%;position: relative;" >
+        <div class="card-title1">0产能名单</div>
+        <img src="./duiwu/document1.png" class="document1">
+        <div class="card-box1">
+          <div class="card-item1">
+            <span class="card-text1">浦东分行</span>
+            <span class="card-num1">99</span>
+            <span class="card-unit1">人</span>
+          </div>
+          <div class="card-item1">
+            <span class="card-text1">浦西支行</span>
+            <span class="card-num1">99</span>
+            <span class="card-unit1">人</span>
+          </div>
+          <div class="card-item1">
+            <span class="card-text1">静安支行</span>
+            <span class="card-num1">99</span>
+            <span class="card-unit1">人</span>
+          </div>
+          <div class="card-item1">
+            <span class="card-text1">西安支行</span>
+            <span class="card-num1">99</span>
+            <span class="card-unit1">人</span>
+          </div>
+          
+        </div>
+        <div class="card-box1">
+          <div class="card-item1">
+            <span class="card-text1">惠南分行</span>
+            <span class="card-num1">99</span>
+            <span class="card-unit1">人</span>
+          </div>
+          <div class="card-item1">
+            <span class="card-text1">马家浜路支行</span>
+            <span class="card-num1">99</span>
+            <span class="card-unit1">人</span>
+          </div>
+          <div class="card-item1">
+            <span class="card-text1">泗泾支行</span>
+            <span class="card-num1">99</span>
+            <span class="card-unit1">人</span>
+          </div>
+          <div class="card-item1">
+            <span class="card-text1">九亭支行</span>
+            <span class="card-num1">99</span>
+            <span class="card-unit1">人</span>
+          </div>
+        </div>
+      </div>
+      <div class="container2" style="width: 58%;position: relative;">
+        <img src="./duiwu/document2.png" class="document2">
+        <div style="display: flex;justify-content: space-between;">
+          <div >
+            <div class="card-title1">全行</div>
+            <div class="card-box2">
+              <div class="card-item1">
+                <span class="card-text1">人均房贷投放</span>
+                <span class="card-num1">99.99</span>
+                <span class="card-unit1">万</span>
+              </div>
+              <div class="card-item1">
+                <span class="card-text1">人均信义贷净增</span>
+                <span class="card-num1">99.99</span>
+                <span class="card-unit1">万</span>
+              </div>
+              <div class="card-item1">
+                <span class="card-text1">人均信义贷获客</span>
+                <span class="card-num1">99.99</span>
+                <span class="card-unit1">户</span>
+              </div>
+            </div>
+          </div>
+          <div >
+            <div class="card-title1">各地</div>
+            <div class="card-box2">
+              <div class="card-item1">
+                <span class="card-text1">人均房贷投放</span>
+                <span class="card-num1">99.99</span>
+                <span class="card-unit1">万</span>
+              </div>
+              <div class="card-item1">
+                <span class="card-text1">人均信义贷净增</span>
+                <span class="card-num1">99.99</span>
+                <span class="card-unit1">万</span>
+              </div>
+              <div class="card-item1">
+                <span class="card-text1">人均信义贷获客</span>
+                <span class="card-num1">99.99</span>
+                <span class="card-unit1">户</span>
+              </div>
+            </div>
+          </div>
+          <div >
+            <div class="card-title1">上海</div>
+            <div class="card-box2">
+              <div class="card-item1">
+                <span class="card-text1">人均房贷投放</span>
+                <span class="card-num1">99.99</span>
+                <span class="card-unit1">万</span>
+              </div>
+              <div class="card-item1">
+                <span class="card-text1">人均信义贷净增</span>
+                <span class="card-num1">99.99</span>
+                <span class="card-unit1">万</span>
+              </div>
+              <div class="card-item1">
+                <span class="card-text1">人均信义贷获客</span>
+                <span class="card-num1">99.99</span>
+                <span class="card-unit1">户</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <script>
+    var baseTitle = {
+      textStyle:{
+        color:'#809FB8',
+        fontSize:12,
+        fontWeight:500,
+      }
+    }
+    var baseGrid = {
+      top: 40,
+      right: 0,
+      left: 20,
+      bottom: 20,
+      containLabel:true,
+    }
+    var baseLegend = {
+      right:45,
+      textStyle:{
+        color:'#809FB8',
+        fontSize:12,
+        fontWeight:500,
+      }
+    }
+    function initBarChart(id, xData, yData1, yData2) {
+
+      var chartDom = document.getElementById(id);
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: '单位：人',
+          textStyle: baseTitle.textStyle,
+        },
+        grid: {
+
+          top: 40,
+          right: 0,
+          left: 20,
+          bottom:0,
+          containLabel: true,
+        },
+        tooltip: {
+          show: true,
+          
+          formatter:function(params) {
+            let xNum = params.dataIndex
+            let xVal = xData[xNum]
+            let yVal1 = yData1[xNum]
+            let yVal2 = yData2[xNum]
+            let color1 = '#5FCCF8'
+            let color2 = '#FFC382'
+            let num1 = '+10'
+            let num2 = '-10'
+            let div = '<div style="margin-bottom:5px;font-weight:bold;">'+ xVal +'</div>'
+            let div1= '<div>' +
+            `<div style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${color1};"></div>`
+            + `<div style="display:inline-block;width:62px;">总人数</div> ` + yVal1 + `<div style="margin-left:10px;display:inline-block;">较年初：</div>`
+            + `<span style="color: #F3654A;">${num1}<span>`
+            + '</div>'
+            let div2= '<div>' +
+            `<div style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${color2};"></div>`
+            + `<div style="display:inline-block;width:62px;">支均人数</div> ` + yVal2 + `<div style="margin-left:10px;display:inline-block;">较年初：</div>`
+            + `<span style="color: #2DBFA2;">${num2}<span>`
+            + '</div>'
+            return div + div1 +div2
+          }
+        },
+        xAxis: {
+          type: 'category',
+          // data: ['活期', '定期', '理财', '基金', '保险', '三方'],
+          data: xData,
+          axisTick: {
+            show: false // 隐藏x轴刻度线
+          },
+          axisLine: {
+            show: false // 隐藏x轴横线
+          },
+          axisLabel: {
+            color: '#809FB8',
+            rotate:50,
+            formatter:(p) => {
+              console.log(p,'bbbbb')
+            }
+          }
+        },
+        legend: {
+          icon: 'circle',
+          right: 0,
+          textStyle: {
+            color: '#809FB8'
+          }
+        },
+        yAxis: {
+          type: 'value',
+          axisLabel: {
+            color: '#809FB8'
+          },
+
+        },
+        series: [
+          {
+            data: yData1,
+            type: 'bar',
+            name: '总人数',
+            
+            itemStyle: {
+              color: '#5FCCF8'
+            },
+            barWidth: 10,
+            barGap: 0,
+          },
+          {
+            data: yData2,
+            type: 'bar',
+            name: '支均人数',
+            itemStyle: {
+              color: '#FFC382'
+            },
+            barWidth: 10,
+            barGap: 0,
+          }
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    var yData1 = [120, 200, 150, 80, 70, 110, 120, 200, 150, 80, 70, 110,110]
+    var yData2 = [120, 200, 150, 80, 70, 110, 120, 200, 150, 80, 70, 110,110]
+    const xData = ['浦东分行', '浦西分行', '静安分行', '泗泾分行', '南京分行','陆家嘴分行','九亭分行',
+      '惠南分行', '杭州分行', '南汇分行', '北京分行', '成都分行', '四川分行'
+    ]
+    initBarChart('barChart1', xData, yData1, yData2)
+
+    function initBarChart2() {
+      var xData = ['11.01', '11.02', '11.03', '11.04', '11.05', '11.06', '11.07']
+      var chartDom = document.getElementById('barChart2');
+      var myChart = echarts.init(chartDom);
+      myChart.off('legendselectchanged'); // 防止重复绑定
+      let showStr = '各地人数'
+      
+      var option;
+
+      option = {
+        title: {
+          text: '单位：人',
+          textStyle: baseTitle.textStyle,
+        },
+        tooltip: {
+          trigger: 'axis',
+         
+        },
+        legend: {
+          right: 0,
+          icon: 'circle',
+          textStyle: baseLegend.textStyle,
+
+        },
+        grid: {
+          top: 40,
+          right: 0,
+          left: 20,
+          bottom:42,
+          containLabel: true,
+
+        },
+        xAxis: {
+          type: 'category',
+          axisTick: {
+            show: false // 隐藏刻度线
+          },
+          axisLine: {
+            show: false // 隐藏横线
+          },
+          axisLabel: {
+            color: '#809FB8'
+          },
+          data: xData,
+        },
+        yAxis: {
+          type: 'value',
+          
+          axisTick: {
+            show: false // 隐藏刻度线
+          },
+          axisLine: {
+            show: false // 隐藏横线
+          },
+          axisLabel: {
+            color: '#809FB8',
+          },
+
+        },
+        
+        series: [
+          {
+            name: '上海人数',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            label: {
+              fontWeight:600,
+              fontSize:16,
+              show: showStr == '上海人数',
+              position: 'top',
+              formatter:(param)=>{
+                return param.data
+              }
+            },
+            itemStyle: {
+              color: '#5FCCF8'
+            },
+
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+          {
+            name: '各地人数',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            label: {
+              fontWeight:600,
+              fontSize:16,
+              show: showStr == '各地人数',
+              position: 'top',
+              formatter:(param)=>{
+                return param.data
+              }
+            },
+            itemStyle: {
+              color: '#FFC382'
+            },
+
+            data: ['0', 132, 101, 134, 90, 230, 210]
+          },
+          
+
+        ]
+      };
+
+      myChart.on('legendselectchanged', (params) => {
+        let selectedObj = params.selected
+        let showNumList = []
+        Object.keys(selectedObj).forEach((key) => {
+          if(selectedObj[key]) {
+            showNumList.push(key)
+          }
+        })
+        if(showNumList.includes('各地人数')) {
+          showStr = '各地人数'
+          option.series[1].label.show = true
+          option.series[0].label.show = false
+        } else if(showNumList.includes('上海人数')) {
+          showStr = '上海人数'
+          option.series[0].label.show = true
+          option.series[1].label.show = false
+        } else {
+          option.series[1].label.show = false
+          option.series[0].label.show = false
+        }
+        myChart.setOption(option);
+        console.log(showStr)
+      });
+      option && myChart.setOption(option);
+    }
+    initBarChart2()
+  </script>
+</body>
+</html>

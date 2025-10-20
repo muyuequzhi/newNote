@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible">
+</meta>
+<script src="./jquery-1.9.1.js"></script>
+<link rel="stylesheet" href="./var.css">
+<title>Document</title>
+<style>
+  .text {
+    width: 500px;
+    height: 300px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid var(--gray);
+  }
+</style>
+</head>
+
+<body>
+  <div>
+    <textarea style="height: fit-content;"></textarea>
+    <label class="custom-radio">
+      <input name="radio1" type="radio">
+      <span class="checkmark"></span>
+    </label>
+    <span>全量</span>
+  </div>
+  <!-- <div>
+    <button id="btn">click</button>
+    <div>
+      <input type="range" id="seek-slider" max="169" value="0">
+      <input type="file">
+    </div>
+    <div>
+
+      <input type="file">
+    </div>
+    
+    
+  </div> -->
+  <!-- <div style="position: relative;display: flex;justify-content: center;">
+    <div id="text" oninput="console.log(this)" class="text" contenteditable="true">
+      
+    </div>
+  </div> -->
+
+  <!-- <input type="text" oninput="changeVal(this)"> 
+    <div id="text"></div> -->
+    <!-- <div id="myDiv" contenteditable="true">
+      这是一个可编辑的区域。
+    </div>
+    <button onclick="updateHtmlAndSetCursor()">更新内容并设置光标位置</button> -->
+
+  <script>
+    window.addEventListener('storage', (e) => {
+      console.log(e, 666)
+    })
+    // setTimeout(()=> {
+    //   window.localStorage.setItem('key', +new Date() + '')
+    // }, 1000)
+
+function updateHtmlAndSetCursor() {
+    var div = document.getElementById("myDiv");
+
+    // 更新内部HTML
+    div.innerHTML = "<p>更新后的内容。</p>";
+
+    // 设置光标位置
+    var range = document.createRange();
+    range.selectNodeContents(div);
+    range.collapse(false);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+}
+    function changeVal(e) {
+      // console.log(e)
+      queueMicrotask(() => {
+
+        document.querySelector('#text').append(666)
+
+      })
+      document.querySelector('#text').append(e.value)
+    }
+    $('#btn').on('click', function () {
+      console.log(666)
+      $('#btn').off()
+    })
+    var arr = [1, 2, 3, 4, 5]
+    function genDiv() {
+      var divs = ''
+      for (var i = 0; i < arr.length; i++) {
+        var div = '<div>' + arr[i] + '</div>'
+
+        divs += div
+      }
+
+    }
+    // test
+  </script>
+</body>
+
+</html>

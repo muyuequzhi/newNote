@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .flex span {
+      flex: 1;
+      min-width: max-content; /* 按内容最大宽度扩展 */
+      overflow: visible;
+    }
+  </style>
+</head>
+<body>
+  <div >
+    <div style="width: 300px;overflow: auto;position: relative;">
+      <table>
+        <thead>
+          <tr>
+            <th>xxxxxxx</th>
+            <th>xxxxxxx</th>
+            <th>xxxxxxx</th>
+            <th>xxxxxxx</th>
+            <th>xxxxxxx</th>
+            <th>xxxxxxx</th>
+          </tr>
+          
+        </thead>
+        <tbody>
+          <tr>
+            <td>xxxxxxx</td>
+            <td>xxxxxxx</td>
+            <td>xxxxxxx</td>
+            <td>xxxxxxx</td>
+            <td>xxxxxxx</td>
+            <td>xxxxxxx</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="width: 157px;position: relative;">
+      <table>
+        <thead>
+          <tr>
+            <th>xxxxxxx</th>
+            <th>xxxxxxx</th>
+            <th>xxxxxxx</th>
+            <th>xxxxxxx</th>
+            <th>xxxxxxx</th>
+            <th>xxxxxxx</th>
+          </tr>
+          
+        </thead>
+        <tbody>
+          <tr>
+            <td>xxxxxxx</td>
+            <td>xxxxxxx</td>
+            <td>xxxxxxx</td>
+            <td>xxxxxxx</td>
+            <td>xxxxxxx</td>
+            <td>xxxxxxx</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+
+  <div style="width: 200px;overflow: auto;">
+    <div class="flex" style="display: flex;background-color: #eee;">
+      <span>111111</span>
+      <span>111111</span>
+      <span>111111</span>
+      <span>111111</span>
+      <span>111111</span>
+      <span>111111</span>
+    </div>
+  </div>
+</body>
+</html>

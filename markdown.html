@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-3.7.1.min.js"></script>
+  <style>
+    
+    .text {
+      width: 800px;
+      height: 500px;
+      margin: auto;
+      padding: 16px;
+    }
+    *:focus-visible {
+      outline: none;
+    }
+    #myMenu {
+      position: absolute;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="text-box">
+    <div id="text" contenteditable="true" class="text" oninput="handleInput(this)" onfocus="handleFocus(this)">
+     
+    </div>
+    <ul id="myMenu" style="display: none;">
+      <li> 1</li>
+      <li> 2</li>
+      <li> 3</li>
+    </ul>
+  </div>
+
+  <script>
+
+    function handleInput(e) {
+      // console.log(e.target, 'input')
+      let { anchorNode, anchorOffset} = getSel()
+      console.log(anchorNode, anchorOffset)
+      let text = anchorNode.data
+      // $(anchorNode.parentNode).empty()
+      // $(anchorNode.parentNode).append(`<h2>${text}</h2>`)
+    }
+    function handleFocus(e) {
+      // console.log(e.target, 'focus')
+
+    }
+    function getChildIndex(child) {
+      const childNodes = document.querySelector('#text').childNodes
+
+      return Array.prototype.indexOf.call(childNodes, child);
+    }
+    function getSel() {
+
+      let sel = window.getSelection()
+      let {focusNode, focusOffset, anchorNode, anchorOffset, isCollapsed} = sel
+      let anchorNodeIndex = -1 // 起始
+      let focusNodeIndex = -1 // 结束
+      
+      let cursorIndex = -1
+      if(isCollapsed) {
+        cursorIndex =  anchorOffset
+      } else {
+        focusNodeIndex = getChildIndex(focusNode.parentNode)
+        anchorNodeIndex = getChildIndex(anchorNode.parentNode)
+      }
+      
+      
+      // console.log(focusNodeIndex, anchorNodeIndex,cursorIndex)
+
+      return { anchorNode, anchorOffset, focusNode, focusOffset, isCollapsed,focusNodeIndex, anchorNodeIndex,cursorIndex }
+      
+    }
+    
+    function getCurContent() {
+
+    }
+    function getSelContent() {
+      let selection = document.getSelection();
+      // getRangeAt(0) 火狐之外都只有0， 也就是不支持多选
+      selection.getRangeAt(0).cloneContents().childNodes.forEach((item) => console.log(item.textContent))
+    }
+    // getSel()
+
+    
+    document.addEventListener('contextmenu', function(event) {
+      // 右键
+      // console.log(e, 'click')
+      // var x = event.clientX; // 获取鼠标点击位置的横坐标
+      // var y = event.clientY; // 获取鼠标点击位置的纵坐标
+
+      // event.preventDefault(); // 取消默认右键菜单
+
+      // var myMenu = document.getElementById("myMenu");
+      // myMenu.style.left = event.clientX + "px";
+      // myMenu.style.top = event.clientY + "px";
+      // myMenu.style.display = "block";
+
+      getSelContent()
+    })
+    document.addEventListener("click", function () {
+      var myMenu = document.getElementById("myMenu");
+      myMenu.style.display = "none";
+    });
+  </script>
+</body>
+</html>

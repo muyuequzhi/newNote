@@ -1,0 +1,2840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="../echarts.js"></script>
+  <script src="../jquery-1.9.1.js"></script>
+</head>
+
+<body>
+  <div>
+
+    <div id="topDiv" style="position: fixed;z-index: 1000;top: 0;width: 100%;background-color: #F6F7FE;">
+      <div class="header line">
+        <div class="header-left">
+          <img src="./image/logo.png">
+          <div class="menu-list">
+            <span class="menu-item menu-item-actived">首页</span>
+            <span class="menu-item">客户中心</span>
+            <span class="menu-item">我的工作台</span>
+            <span class="menu-item">业绩中心</span>
+            <span class="menu-item">营销中心</span>
+            <span class="menu-item">学习天地</span>
+          </div>
+        </div>
+
+        <div class="header-right"> 
+          <img src="./image/man.png">
+
+          <div id="selectVal" onclick="showSelect()" class="custom-select">
+            <div class="user-role">机构管理人员 <span style="margin-left: 5px;">(零售)</span></div>
+            <div class="user-text">总行零售业务部-测试王</div>
+
+            <div id="selectBox" class="tooltip-box" style="width: 200px;position: absolute;right: -48px;">
+              <div class="tooltip">
+                <div>总行内勤</div>
+                <div>同业业务移动审批岗</div>
+                <div>总行内勤</div>
+                <div>同业业务移动审批岗</div>
+                <div>总行内勤</div>
+                <div>同业业务移动审批岗</div>
+                <div>总行内勤</div>
+                <div>同业业务移动审批岗</div>
+                <div>总行内勤</div>
+                <div>同业业务移动审批岗</div>
+                <div>总行内勤</div>
+                <div>同业业务移动审批岗</div>
+              </div>
+            </div>
+
+          </div>
+          <div>
+            <img src="./image/arrow-down-white1.png" onclick="showSelect()">
+          </div>
+          <div id="menuImg" style="position: relative;">
+            <img onclick="showMenu()" style="margin-left:30px;margin-right: 14px;" src="./image/menu.png">
+
+            <div id="menuBox" style="top: 35px;right: -3px; width: 141px;" class="tooltip-box">
+              <div class="tooltip">
+                <div>
+                  <img src="./image/entrance.png">
+                  <span>切换至旧版</span>
+                </div>
+                <div>
+                  <img src="./image/role.png">
+                  <span>设为默认角色</span>
+                </div>
+                <div>
+                  <img src="./image/setting.png">
+                  <span> 系统参数管理</span>
+                </div>
+                <div>
+                  <img src="./image/exit.png">
+                  <span> 退出</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="body-container">
+        <div class="top-card line">
+          <div class="top-img-box">
+            <img class="notification-img" src="./image/notification.png">
+            <span class="notification-text">客户关系管理与信息支持平台V11.0上线通知（对私）</span>
+          </div>
+          <div class="top-menu-box">
+            <span class="top-menu-text">常用功能：</span>
+            <div class="top-menu">
+              <div>客户快速查询</div>
+              <div>中高端客户分户管理</div>
+              <div>全量客户查询</div>
+              <div>潜力客户分户管理</div>
+              <div>实时准实时机构报表</div>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex;justify-content: space-between;">
+          <div class="tab-box line">
+            <div data="1" class="tab-item tab-actived">
+              总览
+            </div>
+            <div data="2" class="tab-item">
+              输送转化
+            </div>
+            <div data="3" class="tab-item">
+              渗透活跃
+            </div>
+            <div data="4" class="tab-item">
+              新户经营
+            </div>
+            <div data="5" class="tab-item">
+              过程管理
+            </div>
+          </div>
+          <div class="search-box">
+            <input type="text" placeholder="请输入..." class="search-input">
+            <span class="search-icon-box">
+              <img src="./image/search.png">
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div id="bodyDiv" class="body-container" style="height: calc(100vh - 168px);overflow-y: auto;">
+      <div id="tabItem1" class="scroll-item">
+        <div class="card-title" style="height: 0;">总览</div>
+        <div class="box1 line">
+          <div class="col1">
+            <div class="card-item card-item-actived">
+              <div class="card-item-top">
+                <span class="card-top-title">AUM</span>
+                <span><img class="detail-img" src="./image/detail.png"></span>
+                <span class="date">2024-06-08</span>
+              </div>
+              <div>
+                <span class="money">2234,50</span>
+                <span class="unit">万</span>
+              </div>
+              <div class="card-item-bottom">
+                <div>
+                  <span class="card-bottom-text">较上月</span>
+                  <span class="down-color arrow-text">-123</span>
+                  <span><img class="down-img" src="./image/arrow-down.png"></span>
+                </div>
+                <div>
+                  <span class="card-bottom-text">较上年</span>
+                  <span class="up-color arrow-text">+123</span>
+                  <span><img class="up-img" src="./image/arrow-up.png"></span>
+                </div>
+              </div>
+            </div>
+            <div class="card-item ">
+              <div class="card-item-top">
+                <span class="card-top-title">储蓄存款</span>
+                <span><img class="detail-img" src="./image/detail.png"></span>
+                <span class="date">2024-06-08</span>
+              </div>
+              <div>
+                <span class="money">2234,50</span>
+                <span class="unit">万</span>
+              </div>
+              <div class="card-item-bottom">
+                <div>
+                  <span class="card-bottom-text">较上月</span>
+                  <span class="down-color arrow-text">-123</span>
+                  <span><img class="down-img" src="./image/arrow-down.png"></span>
+                </div>
+                <div>
+                  <span class="card-bottom-text">较上年</span>
+                  <span class="up-color arrow-text">+123</span>
+                  <span><img class="up-img" src="./image/arrow-up.png"></span>
+                </div>
+              </div>
+            </div>
+            <div class="card-item ">
+              <div class="card-item-top">
+                <span class="card-top-title">非息AUM</span>
+                <span><img class="detail-img" src="./image/detail.png"></span>
+                <span class="date">2024-06-08</span>
+              </div>
+              <div>
+                <span class="money">2234,50</span>
+                <span class="unit">万</span>
+              </div>
+              <div class="card-item-bottom">
+                <div>
+                  <span class="card-bottom-text">较上月</span>
+                  <span class="down-color arrow-text">-123</span>
+                  <span><img class="down-img" src="./image/arrow-down.png"></span>
+                </div>
+                <div>
+                  <span class="card-bottom-text">较上年</span>
+                  <span class="up-color arrow-text">+123</span>
+                  <span><img class="up-img" src="./image/arrow-up.png"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col2">
+            <div class="card-item" style="height: 100%;">
+              <div class="card-item-top">
+                <span class="card-top-title">AUM净增</span>
+                <span><img class="detail-img" src="./image/detail.png"></span>
+                <span class="date">2024-06-08</span>
+              </div>
+              <div class="tab1-box">
+                <span class="tab1-item">日均</span>
+                <span class="tab1-item tab1-actived">时点</span>
+              </div>
+              <div class="chart-box" style="height: 76%;">
+                <div class="chart1" id="chart1"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col3">
+            <div class="card-item card-item-actived">
+              <div class="card-item-top">
+                <span class="card-top-title">MAU</span>
+                <span><img class="detail-img" src="./image/detail.png"></span>
+                <span class="date">2024-06-08</span>
+              </div>
+              <div>
+                <span class="money">2234,50</span>
+                <span class="unit">万</span>
+              </div>
+              <div class="card-item-bottom">
+                <div>
+                  <span class="card-bottom-text">较上月</span>
+                  <span class="down-color arrow-text">-123</span>
+                  <span><img class="down-img" src="./image/arrow-down.png"></span>
+                </div>
+                <div>
+                  <span class="card-bottom-text">较上年</span>
+                  <span class="up-color arrow-text">+123</span>
+                  <span><img class="up-img" src="./image/arrow-up.png"></span>
+                </div>
+              </div>
+            </div>
+            <div class="card-item ">
+              <div class="card-item-top">
+                <span class="card-top-title">30万以上客户数</span>
+                <span><img class="detail-img" src="./image/detail.png"></span>
+                <span class="date">2024-06-08</span>
+              </div>
+              <div>
+                <span class="money">2234,50</span>
+                <span class="unit">万</span>
+              </div>
+              <div class="card-item-bottom">
+                <div>
+                  <span class="card-bottom-text">较上月</span>
+                  <span class="down-color arrow-text">-123</span>
+                  <span><img class="down-img" src="./image/arrow-down.png"></span>
+                </div>
+                <div>
+                  <span class="card-bottom-text">较上年</span>
+                  <span class="up-color arrow-text">+123</span>
+                  <span><img class="up-img" src="./image/arrow-up.png"></span>
+                </div>
+              </div>
+            </div>
+            <div class="card-item ">
+              <div class="card-item-top">
+                <span class="card-top-title">当年财富中收</span>
+                <span><img class="detail-img" src="./image/detail.png"></span>
+                <span class="date">2024-06-08</span>
+              </div>
+              <div>
+                <span class="money">2234,50</span>
+                <span class="unit">万</span>
+              </div>
+              <div class="card-item-bottom">
+                <div>
+                  <span class="card-bottom-text">较上月</span>
+                  <span class="down-color arrow-text">-123</span>
+                  <span><img class="down-img" src="./image/arrow-down.png"></span>
+                </div>
+                <div>
+                  <span class="card-bottom-text">较上年</span>
+                  <span class="up-color arrow-text">+123</span>
+                  <span><img class="up-img" src="./image/arrow-up.png"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col4">
+            <div class="card-item" style="height: 100%;">
+              <div class="card-item-top">
+                <span class="card-top-title">MAU净增</span>
+                <span><img class="detail-img" src="./image/detail.png"></span>
+                <span class="date">2024-06-08</span>
+              </div>
+              <div class="tab1-box" style="opacity: 0;cursor: context-menu;">
+                <span class="tab1-item">日均</span>
+                <span class="tab1-item tab1-actived">时点</span>
+              </div>
+              <div class="chart-box" style="height: 76%;">
+                <div class="chart1" id="chart2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box2 line">
+
+          <div class="col1 card-item">
+            <div class="top-box">
+              <div>
+                <span class="top-icon1"></span>
+                <span class="top-title">工作事项</span>
+                <span class="top-icon2"></span>
+              </div>
+            </div>
+            <div class="card1-item card1-item-actived" style="margin-top: 0;">
+              <div><img class="card1-item-img" src="./image/task.png"></div>
+              <div>
+                <div class="card1-item-text">
+                  <div>任务待分配</div>
+                  <div><span class="card1-item-num">108</span><span class="card1-item-unit">条</span> </div>
+                </div>
+                <div class="card1-item-text">
+                  <div>今日新增</div>
+                  <div><span class="card1-item-num">108</span><span class="img-box"><img class="up-img"
+                        src="./image/arrow-up.png"></span> </div>
+                </div>
+              </div>
+            </div>
+            <div class="card1-item">
+              <div><img class="card1-item-img" src="./image/event.png"></div>
+              <div>
+                <div class="card1-item-text">
+                  <div>重要事件提醒</div>
+                  <div><span class="card1-item-num">108</span><span class="card1-item-unit">条</span> </div>
+                </div>
+                <div class="card1-item-text">
+                  <div>今日新增</div>
+                  <div><span class="card1-item-num">108</span><span class="img-box"><img class="up-img"
+                        src="./image/arrow-up.png"></span> </div>
+                </div>
+              </div>
+            </div>
+            <div class="card1-item">
+              <div><img class="card1-item-img" src="./image/trade.png"></div>
+              <div>
+                <div class="card1-item-text">
+                  <div>大额交易提醒</div>
+                  <div><span class="card1-item-num">108</span><span class="card1-item-unit">条</span> </div>
+                </div>
+                <div class="card1-item-text">
+                  <div>今日新增</div>
+                  <div><span class="card1-item-num">108</span><span class="img-box"><img class="up-img"
+                        src="./image/arrow-up.png"></span> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col2 card-item">
+            <div class="card-item-top">
+              <span class="card-top-title">今日战报</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="tab1-box">
+              <span class="tab1-item tab1-actived">输送转化</span>
+              <span class="tab1-item ">功能渗透</span>
+            </div>
+            <div class="card2-item" style="margin-top: 0px;">
+              <div>
+                <div class="col2-text">30万日新增/流失</div>
+                <div class="col2-num-box">
+                  <div>
+                    <span class="up-color arrow-text">488</span>
+                    <span><img class="up-img" src="./image/arrow-up.png"></span>
+                  </div>
+                  <div>
+                    <span class="down-color arrow-text">488</span>
+                    <span><img class="up-img" src="./image/arrow-down.png"></span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="col2-text">理财日销量</div>
+                <div class="col2-num-box">
+                  <span class="up-color arrow-text">88</span>
+                </div>
+              </div>
+            </div>
+            <div class="card2-item">
+              <div>
+                <div class="col2-text">100万日新增/流失</div>
+                <div class="col2-num-box">
+                  <div>
+                    <span class="up-color arrow-text">488</span>
+                    <span><img class="up-img" src="./image/arrow-up.png"></span>
+                  </div>
+                  <div>
+                    <span class="down-color arrow-text">488</span>
+                    <span><img class="up-img" src="./image/arrow-down.png"></span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="col2-text">非货基金销量</div>
+                <div class="col2-num-box">
+                  <span class="up-color arrow-text">88</span>
+                </div>
+              </div>
+            </div>
+            <div class="card2-item">
+              <div>
+                <div class="col2-text">800万日新增/流失</div>
+                <div class="col2-num-box">
+                  <div>
+                    <span class="up-color arrow-text">488</span>
+                    <span><img class="up-img" src="./image/arrow-up.png"></span>
+                  </div>
+                  <div>
+                    <span class="down-color arrow-text">488</span>
+                    <span><img class="up-img" src="./image/arrow-down.png"></span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="col2-text">保险日销量</div>
+                <div class="col2-num-box">
+                  <span class="up-color arrow-text">88</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col3 card-item">
+            <div class="card-item-top">
+              <span class="card-top-title">财富产品转化</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="tab1-box">
+              <span class="tab1-item tab1-actived">产品销量</span>
+              <span class="tab1-item ">财富中收</span>
+            </div>
+            <div class="chart-table-box">
+              <div class="chart-box" style="width: 29%;">
+                <div id="pieChart" style="width: 160px;height: 160px;"></div>
+              </div>
+              <div class="table1" style="width: 69%;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>产品</th>
+                      <th>当年中收</th>
+                      <th>同比</th>
+                      <th>占比</th>
+                      <th>同比</th>
+                      <th>当月中收</th>
+                      <th>占比</th>
+                    </tr>
+
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="first-td">
+                        <span class="circle-base circle1"></span> <span>理财</span>
+                      </td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>1234</td>
+                    </tr>
+                    <tr>
+                      <td class="first-td">
+                        <span class="circle-base circle2"></span> <span>非货基金</span>
+                      </td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>1234</td>
+                    </tr>
+                    <tr>
+                      <td class="first-td">
+                        <span class="circle-base circle3"></span> <span>保险</span>
+                      </td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>1234</td>
+                    </tr>
+                    <tr>
+                      <td class="first-td">
+                        <span class="circle-base circle4"></span> <span>其他</span>
+                      </td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>1234</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="tabItem2" class="scroll-item box3 card-item card-base line">
+        <div class="card-title-box">
+          <div>
+            <img class="card-title-icon" src="./image/title-icon.png">
+            <span class="card-title">输送转化</span>
+          </div>
+          <div class="card-title-detail" onclick="showModal()">
+            <span>更多</span>
+            <img class="arrow-right" src="./image/arrow-right.png">
+          </div>
+        </div>
+        <div class="line1" style="display: flex;">
+          <div class="chart-container" style="width: 49%;">
+            <div class="card-item-top">
+              <span class="card-top-title">AUM规模净增</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="tab1-box">
+              <span class="tab1-item tab1-actived">日均</span>
+              <span class="tab1-item ">时点</span>
+            </div>
+            <div style="height: 300px;">
+              <div class="chart1" id="barChart1"></div>
+            </div>
+          </div>
+          <div class="table-container" style="width: 51%;">
+            <div class="card-item-top">
+              <span class="card-top-title">客户分层结构</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="tab1-box">
+              <span class="tab1-item tab1-actived">当月变动</span>
+              <span class="tab1-item ">当年变动</span>
+              <span class="tab1-item ">客户规模</span>
+            </div>
+            <div class="table1">
+              <table>
+                <thead>
+                  <tr>
+                    <th rowspan="2">资产等级</th>
+                    <th rowspan="2">净增</th>
+                    <th colspan="4">新增</th>
+                    <th colspan="4">流失</th>
+
+                  </tr>
+                  <tr>
+                    <th rowspan="2">资产等级</th>
+                    <th rowspan="2">净增</th>
+                    <th colspan="4">新增</th>
+                    <th colspan="4"></th>
+
+                  </tr>
+                  <tr>
+                    <th class="th1">合计</th>
+                    <th class="th1">内环</th>
+                    <th class="th1">外环</th>
+                    <th class="th1">公共池</th>
+                    <th class="th1">无管户</th>
+                    <th class="th1">合计</th>
+                    <th class="th1">内环</th>
+                    <th class="th1">外环</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>300W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                  </tr>
+                  <tr>
+                    <td>300W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                  </tr>
+                  <tr>
+                    <td>300W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                  </tr>
+                  <tr>
+                    <td>300W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                    <td>3W以上</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="line1">
+          <div class="card-item-top">
+            <span class="card-top-title">客户迁徙结构</span>
+            <span><img class="detail-img" src="./image/detail.png"></span>
+            <span class="date">2024-06-08</span>
+          </div>
+          <div class="tab1-box">
+            <span class="tab1-item tab1-actived">当月</span>
+            <span class="tab1-item ">当年</span>
+          </div>
+          <div class="table1 table2">
+            <table>
+              <thead>
+                <tr>
+                  <th rowspan="2">上年资产等级</th>
+                  <th rowspan="2">30W以下</th>
+                  <th rowspan="2">30-100W</th>
+                  <th rowspan="2">100-300W</th>
+                  <th rowspan="2">300-800W</th>
+                  <th rowspan="2">800W以上</th>
+                  <th rowspan="2">客户数</th>
+                  <th colspan="2">升级率</th>
+                  <th colspan="2">降级率</th>
+
+                </tr>
+                <tr>
+                  <th class="th1">当年</th>
+                  <th class="th1">上年同期</th>
+                  <th class="th1">当年</th>
+                  <th class="th1">上年同期</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>30W以下</td>
+                  <td class="td1">1234</td>
+                  <td class="td3">1234</td>
+                  <td class="td3">1234</td>
+                  <td class="td3">1234</td>
+                  <td class="td3">1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>30w-100w</td>
+                  <td class="td2">1234</td>
+                  <td class="td1">1234</td>
+                  <td class="td3">1234</td>
+                  <td class="td3">1234</td>
+                  <td class="td3">1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                </tr>
+                <tr>
+                  <td>100-300W</td>
+                  <td class="td2">1234</td>
+                  <td class="td2">1234</td>
+                  <td class="td1">1234</td>
+                  <td class="td3">1234</td>
+                  <td class="td3">1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                </tr>
+                <tr>
+                  <td>300-800W</td>
+                  <td class="td2">1234</td>
+                  <td class="td2">1234</td>
+                  <td class="td2">1234</td>
+                  <td class="td1">1234</td>
+                  <td class="td3">1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                </tr>
+                <tr>
+                  <td>800W以上</td>
+                  <td class="td2">1234</td>
+                  <td class="td2">1234</td>
+                  <td class="td2">1234</td>
+                  <td class="td2">1234</td>
+                  <td class="td1">1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                  <td>1234</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div style="display: flex;">
+          <div class="chart-container">
+            <div class="card-item-top">
+              <span class="card-top-title">定期规模净增</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="tab1-box">
+              <span class="tab1-item tab1-actived">日均</span>
+              <span class="tab1-item ">时点</span>
+            </div>
+            <div class="chart-box">
+              <div class="chart1" id="barChart2"></div>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div class="card-item-top">
+              <span class="card-top-title">理财规模净增</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="tab1-box">
+              <span class="tab1-item tab1-actived">日均</span>
+              <span class="tab1-item ">时点</span>
+            </div>
+            <div class="chart-box">
+              <div class="chart1" id="barChart3"></div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div id="tabItem3" class="scroll-item box4 card-item card-base line">
+        <div class="card-title-box">
+          <div>
+            <img class="card-title-icon" src="./image/title-icon.png">
+            <span class="card-title">渗透活跃</span>
+          </div>
+          <div class="card-title-detail">
+            <span>更多</span>
+            <img class="arrow-right" src="./image/arrow-right.png">
+          </div>
+        </div>
+        <div class="line1" style="display: flex;">
+          <div class="chart-container">
+            <div class="card-item-top">
+              <span class="card-top-title">基本功能</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="chart-box">
+              <div class="chart1" id="barChart4"></div>
+            </div>
+            <div class="select-box">
+              <div>
+                <div class="select-text">选择客群</div>
+                <div class="input-box">
+                  <div>
+                    <label class="custom-radio">
+                      <input name="radio1" type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span class="radio-text">全量</span>
+                  </div>
+                  <div>
+                    <label class="custom-radio">
+                      <input name="radio1" type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span class="radio-text">内环</span>
+                  </div>
+                  <div>
+                    <label class="custom-radio">
+                      <input name="radio1" type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span class="radio-text">外环</span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div class="card-item-top">
+              <span class="card-top-title">财富产品</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="tab1-box">
+              <span class="tab1-item tab1-actived">四类产品</span>
+              <span class="tab1-item ">所有产品</span>
+            </div>
+            <div class="chart-table-box" style="height: 258px;">
+              <div class="chart-box" style="">
+                <div id="pieChart1" style="width: 100%;height: 100%;"></div>
+              </div>
+              <div class="table1">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>配置</th>
+                      <th>客户数</th>
+                      <th>较上月</th>
+                      <th>较上年</th>
+                      <th>占比</th>
+                      <th>较上月</th>
+                      <th>较上年</th>
+                    </tr>
+
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="first-td">
+                        <span class="circle-base circle1"></span> <span>3个</span>
+                      </td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>1234</td>
+                    </tr>
+                    <tr>
+                      <td class="first-td">
+                        <span class="circle-base circle2"></span> <span>2个</span>
+                      </td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>1234</td>
+                    </tr>
+                    <tr>
+                      <td class="first-td">
+                        <span class="circle-base circle3"></span> <span>1个</span>
+                      </td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>1234</td>
+                    </tr>
+                    <tr>
+                      <td class="first-td">
+                        <span class="circle-base circle4"></span> <span>0个</span>
+                      </td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>45.9%</td>
+                      <td>1234</td>
+                      <td>1234</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="select-box">
+              <div>
+                <div class="select-text">选择客群</div>
+                <div class="input-box">
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>全量</span>
+                  </div>
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>内环</span>
+                  </div>
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>外环</span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div style="display: flex;">
+          <div class="chart-container">
+            <div class="card-item-top">
+              <span class="card-top-title">客户活跃</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="chart-box">
+              <div class="chart1" id="barChart5"></div>
+            </div>
+            <div class="select-box">
+              <div>
+                <div class="select-text">选择客群</div>
+                <div class="input-box">
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>全量</span>
+                  </div>
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>内环</span>
+                  </div>
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>外环</span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div class="card-item-top">
+              <span class="card-top-title">信贷产品</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="chart-box">
+              <div class="chart1" id="barChart6"></div>
+            </div>
+            <div class="select-box">
+              <div>
+                <div class="select-text">选择客群</div>
+                <div class="input-box">
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>全量</span>
+                  </div>
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>内环</span>
+                  </div>
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>外环</span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="tabItem4" class="scroll-item box5 card-item card-base line">
+        <div class="card-title-box">
+          <div>
+            <img class="card-title-icon" src="./image/title-icon.png">
+            <span class="card-title">新户经营</span>
+          </div>
+          <div class="card-title-detail">
+            <span>更多</span>
+            <img class="arrow-right" src="./image/arrow-right.png">
+          </div>
+        </div>
+        <div class="line1" style="display: flex;justify-content: space-between;padding-right: 20px;">
+          <div class="chart-container">
+            <div class="card-item-top">
+              <span class="card-top-title">客户获取</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="card3-box">
+              <div class="card3-item card3-item-actived">
+                <div class="card3-item-line">
+                  <span>借记卡新户</span>
+                  <span>123</span>
+                </div>
+                <div class="card3-item-line">
+                  <span>同比</span>
+                  <span class="down-color">-123</span>
+                </div>
+              </div>
+              <div class="card3-item ">
+                <div class="card3-item-line">
+                  <span>借记卡新户</span>
+                  <span>123</span>
+                </div>
+                <div class="card3-item-line">
+                  <span>同比</span>
+                  <span class="up-color">+123</span>
+                </div>
+              </div>
+
+            </div>
+            <div class="chart-box" style="height: 300px;">
+              <div class="chart1" id="lineChart1"></div>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div class="card-item-top">
+              <span class="card-top-title">借记卡新户价值贡献</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="card3-box">
+              <div class="card3-item card3-item-actived">
+                <div class="card3-item-line">
+                  <span>AUM</span>
+                  <span>10</span>
+                </div>
+                <div class="card3-item-line">
+                  <span>同比</span>
+                  <span class="down-color">-123</span>
+                </div>
+              </div>
+              <div class="card3-item ">
+                <div class="card3-item-line">
+                  <span>30万达标率</span>
+                  <span>123</span>
+                </div>
+                <div class="card3-item-line">
+                  <span>同比</span>
+                  <span class="up-color">+123</span>
+                </div>
+              </div>
+
+            </div>
+            <div class="chart-box" style="height: 300px;">
+              <div class="chart1" id="lineChart2"></div>
+            </div>
+            <div class="select-box">
+              <div>
+                <div class="select-text">选择客群</div>
+                <div class="input-box">
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>全量</span>
+                  </div>
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>代发工资</span>
+                  </div>
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>非代发工资</span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div style="display: flex;justify-content: space-between;padding-right: 20px;">
+          <div class="table-container">
+            <div class="card-item-top">
+              <span class="card-top-title">借记卡新户来源</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="table1">
+              <table>
+                <thead>
+                  <tr>
+                    <th>来源</th>
+                    <th>当年新户</th>
+                    <th>同比</th>
+                    <th>占比</th>
+                    <th>同比</th>
+                    <th>千元达标率</th>
+                    <th>同比</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>养老</td>
+                    <td>1234</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                  </tr>
+                  <tr>
+                    <td>代发</td>
+                    <td>1234</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                  </tr>
+                  <tr>
+                    <td>个贷</td>
+                    <td>1234</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                  </tr>
+                  <tr>
+                    <td>产品吸引</td>
+                    <td>1234</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                  </tr>
+                  <tr>
+                    <td>三方</td>
+                    <td>1234</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                  </tr>
+                  <tr>
+                    <td>社保卡</td>
+                    <td>1234</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                  </tr>
+                  <tr>
+                    <td>双卡联动</td>
+                    <td>1234</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                  </tr>
+                  <tr>
+                    <td>支付吸引</td>
+                    <td>1234</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                  </tr>
+                  <tr>
+                    <td>其他</td>
+                    <td>1234</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                    <td>45.9%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div class="card-item-top">
+              <span class="card-top-title">借记卡新户功能渗透</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+
+            <div class="chart-box" style="height: 87%;">
+              <div class="chart1" id="lineChart3"></div>
+            </div>
+            <div class="select-box">
+              <div>
+                <div class="select-text">选择客群</div>
+                <div class="input-box">
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>全量</span>
+                  </div>
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>代发工资</span>
+                  </div>
+                  <div>
+                    <label class="custom-radio">
+                      <input type="radio">
+                      <span class="checkmark"></span>
+                    </label>
+                    <span>非代发工资</span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tabItem5" class="scroll-item box6 card-item card-base line">
+        <div class="card-title-box">
+          <div>
+            <img class="card-title-icon" src="./image/title-icon.png">
+            <span class="card-title">过程管理</span>
+          </div>
+          <div class="card-title-detail">
+            <span>更多</span>
+            <img class="arrow-right" src="./image/arrow-right.png">
+          </div>
+        </div>
+        <div class="line1" style="display: flex;justify-content: space-between;padding-right: 20px;">
+          <div class="chart-container">
+            <div class="card-item-top">
+              <span class="card-top-title">客户接触</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="tab1-box">
+              <span class="tab1-item" onclick="changeChart(this, '1')">接触率</span>
+              <span class="tab1-item tab1-actived" onclick="changeChart(this, '2')">未接触</span>
+            </div>
+            <div class="chart-box" style="height: 450px;">
+              <div class="chart1" id="barChart7"></div>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div class="card-item-top">
+              <span class="card-top-title">营销任务</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="tab1-box" style="opacity: 0;">
+              <span class="tab1-item">接触率</span>
+              <span class="tab1-item tab1-actived">未接触</span>
+            </div>
+            <div class="chart-box" style="height: 450px;">
+              <div class="chart1" id="barChart8"></div>
+            </div>
+          </div>
+        </div>
+        <div class="line1" style="display: flex;justify-content: space-between;padding-right: 20px;">
+          <div class="chart-container">
+            <div class="card-item-top">
+              <span class="card-top-title">一键外呼</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="card4-item-box" style="margin-right: 50px;">
+              <div class="card4-item">
+                <div>
+                  <span class="card4-text">当年平均日活率</span>
+                  <span class="card4-val">10</span>
+                </div>
+                <div>
+                  <span class="card4-text">同比</span>
+                  <span class="card4-val down-color">-10</span>
+                </div>
+              </div>
+              <div class="card4-item">
+                <div>
+                  <span class="card4-text">当月日活率</span>
+                  <span class="card4-val">10</span>
+                </div>
+                <div>
+                  <span class="card4-text">环比</span>
+                  <span class="card4-val up-color">+10</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-box">
+              <div id="barChart9" class="chart1"></div>
+            </div>
+          </div>
+          <div class="table-container">
+            <div class="card-item-top">
+              <span class="card-top-title">员工电访和未执行数</span>
+              <span><img class="detail-img" src="./image/detail.png"></span>
+              <span class="date">2024-06-08</span>
+            </div>
+            <div class="tab1-box">
+              <span class="tab1-item">财富</span>
+              <span class="tab1-item tab1-actived">个贷</span>
+              <span class="tab1-item">大堂</span>
+              <span class="tab1-item">服务</span>
+            </div>
+            <div class="card5-item-box">
+              <div class="card5-item">
+                <img class="service-img" src="./image/service.png">
+                <span class="service-text">电访</span>
+              </div>
+              <div class="card5-item card5-line">
+                <div>日达标</div>
+                <div>12345</div>
+              </div>
+              <div class="card5-item">
+                <div>月达标</div>
+                <div>12345</div>
+              </div>
+              <div class="card5-item">
+                <div>年达标</div>
+                <div>12345</div>
+              </div>
+              <div class="card5-item">
+                <div>总人数</div>
+                <div>12345</div>
+              </div>
+            </div>
+
+            <div class="table1">
+
+              <table>
+                <thead>
+                  <tr>
+                    <th class="th1" rowspan="1" colspan="6">未执行任务数TOP5</th>
+                  </tr>
+                  <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>未执行</th>
+                    <th>较上日</th>
+                    <th>较上月</th>
+                    <th>机构</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><img src="./image/order1.png"></td>
+                    <td>王某</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                  </tr>
+                  <tr>
+                    <td><img src="./image/order2.png"></td>
+                    <td>王某</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                  </tr>
+                  <tr>
+                    <td><img src="./image/order3.png"></td>
+                    <td>王某</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                  </tr>
+                  <tr>
+                    <td><img src="./image/order4.png"></td>
+                    <td>王某</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                  </tr>
+                  <tr>
+                    <td><img src="./image/order5.png"></td>
+                    <td>王某</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                    <td>1234</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="tabItem6" class="scroll-item box6 card-item card-base line"
+        style="display: flex;justify-content: center;">
+        <img src="./image/empty.png">
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="modal" class="modal-box">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <img src="./image/title-icon-white.png">
+          <span class="modal-header-text">输送转化</span>
+        </div>
+        <div class="modal-close">
+          <img src="./image/close.png" alt="" onclick="closeModal()">
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="table3-box">
+          <div class="tab1-box">
+            <span class="tab1-item tab1-actived">AUM</span>
+            <span class="tab1-item ">客群</span>
+            <span class="tab1-item">销售</span>
+            <span class="tab1-item">中收</span>
+          </div>
+          <div class="tab2-box">
+            <div class="input-box">
+              <div>
+                <label class="custom-radio">
+                  <input name="radio1" type="radio">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="radio-text">30万以上</span>
+              </div>
+              <div>
+                <label class="custom-radio">
+                  <input name="radio1" type="radio">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="radio-text">100万以上</span>
+              </div>
+              <div>
+                <label class="custom-radio">
+                  <input name="radio1" type="radio">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="radio-text">300万以上</span>
+              </div>
+              <div>
+                <label class="custom-radio">
+                  <input name="radio1" type="radio">
+                  <span class="checkmark"></span>
+                </label>
+                <span class="radio-text">800万以上</span>
+              </div>
+            </div>
+          </div>
+          <div class="table3">
+            <table>
+              <thead>
+                <tr>
+                  <th rowspan="2" class="right-line th1 col1">
+                    <span>经营单位</span>
+                    <img src="./image/up-blue-icon.png">
+                  </th>
+                  <th rowspan="2" class="right-line th1 col2">
+                    <span>经营单位</span>
+                    <img src="./image/up-blue-icon.png">
+                  </th>
+                  <th class="right-line th1" colspan="2">AUM（日均）净增</th>
+                  <th class="right-line th1" colspan="2">非息（日均）净增</th>
+                  <th class="right-line th1" colspan="3">AUM（日均）当月净增</th>
+                  <th class="right-line th1" colspan="3">AUM（日均）当年净增</th>
+                  <th class="right-line th1" colspan="3">定期（日均）当月净增</th>
+                  <th class="right-line th1" colspan="3">定期（日均）当年净增</th>
+                  <th class="right-line th1" colspan="3">定期（日均）当年净增</th>
+                </tr>
+                <tr>
+
+                  <th class="right-line1">当月</th>
+                  <th class="right-line">当年</th>
+                  <th class="right-line1">当月</th>
+                  <th class="right-line">当年</th>
+                  <th class="right-line1">活期</th>
+                  <th class="right-line1">定期</th>
+                  <th class="right-line">理财</th>
+                  <th class="right-line1">活期</th>
+                  <th class="right-line1">定期</th>
+                  <th class="right-line">理财</th>
+                  <th class="right-line1">通知</th>
+                  <th class="right-line1">3年以下</th>
+                  <th class="right-line">3年以上</th>
+                  <th class="right-line1">通知</th>
+                  <th class="right-line1">3年以下</th>
+                  <th class="right-line">3年以上</th>
+                  <th class="right-line1">通知</th>
+                  <th class="right-line1">3年以下</th>
+                  <th class="right-line">3年以上</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="right-line col1">
+                    <a href="">浦东分行本级</a>
+                  </td>
+                  <td class="right-line col2">当月</td>
+                  <td class="right-line1">当月</td>
+                  <td class="right-line">当年</td>
+                  <td class="right-line1">当月</td>
+                  <td class="right-line">当年</td>
+                  <td class="right-line1">活期</td>
+                  <td class="right-line1">定期</td>
+                  <td class="right-line">理财</td>
+                  <td class="right-line1">活期</td>
+                  <td class="right-line1">定期</td>
+                  <td class="right-line">理财</td>
+                  <td class="right-line1">通知</td>
+                  <td class="right-line1">3年以下</td>
+                  <td class="right-line">3年以上</td>
+                  <td class="right-line1">通知</td>
+                  <td class="right-line1">3年以下</td>
+                  <td class="right-line">3年以上</td>
+                  <td class="right-line1">通知</td>
+                  <td class="right-line1">3年以下</td>
+                  <td class="right-line">3年以上</td>
+                </tr>
+                <tr>
+                  <td class="right-line col1">
+                    <a href="">浦东分行本级</a>
+                  </td>
+                  <td class="right-line col2">当年</td>
+                  <td class="right-line1">当月</td>
+                  <td class="right-line">当年</td>
+                  <td class="right-line1">当月</td>
+                  <td class="right-line">当年</td>
+                  <td class="right-line1">活期</td>
+                  <td class="right-line1">定期</td>
+                  <td class="right-line">理财</td>
+                  <td class="right-line1">活期</td>
+                  <td class="right-line1">定期</td>
+                  <td class="right-line">理财</td>
+                  <td class="right-line1">通知</td>
+                  <td class="right-line1">3年以下</td>
+                  <td class="right-line">3年以上</td>
+                  <td class="right-line1">通知</td>
+                  <td class="right-line1">3年以下</td>
+                  <td class="right-line">3年以上</td>
+                  <td class="right-line1">通知</td>
+                  <td class="right-line1">3年以下</td>
+                  <td class="right-line">3年以上</td>
+                </tr>
+                <tr>
+                  <td class="right-line col1">
+                    <a href="">浦东分行本级</a>
+                  </td>
+                  <td class="right-line col2">当年</td>
+                  <td class="right-line1">当月</td>
+                  <td class="right-line">当年</td>
+                  <td class="right-line1">当月</td>
+                  <td class="right-line">当年</td>
+                  <td class="right-line1">活期</td>
+                  <td class="right-line1">定期</td>
+                  <td class="right-line">理财</td>
+                  <td class="right-line1">活期</td>
+                  <td class="right-line1">定期</td>
+                  <td class="right-line">理财</td>
+                  <td class="right-line1">通知</td>
+                  <td class="right-line1">3年以下</td>
+                  <td class="right-line">3年以上</td>
+                  <td class="right-line1">通知</td>
+                  <td class="right-line1">3年以下</td>
+                  <td class="right-line">3年以上</td>
+                  <td class="right-line1">通知</td>
+                  <td class="right-line1">3年以下</td>
+                  <td class="right-line">3年以上</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $('#selectVal').hover(function () {
+      $('#selectBox').show()
+    }, function () {
+      $('#selectBox').hide()
+    })
+    var outTime
+    $('#menuImg').hover(function () {
+      clearTimeout(outTime)
+      $('#menuBox').show()
+
+    }, function () {
+      outTime = setTimeout(() => { $('#menuBox').hide() }, 300)
+    })
+
+    function showMenu() {
+      $('#menuBox').toggle()
+
+    }
+    function showSelect() {
+      $('#selectBox').toggle()
+    }
+    var isClick = false
+    $(document).on('click', '.tab-item', function () {
+      isClick = true
+      var n = $(this).attr('data')
+
+      var target = document.querySelector('#tabItem' + n)
+      $('#bodyDiv').animate({ 'scrollTop': target.offsetTop - 180 })
+
+      // $('.tab-item').removeClass('tab-actived')
+      // $(this).addClass('tab-actived')
+      var that = this
+      setTimeout(() => {
+
+        $('.tab-item').removeClass('tab-actived')
+        $(that).addClass('tab-actived')
+        isClick = false
+      }, 300)
+    })
+    setTimeout(function () {
+      var topHeight = document.querySelector('#topDiv').clientHeight
+      $('#bodyDiv').css('margin-top', topHeight + 'px')
+
+    }, 0)
+
+
+    function throttle(fn, delay) {
+      var waiting = false
+      return function () {
+        if (!waiting) {
+          fn.apply(this, arguments)
+          waiting = true
+          setTimeout(function () {
+            waiting = false
+          }, delay)
+        }
+      }
+    }
+
+    function handleScroll() {
+      if (isClick) {
+        console.log(888)
+        return
+      }
+      var topVal = document.querySelector('#bodyDiv').scrollTop
+      console.log(topVal, 666)
+      $('.scroll-item').each(function () {
+        if (topVal >= this.offsetTop - 230) {
+          var text = $(this).find('.card-title').text().trim()
+          $('.tab-item').each(function () {
+            if (text == $(this).text().trim()) {
+              $('.tab-item').removeClass('tab-actived')
+              $(this).addClass('tab-actived')
+            }
+          })
+        }
+      })
+    }
+    var throttledScrollHandler = throttle(handleScroll, 1);
+    // window.addEventListener('scroll', () => throttledScrollHandler());
+    // document.querySelector('#bodyDiv').onscroll = throttledScrollHandler()
+    document.querySelector('#bodyDiv').onscroll = function () { throttledScrollHandler() }
+    // $('#bodyDiv').scroll(function(){
+    //   throttledScrollHandler()
+    // })
+
+    $(document).on('click', 'input:radio', function () {
+      if ($(this).parents('.modal-body').length > 0) {
+        return
+      }
+      if ($(this).prop('checked')) {
+
+        $(this).parents('.input-box').find('.radio-text').removeClass('checked-text')
+        $(this).parent('label').siblings('span').addClass('checked-text')
+      } else {
+
+
+      }
+
+    })
+    function findMaxVal(arr) {
+      var maxArr = []
+      arr.forEach((ele) => {
+        maxArr.push(ele.sort((a, b) => b - a)[0])
+      })
+
+      var maxVal = maxArr.sort((a, b) => b - a)[0]
+      maxVal = Math.ceil(maxVal)
+      for (var i = 0; i < 5; i++) {
+        if (maxVal % 5 !== 0) {
+          maxVal += 1
+        }
+      }
+      return maxVal
+    }
+    function initChart(id) {
+      var myChart = echarts.init(document.getElementById(id))
+      var option = {
+        color: ['#5ACEFF', '#FBA779'],
+
+        legend: {
+          right: 10,
+
+          top: 0,
+          data: [
+            {
+              icon: 'image://./image/green-light.png',
+              name: '当年',
+
+            },
+            {
+              icon: 'image://./image/orange.png',
+              name: '上年',
+
+
+            },
+          ],
+        },
+        grid: {
+          top: 30,
+          bottom: 20,
+          left: 12,
+          right: 12,
+
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['1月', '3月', '6月', '9月', '12月'],
+          axisTick: {
+            show: false // 隐藏x轴刻度线
+          },
+          axisLine: {
+            show: false // 隐藏x轴横线
+          },
+          axisLabel: {
+            overflow: 'break',
+            align: 'right',
+          }
+
+        },
+        yAxis: {
+          type: 'value',
+          show: true,
+          splitLine: {
+            show: true
+          },
+          axisLabel: {
+            show: false
+          },
+          // splitNumber:5
+          interval: 70
+        },
+        series: [
+          {
+            name: '当年',
+            type: 'line',
+            data: [120, 0, 0, 0, 0, 0, 0],
+            symbol: 'none',
+          },
+          {
+            name: '上年',
+            type: 'line',
+            data: [220, 182, 191, 234, 290, 330, 310],
+            symbol: 'none',
+          }
+        ]
+      }
+      option && myChart.setOption(option);
+
+    }
+
+
+    initChart('chart1')
+    initChart('chart2')
+
+
+    function initPieChart(id) {
+      var chartDom = document.getElementById(id);
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: 'xxx',
+          left: 'center',
+          top: 'center',
+          textStyle: {
+            fontSize: 12,
+          }
+        },
+        tooltip: {
+          trigger: 'item'
+        },
+        grid: {
+          right: 0,
+          left: 0
+        },
+        legend: {
+          show: false,
+        },
+        series: [
+          {
+            // name: 'Access From',
+            type: 'pie',
+            radius: ['60%', '100%'],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: 'center'
+            },
+            emphasis: {
+              scale: false
+              // label: {
+              //   show: true,
+              //   fontSize: 40,
+              //   fontWeight: 'bold'
+              // }
+            },
+            labelLine: {
+              show: false
+            },
+            data: [
+              { value: 1048, name: '理财', itemStyle: { color: '#FBA779' } },
+              { value: 735, name: '非货基金', itemStyle: { color: '#F8D80A' } },
+              { value: 580, name: '保险', itemStyle: { color: '#5D87E3' } },
+              { value: 484, name: '其他', itemStyle: { color: '#5FCDFF' } },
+            ]
+          }
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+
+    initPieChart('pieChart')
+    initPieChart('pieChart1')
+
+    function initBarChart(id, xData, yData1, yData2) {
+      var maxVal = findMaxVal([yData1, yData2])
+
+      var chartDom = document.getElementById(id);
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          // text: '单位：万',
+          textStyle: {
+            color: '#809FB8',
+            fontSize: 14,
+            fontWeight: 'normal'
+          }
+        },
+        grid: {
+
+          left: 5,
+          containLabel: true,
+        },
+        tooltip: {
+          show: true
+        },
+        xAxis: {
+          type: 'category',
+          // data: ['活期', '定期', '理财', '基金', '保险', '三方'],
+          data: xData,
+          axisTick: {
+            show: false // 隐藏x轴刻度线
+          },
+          axisLine: {
+            show: false // 隐藏x轴横线
+          },
+          axisLabel: {
+            color: '#809FB8'
+          }
+        },
+        legend: {
+          icon: 'circle',
+          right: 50,
+          textStyle: {
+            color: '#809FB8'
+          }
+        },
+        yAxis: {
+          type: 'value',
+          axisLabel: {
+            color: '#809FB8'
+          },
+          // max:maxVal,
+          // interval: maxVal/5
+          // interval:50,
+        },
+        series: [
+          {
+            data: yData1,
+            type: 'bar',
+            name: '当年',
+            itemStyle: {
+              color: '#5FCCF8'
+            },
+            barWidth: 20,
+            barGap: 0,
+          },
+          {
+            data: yData2,
+            type: 'bar',
+            name: '当月',
+            itemStyle: {
+              color: '#FFC382'
+            },
+            barWidth: 20,
+            barGap: 0,
+          }
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    var yData1 = [120000, 200000, 150000, 80000, 70000, 110000]
+    var yData2 = [120000, 200000, 150000, 80000, 70000, 110000]
+    var yData3 = [110, 211.6, 110]
+    var yData4 = [120, 200, 150]
+    initBarChart('barChart1', ['活期', '定期', '理财', '基金', '保险', '三方'], yData1, yData2)
+    initBarChart('barChart2', ['通知', '3年以下', '3年以上'], yData3, yData4)
+    initBarChart('barChart3', ['开放式', '封闭式', '定期开放'], yData3, yData4)
+
+    function initBarChart1(id, xData, yData1, yData2, yData3, title, yNameList) {
+
+      var yNameList = yNameList || ['当年', '当月', '上年']
+      var chartDom = document.getElementById(id);
+      var myChart = echarts.init(chartDom);
+      var option;
+      var titleText = title || '单位：万'
+      option = {
+        title: {
+          // text: titleText,
+          textStyle: {
+            color: '#809FB8',
+            fontSize: 14,
+            fontWeight: 'normal'
+          }
+        },
+        grid: {
+          bottom: 25,
+          top: 42,
+          left: 10,
+          right: 10,
+          containLabel: true,
+        },
+        tooltip: {
+          trigger: 'item',
+          extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0);',
+          axisPointer: {
+            type: 'shadow',
+            shadowStyle: {
+              color: 'rgba(0, 0, 0, 0.5)',
+              shadowColor: 'rgba(0, 0, 0, 0.5)',
+              shadowBlur: 0
+            }
+          }
+        },
+        xAxis: {
+          type: 'category',
+          data: xData,
+          axisTick: {
+            show: false // 隐藏x轴刻度线
+          },
+          axisLine: {
+            show: false // 隐藏x轴横线
+          },
+          axisLabel: {
+            color: '#809FB8'
+          }
+        },
+        legend: {
+          icon: 'circle',
+
+          // left:'right',
+          right: 10,
+          padding: 0,
+          textStyle: {
+            color: '#809FB8'
+          }
+        },
+        yAxis: {
+          type: 'value',
+          axisLabel: {
+            color: '#809FB8'
+          }
+        },
+        series: [
+          {
+            data: yData1,
+            type: 'bar',
+            name: yNameList[0],
+            itemStyle: {
+              color: '#5FCCF8'
+            },
+            barWidth: 20,
+            barGap: 0,
+          },
+          {
+            data: yData2,
+            type: 'bar',
+            name: yNameList[1],
+            itemStyle: {
+              color: '#FFC382'
+            },
+            barWidth: 20,
+            barGap: 0,
+          },
+          {
+            data: yData3,
+            type: 'bar',
+            name: yNameList[2],
+            itemStyle: {
+              color: '#5D87E3'
+            },
+            barWidth: 20,
+            barGap: 0,
+          },
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    var yData1 = [120, 200, 150, 80, 70, 110]
+    var yData2 = [120, 200, 150, 80, 70, 110]
+    var yData3 = [120, 200, 150, 80, 70, 110]
+    var yData4 = [120, 200, 150, 80]
+    var yData5 = [120, 200, 150, 80]
+    var yData6 = [120, 200, 150, 80]
+    initBarChart1('barChart4', ['活期', '定期', '理财', '基金', '保险', '三方'], yData1, yData2, yData3, '单位：%')
+    initBarChart1('barChart5', ['手机银行', '网点到店', '移动支付', '产品购买'], yData4, yData5, yData6, '单位：%')
+    initBarChart1('barChart6', ['信用卡', '还款绑定', '房贷', '消费贷'], yData4, yData5, yData6, '单位：%')
+
+    function initLineChart1() {
+      var chartDom = document.getElementById('lineChart1');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: '单位：万',
+          textStyle: {
+            color: '#809FB8',
+            fontSize: 14,
+            fontWeight: 'normal'
+          }
+        },
+
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'cross',
+            label: {
+              backgroundColor: '#6a7985'
+            }
+          }
+        },
+        legend: {
+          data: [
+            {
+              name: '当年',
+              itemStyle: {
+                color: '#7FD3E5'
+              },
+              icon: 'image://./image/green-light.png',
+            },
+            {
+              name: '上年',
+              icon: 'image://./image/orange.png',
+              itemStyle: {
+
+                color: '#FFC382'
+              }
+            }
+          ],
+          right: 10,
+          textStyle: {
+            color: '#809FB8'
+          }
+        },
+
+        grid: {
+          top: '12%',
+          right: '3%',
+          left: '10%',
+          bottom: '8%',
+
+        },
+        xAxis: [
+          {
+            type: 'category',
+            boundaryGap: false,
+            axisTick: {
+              show: false // 隐藏x轴刻度线
+            },
+            axisLine: {
+              show: false // 隐藏x轴横线
+            },
+            axisLabel: {
+              color: '#809FB8'
+            },
+            data: ['1月', '3月', '6月', '9月', '12月']
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            axisLabel: {
+              color: '#809FB8'
+            }
+          }
+        ],
+        series: [
+          {
+            name: '当年',
+            type: 'line',
+            stack: 'Total',
+            symbol: 'none',
+            lineStyle: {
+              color: '#7FD3E5'
+            },
+            areaStyle: {
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [{
+                  offset: 0, color: '#A6D5D3' // 0% 处的颜色
+                }, {
+                  offset: 1, color: '#FFFFFF' // 100% 处的颜色
+                }],
+                global: false // 缺省为 false
+              }
+            },
+
+            data: [120, 132, 101, 134, 90]
+          },
+          {
+            name: '上年',
+            type: 'line',
+            stack: 'Total',
+            symbol: 'none',
+            lineStyle: {
+              color: '#FFC382'
+            },
+            areaStyle: {
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [{
+                  offset: 0, color: '#FFC382' // 0% 处的颜色
+                }, {
+                  offset: 1, color: '#FFFFFF' // 100% 处的颜色
+                }],
+                global: false // 缺省为 false
+              }
+            },
+
+            data: [220, 182, 191, 234, 290]
+          },
+
+
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    initLineChart1()
+    
+    function initLineChart2() {
+      var chartDom = document.getElementById('lineChart2');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: '单位：万',
+          textStyle: {
+            color: '#809FB8',
+            fontSize: 14,
+            fontWeight: 'normal'
+          }
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          right: 10,
+          textStyle: {
+            color: '#809FB8'
+          },
+          data: [
+            {
+              name: '千元达标率',
+              icon: 'image://./image/blue.png',
+            },
+            {
+              name: '5万达标率',
+              icon: 'image://./image/orange.png',
+            },
+            {
+              name: '30万达标率',
+              icon: 'image://./image/green-light.png',
+            }
+          ]
+          // data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+        },
+        grid: {
+          top: '12%',
+          right: '3%',
+          left: '10%',
+          bottom: '8%',
+
+        },
+
+        xAxis: [
+          {
+            type: 'category',
+            boundaryGap: false,
+            axisTick: {
+              show: false // 隐藏x轴刻度线
+            },
+            axisLine: {
+              show: false // 隐藏x轴横线
+            },
+            axisLabel: {
+              color: '#809FB8'
+            },
+            data: ['1月', '3月', '6月', '9月', '12月', '1月']
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            axisLabel: {
+              color: '#809FB8'
+            }
+          }
+        ],
+        series: [
+          {
+            name: '千元达标率',
+            type: 'line',
+            symbol: 'none',
+            itemStyle: {
+              color: '#3977FC'
+            },
+            data: [120, 132, 101, 134, 90, 230]
+          },
+          {
+            name: '5万达标率',
+            type: 'line',
+            symbol: 'none',
+            itemStyle: {
+              color: '#FFC382'
+            },
+            data: [220, 182, 191, 234, 290, 330]
+          },
+          {
+            name: '30万达标率',
+            type: 'line',
+            symbol: 'none',
+            itemStyle: {
+              color: '#12BBE2'
+            },
+            data: [150, 232, 201, 154, 190, 330]
+          },
+
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    initLineChart2()
+
+    function initLineChart3() {
+      var chartDom = document.getElementById('lineChart3');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: '单位：万',
+          textStyle: {
+            color: '#809FB8',
+            fontSize: 14,
+            fontWeight: 'normal'
+          }
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          right: 10,
+          textStyle: {
+            color: '#809FB8'
+          },
+          data: [
+            {
+              name: '手机银行',
+              icon: 'image://./image/blue.png',
+            },
+            {
+              name: '个养开立',
+              icon: 'image://./image/green-light.png',
+            },
+            {
+              name: '支付绑定',
+              icon: 'image://./image/green.png',
+            },
+            {
+              name: '信用卡',
+              icon: 'image://./image/orange.png',
+            },
+            {
+              name: '还款绑定',
+              icon: 'image://./image/blue-light.png',
+            },
+            {
+              name: '理财风评',
+              icon: 'image://./image/gray.png',
+            },
+          ]
+        },
+        grid: {
+          top: '12%',
+          right: '3%',
+          left: '10%',
+          bottom: '8%',
+
+        },
+
+        xAxis: [
+          {
+            type: 'category',
+            boundaryGap: false,
+            axisTick: {
+              show: false // 隐藏x轴刻度线
+            },
+            axisLine: {
+              show: false // 隐藏x轴横线
+            },
+            axisLabel: {
+              color: '#809FB8'
+            },
+            data: ['1月', '3月', '6月', '9月', '12月', '1月']
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            axisLabel: {
+              color: '#809FB8'
+            }
+          }
+        ],
+        series: [
+          {
+            name: '手机银行',
+            type: 'line',
+            symbol: 'none',
+            itemStyle: {
+              color: '#3977FC'
+            },
+            data: [120, 132, 101, 134, 90, 230]
+          },
+          {
+            name: '个养开立',
+            type: 'line',
+            symbol: 'none',
+            itemStyle: {
+              color: '#12BBE2'
+            },
+            data: [220, 182, 191, 234, 290, 330]
+          },
+          {
+            name: '支付绑定',
+            type: 'line',
+            symbol: 'none',
+            itemStyle: {
+              color: '#8EC07F'
+            },
+            data: [150, 232, 201, 154, 190, 330]
+          },
+          {
+            name: '信用卡',
+            type: 'line',
+            symbol: 'none',
+            itemStyle: {
+              color: '#FFC382'
+            },
+            data: [110, 112, 111, 114, 91, 210]
+          },
+          {
+            name: '还款绑定',
+            type: 'line',
+            symbol: 'none',
+            itemStyle: {
+              color: '#6B79E3'
+            },
+            data: [210, 112, 111, 214, 210, 310]
+          },
+          {
+            name: '理财风评',
+            type: 'line',
+            symbol: 'none',
+            itemStyle: {
+              color: '#D0E2FE'
+            },
+            data: [110, 212, 211, 114, 110, 310]
+          },
+
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    initLineChart3()
+
+    function initBarChart2() {
+      var chartDom = document.getElementById('barChart7');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            // Use axis to trigger tooltip
+            type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+          }
+        },
+        legend: {
+          right: 10,
+          icon: 'circle',
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
+        },
+        xAxis: {
+          type: 'value',
+          name: '单位：万',
+          nameLocation: 'start',
+          nameTextStyle: {
+            color: '#809FB8',
+            fontSize: 12
+          },
+          axisTick: {
+            show: false // 隐藏x轴刻度线
+          },
+          axisLine: {
+            show: false // 隐藏x轴横线
+          },
+          axisLabel: {
+            color: '#809FB8'
+          },
+
+        },
+        yAxis: {
+          type: 'category',
+          axisTick: {
+            show: false // 隐藏x轴刻度线
+          },
+          axisLine: {
+            show: false // 隐藏x轴横线
+          },
+          axisLabel: {
+            color: '#809FB8'
+          },
+          data: ['360天（含）以上', '180-360天', '90-180天']
+        },
+        series: [
+          {
+            name: '30-100W',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            itemStyle: {
+              color: '#FFC382'
+            },
+
+            data: [320, 302, 301, 334, 390, 330, 320]
+          },
+          {
+            name: '100-300W',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            itemStyle: {
+              color: '#7FD3E5'
+            },
+
+            data: [320, 302, 301, 334, 390, 330, 320]
+          },
+          {
+            name: '300-800W',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            itemStyle: {
+              color: '#D0E2FE'
+            },
+
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+          {
+            name: '800W以上',
+            type: 'bar',
+            stack: 'total',
+            barWidth: 20,
+            itemStyle: {
+              color: '#5D87E3'
+            },
+
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+
+
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    initBarChart2()
+    // 
+    function clearChart(id) {
+      echarts.init(document.getElementById(id)).clear()
+    }
+    function changeChart(event, num) {
+      $(event).parent('.tab1-box').children('.tab1-item').removeClass('tab1-actived')
+      $(event).addClass('tab1-actived')
+      if (num == '1') {
+        clearChart('barChart7')
+        initBarChart1('barChart7', ['内环', '外环', '公共池', '无管户'], yData4, yData5, yData6, '单位：万', ['近90天', '近180天', '近360天'])
+      } else {
+        clearChart('barChart7')
+        initBarChart2()
+      }
+    }
+
+    function initBarChart3(id) {
+      var chartDom = document.getElementById(id);
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: '单位：个',
+          textStyle: {
+            color: '#809FB8',
+            fontSize: 14,
+            fontWeight: 'normal'
+          }
+        },
+        grid: {
+          bottom: 35,
+          top: 42,
+        },
+        tooltip: {},
+        xAxis: {
+          type: 'category',
+          data: ['任务数', '未分配', '未执行'],
+          axisTick: {
+            show: false // 隐藏x轴刻度线
+          },
+          axisLine: {
+            show: false // 隐藏x轴横线
+          },
+          axisLabel: {
+            color: '#809FB8'
+          }
+        },
+        legend: {
+          icon: 'circle',
+          right: 50,
+          textStyle: {
+            color: '#809FB8'
+          }
+        },
+        yAxis: {
+          type: 'value',
+          axisLabel: {
+            color: '#809FB8'
+          }
+        },
+        series: [
+          {
+            data: [120, 200, 150, 80, 70, 110],
+            type: 'bar',
+            name: '当前有效',
+            itemStyle: {
+              color: '#5FCCF8'
+            },
+            barWidth: 30,
+            barGap: 0,
+            label: {
+              // show: true,
+              color: '#FFFFFF'
+            }
+          },
+          {
+            data: [120, 200, 150, 80, 70, 110],
+            type: 'bar',
+            name: '当年发起',
+            itemStyle: {
+              color: '#FFC382'
+            },
+            barWidth: 30,
+            barGap: 0,
+            label: {
+              // show: true,
+              color: '#FFFFFF'
+            }
+          },
+
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    initBarChart3('barChart8')
+
+    function initBarChart4(id) {
+      var chartDom = document.getElementById(id);
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+
+        grid: {
+          bottom: 35,
+          top: 57,
+        },
+        xAxis: {
+          type: 'category',
+          data: ['1月', '3月', '6月', '9月', '12月'],
+          axisTick: {
+            show: false // 隐藏x轴刻度线
+          },
+          axisLine: {
+            show: false // 隐藏x轴横线
+          },
+          axisLabel: {
+            color: '#809FB8'
+          }
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          data: [
+            {
+              name: '当月日均活跃人数',
+              itemStyle: {
+                color: '#5BCEFF'
+              },
+              icon: 'circle',
+            },
+            {
+              name: '当月日活率',
+              itemStyle: {
+
+                color: '#FFC382'
+              }
+            }
+          ],
+          right: 50,
+          textStyle: {
+            color: '#809FB8'
+          }
+        },
+        yAxis: [
+          {
+            type: 'value',
+            name: '单位：个',
+            nameTextStyle: {
+              color: '#809FB8'
+            },
+            axisLabel: {
+              color: '#809FB8'
+            }
+          },
+          {
+            type: 'value',
+            name: '单位：%',
+            nameTextStyle: {
+              color: '#809FB8'
+            },
+            splitLine: {
+              show: false
+            },
+            axisLabel: {
+              color: '#809FB8'
+            }
+          },
+        ],
+        series: [
+          {
+            yAxisIndex: 0,
+            data: [120, 200, 150, 80, 70],
+            type: 'bar',
+            name: '当月日均活跃人数',
+            itemStyle: {
+              color: '#5BCEFF'
+            },
+            barWidth: 20,
+            barGap: 0,
+
+          },
+          {
+            yAxisIndex: 1,
+            name: '当月日活率',
+            type: 'line',
+            stack: 'Total',
+            symbol: 'none',
+            itemStyle: {
+              color: '#FFC382'
+            },
+            areaStyle: {
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [{
+                  offset: 0, color: '#FFC382' // 0% 处的颜色
+                }, {
+                  offset: 1, color: '#FFFFFF' // 100% 处的颜色
+                }],
+                global: false // 缺省为 false
+              }
+            },
+
+            data: [20, 82, 91, 34, 90]
+          },
+
+        ]
+      };
+
+      option && myChart.setOption(option);
+    }
+    initBarChart4('barChart9')
+
+    function closeModal() {
+      $('#modal').hide()
+    }
+    function showModal() {
+      $('#modal').css('display', 'flex')
+    }
+
+
+    
+    
+  </script>
+</body>
+
+</html>
